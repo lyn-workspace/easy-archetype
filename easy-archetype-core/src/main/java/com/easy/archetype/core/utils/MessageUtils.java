@@ -1,6 +1,7 @@
 package com.easy.archetype.core.utils;
 
 import cn.hutool.extra.spring.SpringUtil;
+import com.easy.archetype.core.Version;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 
@@ -24,4 +25,7 @@ public class MessageUtils {
         return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
     }
 
+    public static void main(String[] args) {
+        System.out.println(Version.VERSION);
+    }
 }

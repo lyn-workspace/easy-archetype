@@ -12,11 +12,13 @@
     <groupId>com.easy.archetype.core</groupId>
     <artifactId>easy-archetype-core</artifactId>
 
-    <properties>
-
-    </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -28,5 +30,63 @@
 
         </dependency>
     </dependencies>
+    <properties>
 
+        <ver.package.dir>com/easy/archetype/core/</ver.package.dir>
+        <ver.package.name>${project.groupId}</ver.package.name>
+        <ver.class.name>Version</ver.class.name>
+        <ver.buildtime>${maven.build.timestamp}</ver.buildtime>
+        <ver.buildVersion>${version}</ver.buildVersion>
+        <ver.template.dir>src/main/resources/version</ver.template.dir>
+        <ver.template.file>VersionJava.template</ver.template.file>
+    </properties>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>version/*</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>${ver.template.dir}</directory>
+                <includes>
+                    <include>*.java</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${basedir}/src/main/java/${ver.package.dir}</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <copy file="${ver.template.dir}/${ver.template.file}"
+                                      tofile="${ver.template.dir}/${ver.class.name}.java"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>1111</id>
+                        <phase>compile</phase>
+                        <configuration>
+                            <tasks>
+                                <delete file="${ver.template.dir}/${ver.class.name}.java"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
