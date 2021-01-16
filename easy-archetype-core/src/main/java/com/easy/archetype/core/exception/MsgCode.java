@@ -1,45 +1,58 @@
 package com.easy.archetype.core.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * <p>消息编码</p>
  *
  * @author luyanan
  * @since 2021/1/12
  **/
+@AllArgsConstructor
+@Getter
 public enum MsgCode {
-    // 请求方式不支持
-    REQUEST_METHOD_NOT_SUPPORTED("405", "Request method '{0}' not supported,url:{1}"),
-    // 网络异常
-    NETWORK_ERROR("500", "网络异常"),
-    METHOD_ARGUMENT_NOT_VALID("400", "请求参数错误"),
 
-    UNAUTHORIZED("401", "请重新登陆"),
+
+//
+//    SUCCESS("200","成功",""),
+//
+//    HTTP_BAD_REQUEST("400","HTTP_BAD_REQUEST",""),
+//
+//    HTTP_UNAUTHORIZED("401","HTTP_UNAUTHORIZED"),
+//
+//    HTTP_FORBIDDEN("403","HTTP_FORBIDDEN"),
+//
+//    HTTP_NOT_FOUND("404","HTTP_NOT_FOUND"),
+//
+//    HTTP_BAD_METHOD("405","HTTP_BAD_METHOD"),
+//
+//    HTTP_INTERNAL_ERROR("500","HTTP_INTERNAL_ERROR");
 
     ;
-    private String code;
-
-    private String msg;
-
-
-    MsgCode(String code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
-
-    public String getCode() {
-        return code;
-    }
+    /**
+     * <p>错误编码 </p>
+     *
+     * @author luyanan
+     * @since 2021/1/16
+     */
+    private String errorCode;
 
     /**
-     * <p>获取异常信息</p>
+     * <p>错误信息</p>
      *
-     * @param args
-     * @return {@link String}
      * @author luyanan
-     * @since 2021/1/12
+     * @since 2021/1/16
      */
-    public String getMsg(Object... args) {
-        return msg;
-    }
+    private String errorMsg;
+
+    /**
+     * <p>提示信息</p>
+     *
+     * @author luyanan
+     * @since 2021/1/16
+     */
+    private String userTip;
+
+
 }
