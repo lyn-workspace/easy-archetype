@@ -10,24 +10,9 @@ public class CustomException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    private String code;
-
-    private String message;
-
-
     public CustomException(MsgCode msgCode) {
-        this.message = msgCode.getMsg();
-        this.code = msgCode.getCode();
+        super("{code:" + msgCode.getErrorCode() + "},{message:{" + msgCode.getErrorMsg() + "}");
 
     }
 
-
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    public String getCode() {
-        return code;
-    }
 }

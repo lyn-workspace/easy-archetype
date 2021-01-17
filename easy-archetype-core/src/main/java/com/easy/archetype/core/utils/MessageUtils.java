@@ -24,8 +24,4 @@ public class MessageUtils {
         MessageSource messageSource = SpringUtil.getBean(MessageSource.class);
         return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
     }
-
-    public static void main(String[] args) {
-        System.out.println(Version.VERSION);
-    }
 }

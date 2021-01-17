@@ -20,7 +20,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>当前页数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Integer page;
@@ -28,7 +27,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>当前每页条数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Integer size;
@@ -37,7 +35,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p内容</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private List<T> content;
@@ -46,7 +43,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>总条数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Integer totalElements;
@@ -54,7 +50,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>是否为起始页</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Boolean first;
@@ -63,7 +58,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>是否为最后一页</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Boolean last;
@@ -71,7 +65,6 @@ public class PageInfo<T> implements Serializable {
     /**
      * <p>总页数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     private Integer totalPages;

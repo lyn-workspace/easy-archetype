@@ -18,14 +18,12 @@ public class PageRequestParams<T> implements Serializable {
     /**
      * <p>首页的pageIndex为1</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     public static int FIRST_PAGE_INDEX = 1;
     /**
      * <p>当前页数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     @Getter
@@ -35,7 +33,6 @@ public class PageRequestParams<T> implements Serializable {
     /**
      * <p>每页条数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     @Getter
@@ -45,7 +42,6 @@ public class PageRequestParams<T> implements Serializable {
     /**
      * <p>下标</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     @Getter
@@ -55,7 +51,6 @@ public class PageRequestParams<T> implements Serializable {
     /**
      * <p>请求参数</p>
      *
-     * @author luyanan
      * @since 2021/1/12
      */
     @Getter
@@ -66,7 +61,6 @@ public class PageRequestParams<T> implements Serializable {
      * <p>获取下标</p>
      *
      * @return {@link Integer}
-     * @author luyanan
      * @since 2021/1/12
      */
     public Integer getOffset() {
@@ -85,7 +79,6 @@ public class PageRequestParams<T> implements Serializable {
      * <p>获取当前页数</p>
      *
      * @return {@link Integer}
-     * @author luyanan
      * @since 2021/1/12
      */
     public Integer getPage() {
@@ -101,8 +94,7 @@ public class PageRequestParams<T> implements Serializable {
      * @param params 参数
      * @param offset 下标
      * @param limit  每页条数
-     * @return {@link PageRequestParams<T>}
-     * @author luyanan
+     * @return {@link PageRequestParams}
      * @since 2021/1/12
      */
     public static <T> PageRequestParams<T> build(T params, Integer offset, Integer limit) {
