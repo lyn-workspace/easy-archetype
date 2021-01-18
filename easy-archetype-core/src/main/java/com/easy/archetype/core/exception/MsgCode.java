@@ -11,7 +11,7 @@ import lombok.Getter;
  **/
 @AllArgsConstructor
 @Getter
-public enum MsgCode {
+public enum MsgCode implements IMsgCode {
 
 
     /**

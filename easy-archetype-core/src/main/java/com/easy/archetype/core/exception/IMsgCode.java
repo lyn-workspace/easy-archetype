@@ -12,8 +12,24 @@ public interface IMsgCode {
     /**
      * 获取编码
      *
-     * @return {@link String}
-     * @since 2021/1/17
+     * @return java.lang.String
+     * @date 2021/1/18
      */
-    String getCode();
+    String getErrorCode();
+
+    /**
+     * 获取异常信息
+     *
+     * @return java.lang.String
+     * @date 2021/1/18
+     */
+    String getErrorMsg();
+
+    /**
+     * 获取用户提示信息
+     *
+     * @return java.lang.String
+     * @date 2021/1/18
+     */
+    String getUserTip();
 }

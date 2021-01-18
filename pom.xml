@@ -11,6 +11,8 @@
     <modules>
         <module>easy-archetype-web</module>
         <module>easy-archetype-core</module>
+        <module>easy-archetype-system</module>
+        <module>easy-archetype-common</module>
     </modules>
 
     <properties>
