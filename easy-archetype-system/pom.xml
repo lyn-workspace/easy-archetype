@@ -13,4 +13,12 @@
     <artifactId>easy-archetype-system</artifactId>
 
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.easy.archetype.common</groupId>
+            <artifactId>easy-archetype-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -6,6 +6,6 @@ package com.easy.archetype.core;
  * @since 2021/1/12
  **/
 public final class Version {
-    public static String BUILD_TIME="2021-01-18T14:33:06Z";
+    public static String BUILD_TIME="2021-01-19T14:32:34Z";
     public static String VERSION="1.0-SNAPSHOT";
 }

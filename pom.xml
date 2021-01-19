@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>easy-archetype-web</module>
         <module>easy-archetype-core</module>
-        <module>easy-archetype-system</module>
         <module>easy-archetype-common</module>
+        <module>easy-archetype-system</module>
+        <module>easy-archetype-web</module>
     </modules>
 
     <properties>
@@ -30,12 +30,18 @@
         <fastjson.version>1.2.73</fastjson.version>
         <swagger-annotations.version>1.5.22</swagger-annotations.version>
         <jsoup.version>1.11.2</jsoup.version>
+        <knife4j.version>3.0.2</knife4j.version>
 
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
