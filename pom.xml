@@ -9,11 +9,19 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>easy-archetype-core</module>
+        <module>easy-archetype-framework</module>
+
         <module>easy-archetype-common</module>
         <module>easy-archetype-system</module>
         <module>easy-archetype-web</module>
+
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+    </dependencies>
 
     <properties>
 
@@ -24,7 +32,7 @@
         <hutool.version>5.1.1</hutool.version>
         <lombok.version>1.18.12</lombok.version>
         <mysql-connector-java.version>5.1.46</mysql-connector-java.version>
-        <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
         <orika-core.version>1.5.4</orika-core.version>
         <hibernate-validator.version>6.0.14.Final</hibernate-validator.version>
         <fastjson.version>1.2.73</fastjson.version>
@@ -37,6 +45,12 @@
     <dependencyManagement>
 
         <dependencies>
+            <!-- ORM 框架-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>

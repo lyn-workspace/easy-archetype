@@ -33,12 +33,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!-- ORM 框架-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.2</version>
-        </dependency>
+
         <!-- 代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>
