@@ -72,7 +72,7 @@ public interface IManage<T> {
      * @return java.io.Serializable
      * @since 2021/1/20
      */
-    Serializable insert(T entity);
+    int insert(T entity);
 
 
     /**
@@ -82,7 +82,7 @@ public interface IManage<T> {
      * @return int
      * @since 2021/1/20
      */
-    int insertBatch(Collection<T> entitys);
+    boolean insertBatch(Collection<T> entitys);
 
 
     /**

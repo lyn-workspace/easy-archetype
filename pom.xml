@@ -14,6 +14,7 @@
         <module>easy-archetype-common</module>
         <module>easy-archetype-system</module>
         <module>easy-archetype-web</module>
+        <module>easy-archetype-web-all</module>
 
     </modules>
     <dependencies>
@@ -39,12 +40,17 @@
         <swagger-annotations.version>1.5.22</swagger-annotations.version>
         <jsoup.version>1.11.2</jsoup.version>
         <knife4j.version>3.0.2</knife4j.version>
-
+        <fastjson.version>1.2.73</fastjson.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <!-- ORM 框架-->
             <dependency>
                 <groupId>com.baomidou</groupId>

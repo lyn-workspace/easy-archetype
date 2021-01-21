@@ -3,6 +3,7 @@ package com.easy.archetype.framework.core;
 import cn.hutool.extra.spring.SpringUtil;
 import com.easy.archetype.framework.core.PageRequestParams;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author luyanan
  * @since 2021/1/12
  **/
+@NoArgsConstructor
 @Data
 public class PageInfo<T> implements Serializable {
     private static final long serialVersionUID = -8618901392085749669L;
@@ -46,7 +48,7 @@ public class PageInfo<T> implements Serializable {
      *
      * @since 2021/1/12
      */
-    private Integer totalElements;
+    private Long totalElements;
 
     /**
      * <p>是否为起始页</p>
@@ -71,11 +73,11 @@ public class PageInfo<T> implements Serializable {
     private Integer totalPages;
 
 
-    public Integer getTotalPages() {
+    public Long getTotalPages() {
         if (null != this.totalElements) {
             return this.totalElements / size + 1;
         }
-        return 0;
+        return 0L;
     }
 
     public boolean getFirst() {
@@ -86,7 +88,7 @@ public class PageInfo<T> implements Serializable {
         this.first = 1 == this.page;
     }
 
-    public PageInfo(List content, int totalElements, PageRequestParams pageRequestParams) {
+    public PageInfo(List content, Long totalElements, PageRequestParams pageRequestParams) {
         this.totalElements = totalElements;
         this.content = content;
         this.page = pageRequestParams.getPage();

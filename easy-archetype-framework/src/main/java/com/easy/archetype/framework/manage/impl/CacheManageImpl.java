@@ -1,13 +1,17 @@
 package com.easy.archetype.framework.manage.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.manage.AbstractManageImpl;
 import com.easy.archetype.framework.mybatisplus.BaseMapperPlus;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.util.Assert;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,68 +30,89 @@ public class CacheManageImpl<M extends BaseMapperPlus<T>, T> extends AbstractMan
         return this.getById(id);
     }
 
+    @Cacheable(sync = true)
     @Override
     public PageInfo<T> listByPage(PageRequestParams<T> pageRequestParams) {
-        return null;
+        return toPageInfo(pageRequestParams, queryWrapper(pageRequestParams.getParams()));
     }
 
+    @Cacheable(sync = true)
     @Override
     public List<T> list(T entity) {
-        return null;
+        return this.list(queryWrapper(entity));
     }
 
+    @Cacheable(sync = true)
     @Override
     public List<T> findByIds(Collection<? extends Serializable> ids) {
-        return null;
+        if (CollectionUtil.isEmpty(ids)) {
+            return new ArrayList<>();
+        }
+        return this.listByIds(ids);
     }
 
+    @Cacheable(sync = true)
     @Override
     public T findOne(T entity) {
-        return null;
+        return this.getOne(queryWrapper(entity), false);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
-    public Serializable insert(T entity) {
-        return null;
+    public int insert(T entity) {
+        Assert.notNull(entity, "entity 不能为空");
+        return this.baseMapper.insert(entity);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
-    public int insertBatch(Collection<T> entitys) {
-        return 0;
+    public boolean insertBatch(Collection<T> entitys) {
+        if (CollectionUtil.isEmpty(entitys)) {
+            return false;
+        }
+        return this.saveBatch(entitys);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public boolean update(T entity) {
-        return false;
+        return this.updateById(entity);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public boolean update(T entity, T conditions) {
-        return false;
+        return this.update(entity, updateWrapper(conditions));
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public boolean updateBatch(Collection<T> entitys) {
-        return false;
+        return this.updateBatchById(entitys);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public boolean deleteById(Serializable id) {
-        return false;
+        return this.removeById(id);
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public boolean deleteBatch(Collection<? extends Serializable> ids) {
-        return false;
+        return this.removeByIds(ids);
     }
 
+
+    @CacheEvict(allEntries = true)
     @Override
     public boolean delete(T entity) {
-        return false;
+        return this.remove(updateWrapper(entity));
     }
 
+    @CacheEvict(allEntries = true)
     @Override
     public Integer count(T entity) {
-        return null;
+        return this.count(queryWrapper(entity));
     }
 }
