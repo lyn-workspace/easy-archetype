@@ -10,11 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>easy-archetype-framework</module>
-
         <module>easy-archetype-common</module>
         <module>easy-archetype-system</module>
         <module>easy-archetype-web</module>
+        <module>easy-archetype-web-ui</module>
         <module>easy-archetype-web-all</module>
+
 
     </modules>
     <dependencies>
@@ -41,11 +42,18 @@
         <jsoup.version>1.11.2</jsoup.version>
         <knife4j.version>3.0.2</knife4j.version>
         <fastjson.version>1.2.73</fastjson.version>
+        <servlet-api.version>2.5</servlet-api.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>

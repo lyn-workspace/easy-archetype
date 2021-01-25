@@ -1,6 +1,9 @@
 package com.easy.archetype.framework.redis;
 
+import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +18,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author luyanan
  * @since 2021/1/21
  **/
+@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "redis.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnClass(RedisConnectionFactory.class)
 @ConditionalOnBean({RedisConnectionFactory.class, RedisAutoConfiguration.class})
 @Configuration
 public class RedisConfig {

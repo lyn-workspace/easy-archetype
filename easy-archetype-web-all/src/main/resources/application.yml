@@ -1,0 +1,73 @@
+server:
+  ## 端口号
+  port: 9000
+  servlet:
+    ## 应用的访问路径
+    context-path: /
+  tomcat:
+    # tomcat的URI 编码
+    uri-encoding: utf-8
+    # tomcat的最大线程池,默认为200
+    max-threads: 800
+    # tomcat 启动初始化的线程数量，默认为
+    min-spare-threads: 30
+
+# Spring的配置
+spring:
+  # 模板引擎配置
+  thymeleaf:
+    mode: HTML
+    # 编码
+    encoding: UTF-8
+    # 资源信息
+  messages:
+    # 国际化资源文件
+    basename: static/i18n/messages
+    # 序列化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    # 指定启用哪个环境的配置文件
+    active: dev
+  # 文件上传
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size: 10MB
+      # 设置总上传的文件大小
+      max-request-size: 20MB
+
+
+# 自定义配置
+
+easy:
+  archetype:
+    framework:
+      enable: true
+      # Spring 增强
+      spring:
+        enable: true
+      # 缓存增强
+      cache:
+        enable: true
+      logger:
+        enable: true
+      mybatis-plus:
+        enable: false
+      thread:
+        enable: true
+
+## 业务配置
+business:
+  config:
+    app:
+      name: 简单脚手架
+      desp[0]: 一个采用模块组件式开发的项目1
+      desp[1]: 一个采用模块组件式开发的项目2
+      desp[2]: 一个采用模块组件式开发的项目3
+      desp[3]: 一个采用模块组件式开发的项目4
+      copyright: Copyright © 2018-2021 luyanan.com All Rights Reserved
+    sys:
+      account:
+        registerUser: false

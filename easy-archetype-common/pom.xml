@@ -13,7 +13,13 @@
     <artifactId>easy-archetype-common</artifactId>
 
     <dependencies>
-        <!-- -->
+        <!-- 核心模块-->
+        <dependency>
+            <groupId>com.easy.archetype.framework</groupId>
+            <artifactId>easy-archetype-framework</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <!-- swagger-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -22,12 +28,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.easy.archetype.core</groupId>
-            <artifactId>easy-archetype-core</artifactId>
-            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

@@ -23,8 +23,8 @@ import java.lang.reflect.Method;
  * @author luyanan
  * @since 2021/1/21
  **/
-@Configuration
-@ConditionalOnBean(annotation = EnableCaching.class)
+
+
 @AutoConfigureAfter(CacheManager.class)
 @Slf4j
 public class CacheConfig extends CachingConfigurerSupport {

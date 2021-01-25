@@ -8,7 +8,9 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
+import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
  * @author luyanan
  * @since 2021/1/20
  **/
+@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "mybatisplus.enable", havingValue = "true", matchIfMissing = true)
 @ConditionalOnClass(MybatisPlusAutoConfiguration.class)
 @Configuration
 public class MybatisPlusConfiguration {
