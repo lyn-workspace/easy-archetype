@@ -1,11 +1,18 @@
 package com.easy.archetype.system.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.PropertyPlaceholderHelper;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -16,26 +23,21 @@ import java.util.Properties;
  * @author luyanan
  * @since 2021/1/25
  **/
-@Configuration
-public class CustomPropertySourcesPlaceholderConfigurer extends PropertySourcesPlaceholderConfigurer {
-    private static Map<String, String> properties = new HashMap<String, String>();
+@Slf4j
+@Component
+public class CustomPropertySourcesPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
+
 
     @Override
-    protected void processProperties(
-            ConfigurableListableBeanFactory beanFactoryToProcess,
-            Properties props) throws BeansException {
-        properties.put("name", "aaa");
-        // cache the properties
-        PropertyPlaceholderHelper helper = new PropertyPlaceholderHelper(
-                DEFAULT_PLACEHOLDER_PREFIX, DEFAULT_PLACEHOLDER_SUFFIX, DEFAULT_VALUE_SEPARATOR, false);
-        for (Map.Entry<Object, Object> entry : props.entrySet()) {
-            String stringKey = String.valueOf(entry.getKey());
-            String stringValue = String.valueOf(entry.getValue());
-            stringValue = helper.replacePlaceholders(stringValue, props);
-            properties.put(stringKey, stringValue);
-        }
-        super.processProperties(beanFactoryToProcess, props);
+    protected Properties mergeProperties() throws IOException {
+        Properties properties = super.mergeProperties();
+
+        log.info("CustomPropertySourcesPlaceholderConfigurer");
+//        properties.putAll(this.billyexConfigCenter.getProperties());
+//        this.logger.debug("mergeProperties()={}", properties.toString());
+//        this.billyexConfigCenter.close();
+        // TODO 可以借此做配置中心
+//        properties.put("name", "111");
+        return properties;
     }
-
-
 }
