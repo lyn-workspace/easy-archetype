@@ -14,12 +14,17 @@
 
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.easy.archetype.system</groupId>
             <artifactId>easy-archetype-system</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

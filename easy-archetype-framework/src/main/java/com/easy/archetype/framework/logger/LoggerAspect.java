@@ -1,6 +1,5 @@
 package com.easy.archetype.framework.logger;
 
-import cn.hutool.extra.spring.SpringUtil;
 import com.easy.archetype.framework.logger.annotation.IgnoreLogger;
 import com.easy.archetype.framework.spring.SpringContextHolder;
 import io.swagger.annotations.ApiOperation;
@@ -10,8 +9,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.lang.reflect.Method;
 
@@ -52,8 +49,10 @@ public class LoggerAspect {
                         .exception(exception)
                         .request(SpringContextHolder.getRequest())
                         .methodSignature((MethodSignature) proceedingJoinPoint.getSignature())
-                        .args((ignoreLogger != null && !ignoreLogger.type().equals(IgnoreLogger.IgnoreLoggerType.Params)) ? proceedingJoinPoint.getArgs() : null)
-                        .result((ignoreLogger != null && !ignoreLogger.type().equals(IgnoreLogger.IgnoreLoggerType.Result)) ? result : null)
+                        .args((ignoreLogger != null && ignoreLogger.type().equals(IgnoreLogger.IgnoreLoggerType.PARAMS))
+                                ? null : proceedingJoinPoint.getArgs())
+                        .result((ignoreLogger != null && ignoreLogger.type().equals(IgnoreLogger.IgnoreLoggerType.RESULT)) ?
+                                null : result)
                         .build()));
             }
         }

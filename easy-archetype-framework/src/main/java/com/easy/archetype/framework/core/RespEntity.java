@@ -6,6 +6,8 @@ import lombok.Data;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -70,6 +72,14 @@ public class RespEntity<T> implements Serializable {
         return respEntity;
     }
 
+    public static RespEntity success(RespEntityMapHandler handler) {
+        RespEntity respEntity = new RespEntity<>();
+        Map<String, Object> map = new HashMap<>(16);
+        handler.handler(map);
+        respEntity.setData(map);
+        respEntity.setStatus("200");
+        return respEntity;
+    }
 
     /**
      * 异常信息
@@ -90,4 +100,16 @@ public class RespEntity<T> implements Serializable {
         return respEntity;
     }
 
+    @FunctionalInterface
+    public static interface RespEntityMapHandler {
+
+        /**
+         * 设置元素
+         *
+         * @param map
+         * @return void
+         * @since 2021/2/4
+         */
+        void handler(Map<String, Object> map);
+    }
 }

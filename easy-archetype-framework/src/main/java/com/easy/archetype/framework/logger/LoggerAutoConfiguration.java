@@ -1,9 +1,10 @@
 package com.easy.archetype.framework.logger;
 
-import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -14,16 +15,24 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @author luyanan
  * @since 2021/1/22
  **/
-@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "logger.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = true)
 @EnableAsync
 @RequiredArgsConstructor
 @ConditionalOnWebApplication
+@EnableConfigurationProperties(LoggerProperties.class)
 @Configuration(proxyBeanMethods = false)
 public class LoggerAutoConfiguration {
 
+
     @Bean
-    public LoggerListener loggerListener() {
-        return new LoggerListener();
+//    @ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "loggerPrint", havingValue = "true")
+    public LoggerHandler loggerHandler() {
+        return new WebLoggerHandlerPrint();
+    }
+
+    @Bean
+    public LoggerListener loggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
+        return new LoggerListener(loggerHandlers);
     }
 
     @Bean
@@ -35,4 +44,6 @@ public class LoggerAutoConfiguration {
     public ApplicationLoggerInitializer applicationLoggerInitializer() {
         return new ApplicationLoggerInitializer();
     }
+
+
 }

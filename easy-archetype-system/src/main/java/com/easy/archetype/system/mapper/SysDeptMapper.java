@@ -1,18 +1,18 @@
 package com.easy.archetype.system.mapper;
 
-import com.easy.archetype.system.entity.SysDeptDO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.easy.archetype.framework.mybatisplus.BaseMapperPlus;
+import com.easy.archetype.system.entity.SysDeptDo;
 import org.apache.ibatis.annotations.Mapper;
-
 /**
  * <p>
- * 部门表 Mapper 接口
+ * 部门表 mapper
  * </p>
  *
  * @author luyanan
- * @since 2021-01-19
- */
+ * @since 2021-02-03
+*/
 @Mapper
-public interface SysDeptMapper extends BaseMapper<SysDeptDO> {
+public interface SysDeptMapper extends BaseMapperPlus<SysDeptDo> {
+
 
 }

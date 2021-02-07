@@ -1,7 +1,7 @@
 package com.easy.archetype.framework.logger;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
@@ -13,16 +13,23 @@ import org.springframework.scheduling.annotation.Async;
  * @since 2021/1/22
  **/
 @Slf4j
-@RequiredArgsConstructor
 public class LoggerListener {
 
 
+    private ObjectProvider<LoggerHandler> loggerHandlers;
+
+
+    public LoggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
+        this.loggerHandlers = loggerHandlers;
+    }
 
     @Async
     @Order
     @EventListener
     public void listener(LoggerEvent loggerEvent) {
         LoggerVo loggerVo = (LoggerVo) loggerEvent.getSource();
-
+        loggerHandlers.orderedStream().forEach(loggerHandler -> {
+            loggerHandler.handler(loggerVo);
+        });
     }
 }

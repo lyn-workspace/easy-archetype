@@ -12,18 +12,12 @@
         <module>easy-archetype-framework</module>
         <module>easy-archetype-common</module>
         <module>easy-archetype-system</module>
-        <module>easy-archetype-web</module>
         <module>easy-archetype-web-ui</module>
         <module>easy-archetype-web-all</module>
 
 
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-    </dependencies>
+
 
     <properties>
 
@@ -43,12 +37,43 @@
         <knife4j.version>3.0.2</knife4j.version>
         <fastjson.version>1.2.73</fastjson.version>
         <servlet-api.version>2.5</servlet-api.version>
+        <commons-configuration2.version>2.2</commons-configuration2.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <freemarker.version>2.3.28</freemarker.version>
+        <snakeyaml.version>1.25</snakeyaml.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+            <!--验证码 -->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-configuration2</artifactId>
+                <version>${commons-configuration2.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
@@ -90,6 +115,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -122,9 +154,9 @@
                             <failsOnError>true</failsOnError>
                             <includeTestSourceDirectory>false</includeTestSourceDirectory>
                         </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
                     </execution>
                 </executions>
             </plugin>
@@ -151,9 +183,9 @@
                     <execution>
                         <id>validate</id>
                         <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
                     </execution>
                 </executions>
                 <dependencies>

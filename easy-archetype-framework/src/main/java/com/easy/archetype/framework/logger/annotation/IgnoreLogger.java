@@ -33,14 +33,14 @@ public @interface IgnoreLogger {
          *
          * @since 2021/1/22
          */
-        Params,
+        PARAMS,
         /**
          * 忽略返回结果
          *
          * @author luyanan
          * @since 2021/1/22
          */
-        Result,
+        RESULT,
         /**
          * 全部忽略
          *

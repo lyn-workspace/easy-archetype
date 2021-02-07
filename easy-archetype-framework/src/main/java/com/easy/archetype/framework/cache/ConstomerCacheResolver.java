@@ -32,8 +32,5 @@ public class ConstomerCacheResolver extends AbstractCacheResolver {
         return cacheNames;
     }
 
-    @Nullable
-    static ConstomerCacheResolver of(@Nullable CacheManager cacheManager) {
-        return cacheManager != null ? new ConstomerCacheResolver(cacheManager) : null;
-    }
+
 }

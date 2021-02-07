@@ -4,14 +4,30 @@ server:
   servlet:
     ## 应用的访问路径
     context-path: /
-  tomcat:
-    # tomcat的URI 编码
-    uri-encoding: utf-8
-    # tomcat的最大线程池,默认为200
-    max-threads: 800
-    # tomcat 启动初始化的线程数量，默认为
-    min-spare-threads: 30
-
+  #  tomcat:
+  #    # tomcat的URI 编码
+  #    uri-encoding: utf-8
+  #    # tomcat的最大线程池,默认为200
+  #    max-threads: 800
+  #    # tomcat 启动初始化的线程数量，默认为
+  #    min-spare-threads: 30
+  undertow:
+    accesslog:
+      # 是否打开 undertow 日志，默认为 false
+      enabled: false
+      # 设置访问日志所在目录
+      dir: logs
+      # 指定工作者线程的 I/0 线程数，默认为 2 或者 CPU 的个数
+    #    io-threads: 8
+    #    # 指定工作者线程个数，默认为 I/O 线程个数的 8 倍
+    #    worker-threads: 64
+    # 设置 HTTP POST 内容的最大长度，默认不做限制
+    max-http-post-size: -1B
+    # 是否分配的直接内存(NIO直接分配的堆外内存)
+    direct-buffers: true
+    # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
+    # 每块buffer的空间大小,越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
+    buffer-size: 1024
 # Spring的配置
 spring:
   # 模板引擎配置
@@ -34,10 +50,19 @@ spring:
   servlet:
     multipart:
       # 单个文件大小
-      max-file-size: 10MB
+      max-file-size: 100MB
       # 设置总上传的文件大小
-      max-request-size: 20MB
-
+      max-request-size: 200MB
+      enabled: true
+  application:
+    name: easy-archetype
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 # 自定义配置
 
@@ -53,21 +78,27 @@ easy:
         enable: true
       logger:
         enable: true
+        # 是否开启日志打印
+        logger-print: true
       mybatis-plus:
         enable: false
       thread:
         enable: true
-
-## 业务配置
-business:
-  config:
-    app:
-      name: 简单脚手架
-      desp[0]: 一个采用模块组件式开发的项目1
-      desp[1]: 一个采用模块组件式开发的项目2
-      desp[2]: 一个采用模块组件式开发的项目3
-      desp[3]: 一个采用模块组件式开发的项目4
-      copyright: Copyright © 2018-2021 luyanan.com All Rights Reserved
-    sys:
-      account:
-        registerUser: false
+## mybatis-plus配置
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      select-strategy: not_empty
+      update-strategy: not_empty
+      logic-delete-field: delFlag
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  #  搜索指定包别名
+  type-aliases-package: com.easy.archetype.**.entity
+system:
+  # 验证码类型
+  captcha-type: math

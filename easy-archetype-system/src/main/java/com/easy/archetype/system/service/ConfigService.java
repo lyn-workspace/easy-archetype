@@ -20,7 +20,6 @@ public class ConfigService {
      *
      * @since 2021/1/24
      */
-    public static final String CONFIG_PREFIX = "business.config.";
 
     @Autowired
     private Environment environment;
@@ -33,7 +32,7 @@ public class ConfigService {
      * @since 2021/1/24
      */
     public String getKey(String configKey) {
-        return environment.getProperty(CONFIG_PREFIX + configKey);
+        return environment.getProperty(configKey);
     }
 
 }

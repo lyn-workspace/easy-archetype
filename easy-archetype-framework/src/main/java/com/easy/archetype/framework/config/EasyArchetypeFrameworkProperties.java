@@ -1,5 +1,6 @@
 package com.easy.archetype.framework.config;
 
+import com.easy.archetype.framework.logger.LoggerProperties;
 import com.easy.archetype.framework.thread.BusinessThreadPoolProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -100,22 +101,6 @@ public class EasyArchetypeFrameworkProperties {
         private Boolean enable;
     }
 
-
-    /**
-     * 日志配置文件
-     *
-     * @author luyanan
-     * @since 2021/1/23
-     */
-    @Data
-    public static class LoggerProperties {
-        /**
-         * 是否开启
-         *
-         * @since 2021/1/23
-         */
-        private Boolean enable;
-    }
 
     /**
      * 缓存的配置

@@ -29,4 +29,20 @@ public interface IMsgCode {
      */
     String INTERNAL_SERVER_ERROR = "500";
 
+
+    /*****************用户模块编码******************/
+    /**
+     * 用户名/密码不正确
+     *
+     * @since 2021/1/30
+     */
+    String USER_PASSWORD_NOT_FOUND = "U_001";
+
+    /**
+     * 验证码生成错误
+     *
+     * @since 2021/2/4
+     */
+    String CAPTCHA_GENERATE_FAIL = "U_002";
+
 }

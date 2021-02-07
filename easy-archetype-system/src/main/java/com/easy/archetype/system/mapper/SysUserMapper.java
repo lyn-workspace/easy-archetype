@@ -1,18 +1,18 @@
 package com.easy.archetype.system.mapper;
 
-import com.easy.archetype.system.entity.SysUserDO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.easy.archetype.framework.mybatisplus.BaseMapperPlus;
+import com.easy.archetype.system.entity.SysUserDo;
 import org.apache.ibatis.annotations.Mapper;
-
 /**
  * <p>
- * 用户信息表 Mapper 接口
+ * 用户信息表 mapper
  * </p>
  *
  * @author luyanan
- * @since 2021-01-19
- */
+ * @since 2021-02-03
+*/
 @Mapper
-public interface SysUserMapper extends BaseMapper<SysUserDO> {
+public interface SysUserMapper extends BaseMapperPlus<SysUserDo> {
+
 
 }

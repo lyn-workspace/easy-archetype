@@ -16,6 +16,7 @@ public class WebLoggerHandlerPrint extends AbstractLoggerHandler {
     protected void handler(LoggerVo loggerVo, Map<String, Object> loggerData) {
 
         StringBuilder logger = new StringBuilder();
+        logger.append("\n");
         logger.append("[--------------------------------------------------\n");
         logger.append("methodName:").append(loggerData.get("methodName")).append("\n");
         logger.append("desp:").append(loggerData.get("desp")).append("\n");
@@ -23,7 +24,7 @@ public class WebLoggerHandlerPrint extends AbstractLoggerHandler {
         logger.append("sourceIp:").append(loggerData.get("sourceIp")).append("\n");
         logger.append("params:").append(loggerData.get("params")).append("\n");
         logger.append("result:").append(loggerData.get("result")).append("\n");
-        logger.append("time:").append("elapsedTime").append("\n");
+        logger.append("time:").append(loggerData.get("elapsedTime")).append("\n");
         logger.append("-----------------------------------------------------]");
         log.debug(logger.toString());
     }

@@ -9,6 +9,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +56,7 @@ public abstract class AbstractLoggerHandler implements LoggerHandler {
         loggerData.put("status", status);
         // 返回结果
         loggerData.put("result", null != loggerVo.getResult() ? JSON.toJSONString(loggerVo.getResult()) : JSON.toJSONString(new Object()));
+        handler(loggerVo, loggerData);
     }
 
 
@@ -93,6 +96,12 @@ public abstract class AbstractLoggerHandler implements LoggerHandler {
                 MultipartFile file = (MultipartFile) value;
                 //获取文件名
                 value = file.getOriginalFilename();
+            } else if (value instanceof ServletResponse) {
+
+                continue;
+            } else if (value instanceof ServletRequest) {
+
+                continue;
             }
 
             requestParams.put(paramNames[i], value);
