@@ -2,6 +2,7 @@ package com.easy.archetype.framework.configcenter;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.ApplicationListener;
 
 /**
@@ -17,6 +18,7 @@ public class ConfigUpdateListener implements ApplicationListener<ConfigUpdateEve
     private ConfigCenter configCenter;
 
     @Override
+
     public void onApplicationEvent(ConfigUpdateEvent event) {
 
         log.debug("配置刷新");

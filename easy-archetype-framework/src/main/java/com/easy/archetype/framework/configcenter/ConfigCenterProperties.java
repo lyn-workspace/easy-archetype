@@ -1,6 +1,7 @@
 package com.easy.archetype.framework.configcenter;
 
 import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author luyanan
  * @since 2021/1/30
  **/
+@Data
 @ConfigurationProperties(prefix = ConfigCenterProperties.PREFIX)
 public class ConfigCenterProperties {
     public static final String PREFIX = EasyArchetypeFrameworkProperties.PREFIX + ".config.center";

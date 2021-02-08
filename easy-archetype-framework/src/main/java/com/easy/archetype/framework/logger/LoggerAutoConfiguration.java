@@ -25,7 +25,7 @@ public class LoggerAutoConfiguration {
 
 
     @Bean
-//    @ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "loggerPrint", havingValue = "true")
+    @ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "loggerPrint", havingValue = "true")
     public LoggerHandler loggerHandler() {
         return new WebLoggerHandlerPrint();
     }
