@@ -12,8 +12,7 @@ import java.lang.annotation.Target;
  * @since 2021/1/30
  **/
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ ElementType.TYPE, ElementType.METHOD })
 public @interface IgnoringLogin {
-
 
 }

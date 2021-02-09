@@ -19,44 +19,44 @@ import org.springframework.session.web.http.HeaderHttpSessionIdResolver;
 @Configuration
 public class SpringSessionBeanConfiguration {
 
-    public static final String TOKEN_KEY = "Authorization";
+	public static final String TOKEN_KEY = "Authorization";
 
-    @Bean
-    public DefaultCookieSerializer cookieSerializer() {
-        DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
-        cookieSerializer.setCookiePath("/");
-        cookieSerializer.setRememberMeRequestAttribute("readMe");
-        cookieSerializer.setCookieName(TOKEN_KEY);
-        cookieSerializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
-        return cookieSerializer;
-    }
+	@Bean
+	public DefaultCookieSerializer cookieSerializer() {
+		DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
+		cookieSerializer.setCookiePath("/");
+		cookieSerializer.setRememberMeRequestAttribute("readMe");
+		cookieSerializer.setCookieName(TOKEN_KEY);
+		cookieSerializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
+		return cookieSerializer;
+	}
 
-    @Bean
-    public RedisSerializer redisSerializer() {
-        return new GenericJackson2JsonRedisSerializer();
-    }
+	@Bean
+	public RedisSerializer redisSerializer() {
+		return new GenericJackson2JsonRedisSerializer();
+	}
 
-    /**
-     * 这里有个小坑，如果服务器用的是云服务器，不加这个会报错
-     *
-     * @return org.springframework.session.data.redis.config.ConfigureRedisAction
-     * @since 2021/1/30
-     */
-    @Bean
-    public static ConfigureRedisAction configureRedisAction() {
-        return ConfigureRedisAction.NO_OP;
-    }
+	/**
+	 * 这里有个小坑，如果服务器用的是云服务器，不加这个会报错
+	 * @return org.springframework.session.data.redis.config.ConfigureRedisAction
+	 * @since 2021/1/30
+	 */
+	@Bean
+	public static ConfigureRedisAction configureRedisAction() {
+		return ConfigureRedisAction.NO_OP;
+	}
 
-    /**
-     * session策略，这里配置的是Header方式（有提供Header，Cookie等方式）
-     *
-     * @return org.springframework.session.web.http.HeaderHttpSessionIdResolver
-     * @since 2021/1/30
-     */
-    @Bean
-    public HeaderAndCookieHttpSessionIdResolver headerHttpSessionIdResolver() {
-        HeaderAndCookieHttpSessionIdResolver headerAndCookieHttpSessionIdResolver = new HeaderAndCookieHttpSessionIdResolver(TOKEN_KEY);
-        headerAndCookieHttpSessionIdResolver.setCookieSerializer(cookieSerializer());
-        return headerAndCookieHttpSessionIdResolver;
-    }
+	/**
+	 * session策略，这里配置的是Header方式（有提供Header，Cookie等方式）
+	 * @return org.springframework.session.web.http.HeaderHttpSessionIdResolver
+	 * @since 2021/1/30
+	 */
+	@Bean
+	public HeaderAndCookieHttpSessionIdResolver headerHttpSessionIdResolver() {
+		HeaderAndCookieHttpSessionIdResolver headerAndCookieHttpSessionIdResolver = new HeaderAndCookieHttpSessionIdResolver(
+				TOKEN_KEY);
+		headerAndCookieHttpSessionIdResolver.setCookieSerializer(cookieSerializer());
+		return headerAndCookieHttpSessionIdResolver;
+	}
+
 }

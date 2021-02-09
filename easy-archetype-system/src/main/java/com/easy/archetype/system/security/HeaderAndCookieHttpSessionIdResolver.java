@@ -19,74 +19,81 @@ import java.util.stream.Collectors;
  * @since 2021/1/30
  **/
 public class HeaderAndCookieHttpSessionIdResolver implements HttpSessionIdResolver {
-    private static final String WRITTEN_SESSION_ID_ATTR = CookieHttpSessionIdResolver.class.getName().concat(".WRITTEN_SESSION_ID_ATTR");
 
-    private final String sessionIdName;
-    private CookieSerializer cookieSerializer = new DefaultCookieSerializer();
+	private static final String WRITTEN_SESSION_ID_ATTR = CookieHttpSessionIdResolver.class.getName()
+			.concat(".WRITTEN_SESSION_ID_ATTR");
 
-    public HeaderAndCookieHttpSessionIdResolver(String sessionIdName) {
-        if (sessionIdName == null) {
-            throw new IllegalArgumentException("sessionIdName cannot be null");
-        } else {
-            this.sessionIdName = sessionIdName;
-        }
-    }
+	private final String sessionIdName;
 
-    @Override
-    public List<String> resolveSessionIds(HttpServletRequest httpServletRequest) {
-        // 从header 中获取
-        String session = httpServletRequest.getHeader(this.sessionIdName);
-        if (StrUtil.isNotBlank(session)) {
-            return Collections.singletonList(base64Decode(session));
-        }
+	private CookieSerializer cookieSerializer = new DefaultCookieSerializer();
 
-        // 从cookie中获取
-        List<String> sessions = this.cookieSerializer.readCookieValues(httpServletRequest);
-        if (CollectionUtil.isNotEmpty(sessions)) {
-            return sessions;
-        }
-        // 从请求头中获取
-        String[] parameterValues = httpServletRequest.getParameterValues(this.sessionIdName);
-        return Arrays.stream(Optional.ofNullable(parameterValues).orElse(new String[]{})).collect(Collectors.toList());
-    }
+	public HeaderAndCookieHttpSessionIdResolver(String sessionIdName) {
+		if (sessionIdName == null) {
+			throw new IllegalArgumentException("sessionIdName cannot be null");
+		}
+		else {
+			this.sessionIdName = sessionIdName;
+		}
+	}
 
-    @Override
-    public void setSessionId(HttpServletRequest request, HttpServletResponse response, String sessionId) {
-        // 写到请求头中
-        response.setHeader(this.sessionIdName, base64Encode(sessionId));
+	@Override
+	public List<String> resolveSessionIds(HttpServletRequest httpServletRequest) {
+		// 从header 中获取
+		String session = httpServletRequest.getHeader(this.sessionIdName);
+		if (StrUtil.isNotBlank(session)) {
+			return Collections.singletonList(base64Decode(session));
+		}
 
-        // 再写到cookie中
-        if (!sessionIdName.equals(request.getAttribute(WRITTEN_SESSION_ID_ATTR))) {
-            request.setAttribute(WRITTEN_SESSION_ID_ATTR, sessionIdName);
-            this.cookieSerializer.writeCookieValue(new CookieSerializer.CookieValue(request, response, sessionId));
-        }
-    }
+		// 从cookie中获取
+		List<String> sessions = this.cookieSerializer.readCookieValues(httpServletRequest);
+		if (CollectionUtil.isNotEmpty(sessions)) {
+			return sessions;
+		}
+		// 从请求头中获取
+		String[] parameterValues = httpServletRequest.getParameterValues(this.sessionIdName);
+		return Arrays.stream(Optional.ofNullable(parameterValues).orElse(new String[] {})).collect(Collectors.toList());
+	}
 
-    @Override
-    public void expireSession(HttpServletRequest request, HttpServletResponse response) {
-        this.cookieSerializer.writeCookieValue(new CookieSerializer.CookieValue(request, response, ""));
-        response.setHeader(this.sessionIdName, "");
-    }
+	@Override
+	public void setSessionId(HttpServletRequest request, HttpServletResponse response, String sessionId) {
+		// 写到请求头中
+		response.setHeader(this.sessionIdName, base64Encode(sessionId));
 
-    public void setCookieSerializer(CookieSerializer cookieSerializer) {
-        if (cookieSerializer == null) {
-            throw new IllegalArgumentException("cookieSerializer cannot be null");
-        } else {
-            this.cookieSerializer = cookieSerializer;
-        }
-    }
+		// 再写到cookie中
+		if (!sessionIdName.equals(request.getAttribute(WRITTEN_SESSION_ID_ATTR))) {
+			request.setAttribute(WRITTEN_SESSION_ID_ATTR, sessionIdName);
+			this.cookieSerializer.writeCookieValue(new CookieSerializer.CookieValue(request, response, sessionId));
+		}
+	}
 
-    public static String base64Decode(String base64Value) {
-        try {
-            byte[] decodedCookieBytes = Base64.getDecoder().decode(base64Value);
-            return new String(decodedCookieBytes);
-        } catch (Exception var3) {
-            return null;
-        }
-    }
+	@Override
+	public void expireSession(HttpServletRequest request, HttpServletResponse response) {
+		this.cookieSerializer.writeCookieValue(new CookieSerializer.CookieValue(request, response, ""));
+		response.setHeader(this.sessionIdName, "");
+	}
 
-    public static String base64Encode(String value) {
-        byte[] encodedCookieBytes = Base64.getEncoder().encode(value.getBytes());
-        return new String(encodedCookieBytes);
-    }
+	public void setCookieSerializer(CookieSerializer cookieSerializer) {
+		if (cookieSerializer == null) {
+			throw new IllegalArgumentException("cookieSerializer cannot be null");
+		}
+		else {
+			this.cookieSerializer = cookieSerializer;
+		}
+	}
+
+	public static String base64Decode(String base64Value) {
+		try {
+			byte[] decodedCookieBytes = Base64.getDecoder().decode(base64Value);
+			return new String(decodedCookieBytes);
+		}
+		catch (Exception var3) {
+			return null;
+		}
+	}
+
+	public static String base64Encode(String value) {
+		byte[] encodedCookieBytes = Base64.getEncoder().encode(value.getBytes());
+		return new String(encodedCookieBytes);
+	}
+
 }

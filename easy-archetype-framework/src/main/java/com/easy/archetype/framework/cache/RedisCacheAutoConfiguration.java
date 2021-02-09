@@ -18,31 +18,35 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @ConditionalOnClass(RedisCacheConfiguration.class)
 @ConditionalOnProperty(value = "spring.cache.type", havingValue = "redis", matchIfMissing = false)
 public class RedisCacheAutoConfiguration {
-    @Bean
-    public RedisCacheConfiguration redisCacheConfiguration(CacheProperties cacheProperties) {
 
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
-        config = config.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()));
-        config = config.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(RedisSerializer.json()));
+	@Bean
+	public RedisCacheConfiguration redisCacheConfiguration(CacheProperties cacheProperties) {
 
-        //将配置文件中的配置生效
-        CacheProperties.Redis redisProperties = cacheProperties.getRedis();
-        if (redisProperties.getTimeToLive() != null) {
-            config = config.entryTtl(redisProperties.getTimeToLive());
-        }
+		RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
+		config = config.serializeKeysWith(
+				RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()));
+		config = config.serializeValuesWith(
+				RedisSerializationContext.SerializationPair.fromSerializer(RedisSerializer.json()));
 
-        if (redisProperties.getKeyPrefix() != null) {
-            config = config.prefixKeysWith(redisProperties.getKeyPrefix());
-        }
+		// 将配置文件中的配置生效
+		CacheProperties.Redis redisProperties = cacheProperties.getRedis();
+		if (redisProperties.getTimeToLive() != null) {
+			config = config.entryTtl(redisProperties.getTimeToLive());
+		}
 
-        if (!redisProperties.isCacheNullValues()) {
-            config = config.disableCachingNullValues();
-        }
+		if (redisProperties.getKeyPrefix() != null) {
+			config = config.prefixKeysWith(redisProperties.getKeyPrefix());
+		}
 
-        if (!redisProperties.isUseKeyPrefix()) {
-            config = config.disableKeyPrefix();
-        }
+		if (!redisProperties.isCacheNullValues()) {
+			config = config.disableCachingNullValues();
+		}
 
-        return config;
-    }
+		if (!redisProperties.isUseKeyPrefix()) {
+			config = config.disableKeyPrefix();
+		}
+
+		return config;
+	}
+
 }

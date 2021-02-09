@@ -20,28 +20,26 @@ import java.util.List;
  **/
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
+	private PasswordEncoder passwordEncoder;
 
-    private PasswordEncoder passwordEncoder;
+	public CustomUserDetailsServiceImpl(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
 
-    public CustomUserDetailsServiceImpl(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// 查询用户信息
+		SysUserDo sysUserDO = null;
+		// if (null == sysUserDO) {
+		// throw new UsernameNotFoundException(IMsgCode.USER_PASSWORD_NOT_FOUND);
+		// }
+		// 用户权限
+		List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 查询用户信息
-        SysUserDo sysUserDO = null;
-//        if (null == sysUserDO) {
-//            throw new UsernameNotFoundException(IMsgCode.USER_PASSWORD_NOT_FOUND);
-//        }
-        // 用户权限
-        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+		return CurrUser.builder().authorities(authorityList)
+				.username(JSON.toJSONString(
+						CurrUserVo.builder().loginName(username).userId(1L).status(1).userName("admin").build()))
+				.password(passwordEncoder.encode("12345")).enabled(true).build();
+	}
 
-
-        return CurrUser.builder().authorities(authorityList)
-                .username(JSON.toJSONString(CurrUserVo.builder().loginName(username).userId(1L).status(1).userName("admin").build()))
-                .password(passwordEncoder.encode("12345"))
-                .enabled(true)
-                .build();
-    }
 }

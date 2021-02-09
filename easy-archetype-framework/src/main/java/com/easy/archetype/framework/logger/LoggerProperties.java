@@ -13,18 +13,21 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties(prefix = LoggerProperties.PREFIX)
 public class LoggerProperties {
-    public static final String PREFIX = EasyArchetypeFrameworkProperties.PREFIX + ".logger";
-    /**
-     * 是否开启
-     *
-     * @since 2021/1/23
-     */
-    private Boolean enable;
 
-    /**
-     * 日志打印
-     *
-     * @since 2021/2/7
-     */
-    private Boolean loggerPrint;
+	public static final String PREFIX = EasyArchetypeFrameworkProperties.PREFIX + ".logger";
+
+	/**
+	 * 是否开启
+	 *
+	 * @since 2021/1/23
+	 */
+	private Boolean enable;
+
+	/**
+	 * 日志打印
+	 *
+	 * @since 2021/2/7
+	 */
+	private Boolean loggerPrint;
+
 }

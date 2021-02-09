@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.easy.archetype.system.mapper")
 @Configuration
 @ComponentScan("com.easy.archetype.system")
-@EnableConfigurationProperties({SystemProperties.class})
+@EnableConfigurationProperties({ SystemProperties.class })
 public class SystemAutoConfiguration {
+
 }

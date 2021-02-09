@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @Autowired(required = false)
-    private CurrUserService currUserService;
+	@Autowired(required = false)
+	private CurrUserService currUserService;
 
-    @ApiOperation(value = "跳转首页")
-    @GetMapping("index")
-    public String index() {
-        Long userId = currUserService.userId();
+	@ApiOperation(value = "跳转首页")
+	@GetMapping("index")
+	public String index() {
+		Long userId = currUserService.userId();
 
-        return "index";
-    }
+		return "index";
+	}
 
 }

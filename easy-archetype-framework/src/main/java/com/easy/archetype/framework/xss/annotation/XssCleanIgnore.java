@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  * @author luyanan
  * @since 2021/2/8
  **/
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface XssCleanIgnore {

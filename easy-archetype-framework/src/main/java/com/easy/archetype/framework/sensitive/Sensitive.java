@@ -20,19 +20,17 @@ import java.lang.annotation.Target;
 @JsonSerialize(using = SensitiveSerialize.class)
 public @interface Sensitive {
 
+	/**
+	 * 脱敏数据类型, 非Customer时, 将忽略 refixNoMaskLen 和 suffixNoMaskLen 和 maskStr
+	 */
+	SensitiveTypeEnum type() default SensitiveTypeEnum.CUSTOMER;
 
-    /**
-     * 脱敏数据类型, 非Customer时, 将忽略 refixNoMaskLen 和 suffixNoMaskLen 和 maskStr
-     */
-    SensitiveTypeEnum type() default SensitiveTypeEnum.CUSTOMER;
-
-
-    /**
-     * 脱敏策略
-     *
-     * @return java.lang.Class<? extends com.easy.archetype.framework.sensitive.SensitiveStrategy>
-     * @since 2021/2/8
-     */
-    Class<? extends SensitiveStrategy> sensitiveStrategy() default DefaultSensitiveStrategy.class;
+	/**
+	 * 脱敏策略
+	 * @return java.lang.Class<? extends
+	 * com.easy.archetype.framework.sensitive.SensitiveStrategy>
+	 * @since 2021/2/8
+	 */
+	Class<? extends SensitiveStrategy> sensitiveStrategy() default DefaultSensitiveStrategy.class;
 
 }

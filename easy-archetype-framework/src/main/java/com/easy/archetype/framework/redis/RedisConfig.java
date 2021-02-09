@@ -18,28 +18,31 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author luyanan
  * @since 2021/1/21
  **/
-@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "redis.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "redis.enable", havingValue = "true",
+		matchIfMissing = true)
 @ConditionalOnClass(RedisConnectionFactory.class)
-@ConditionalOnBean({RedisConnectionFactory.class, RedisAutoConfiguration.class})
+@ConditionalOnBean({ RedisConnectionFactory.class, RedisAutoConfiguration.class })
 @Configuration
 public class RedisConfig {
-    @Bean
-    public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 
-        RedisTemplate redisTemplate = new RedisTemplate();
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
+	@Bean
+	public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 
-        // 解决key的序列化方式，使用String。
-        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-        redisTemplate.setKeySerializer(stringRedisSerializer);
+		RedisTemplate redisTemplate = new RedisTemplate();
+		redisTemplate.setConnectionFactory(redisConnectionFactory);
 
-        // 解决value的序列化方式，使用Json。其中的日期再另外处理。
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-        // 如果序列化对象中有日期格式，可以自定义日期的序列化类，处理日期的序列化方式。其他需要序列化的类型，也可以按此处理。
-        redisTemplate.setHashKeySerializer(stringRedisSerializer);
-        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
-        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
-        redisTemplate.setDefaultSerializer(jackson2JsonRedisSerializer);
-        return redisTemplate;
-    }
+		// 解决key的序列化方式，使用String。
+		StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+		redisTemplate.setKeySerializer(stringRedisSerializer);
+
+		// 解决value的序列化方式，使用Json。其中的日期再另外处理。
+		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+		// 如果序列化对象中有日期格式，可以自定义日期的序列化类，处理日期的序列化方式。其他需要序列化的类型，也可以按此处理。
+		redisTemplate.setHashKeySerializer(stringRedisSerializer);
+		redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
+		redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+		redisTemplate.setDefaultSerializer(jackson2JsonRedisSerializer);
+		return redisTemplate;
+	}
+
 }

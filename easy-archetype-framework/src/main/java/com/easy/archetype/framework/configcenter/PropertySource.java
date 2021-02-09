@@ -10,12 +10,11 @@ import java.util.Map;
  **/
 public interface PropertySource {
 
+	/**
+	 * 配置
+	 * @return java.util.Map<java.lang.String, java.lang.Object>
+	 * @since 2021/1/29
+	 */
+	Map<String, Object> properties();
 
-    /**
-     * 配置
-     *
-     * @return java.util.Map<java.lang.String, java.lang.Object>
-     * @since 2021/1/29
-     */
-    Map<String, Object> properties();
 }

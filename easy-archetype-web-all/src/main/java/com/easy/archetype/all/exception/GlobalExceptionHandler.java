@@ -25,68 +25,64 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    /**
-     * 请求方法不支持
-     *
-     * @param e
-     * @return com.easy.archetype.framework.core.RespEntity
-     * @since 2021/1/24
-     */
-    @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
-    public RespEntity handleException(HttpRequestMethodNotSupportedException e) {
-        log.error(e.getMessage(), e);
-        return RespEntity.error(IMsgCode.HTTP_NOT_FOUND, e.getMethod());
-    }
 
+	/**
+	 * 请求方法不支持
+	 * @param e
+	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @since 2021/1/24
+	 */
+	@ExceptionHandler({ HttpRequestMethodNotSupportedException.class })
+	public RespEntity handleException(HttpRequestMethodNotSupportedException e) {
+		log.error(e.getMessage(), e);
+		return RespEntity.error(IMsgCode.HTTP_NOT_FOUND, e.getMethod());
+	}
 
-    /**
-     * 自定义校验异常
-     *
-     * @param e 异常
-     * @return com.easy.archetype.framework.core.RespEntity
-     * @since 2021/1/24
-     */
-    @ExceptionHandler(BindException.class)
-    public RespEntity validatedBindException(BindException e) {
-        log.error(e.getMessage(), e);
-        String message = e.getAllErrors().get(0).getDefaultMessage();
-        return RespEntity.error(message);
-    }
+	/**
+	 * 自定义校验异常
+	 * @param e 异常
+	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @since 2021/1/24
+	 */
+	@ExceptionHandler(BindException.class)
+	public RespEntity validatedBindException(BindException e) {
+		log.error(e.getMessage(), e);
+		String message = e.getAllErrors().get(0).getDefaultMessage();
+		return RespEntity.error(message);
+	}
 
-    /**
-     * 自定义异常
-     *
-     * @param request
-     * @param handlerMethod
-     * @param e
-     * @return java.lang.Object
-     * @since 2021/1/24
-     */
-    @ExceptionHandler(BusinessException.class)
-    public Object customerException(HttpServletRequest request, HandlerMethod handlerMethod, BusinessException e) {
-        if (SpringContextHolder.isBody(handlerMethod)) {
-            // json请求
-            return RespEntity.error(e.getCode());
-        } else {
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.addObject("errorMessage", e.getMessage());
-            modelAndView.setViewName("error/business");
-            return modelAndView;
-        }
-    }
+	/**
+	 * 自定义异常
+	 * @param request
+	 * @param handlerMethod
+	 * @param e
+	 * @return java.lang.Object
+	 * @since 2021/1/24
+	 */
+	@ExceptionHandler(BusinessException.class)
+	public Object customerException(HttpServletRequest request, HandlerMethod handlerMethod, BusinessException e) {
+		if (SpringContextHolder.isBody(handlerMethod)) {
+			// json请求
+			return RespEntity.error(e.getCode());
+		}
+		else {
+			ModelAndView modelAndView = new ModelAndView();
+			modelAndView.addObject("errorMessage", e.getMessage());
+			modelAndView.setViewName("error/business");
+			return modelAndView;
+		}
+	}
 
-    /**
-     * 拦截未知异常
-     *
-     * @param e 异常信息
-     * @return com.easy.archetype.framework.core.RespEntity
-     * @since 2021/1/24
-     */
-    @ExceptionHandler(Exception.class)
-    public RespEntity handleException(RuntimeException e) {
-        log.error(e.getMessage(), e);
-        return RespEntity.error(IMsgCode.INTERNAL_SERVER_ERROR);
-    }
-
+	/**
+	 * 拦截未知异常
+	 * @param e 异常信息
+	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @since 2021/1/24
+	 */
+	@ExceptionHandler(Exception.class)
+	public RespEntity handleException(RuntimeException e) {
+		log.error(e.getMessage(), e);
+		return RespEntity.error(IMsgCode.INTERNAL_SERVER_ERROR);
+	}
 
 }

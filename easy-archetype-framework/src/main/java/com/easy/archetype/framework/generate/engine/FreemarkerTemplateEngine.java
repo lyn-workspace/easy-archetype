@@ -13,20 +13,23 @@ import java.util.Map;
  * @since 2021/2/1
  **/
 public class FreemarkerTemplateEngine implements ITemplateEngine {
-    @Override
-    public String process(Map<String, Object> data, String templatePath) {
-        String render = "";
 
-        try {
-            FreemarkerEngine engine = new FreemarkerEngine();
-            String templateContext = FileUtil.readString(this.getClass().getClassLoader().getResource(templatePath), "utf-8");
-            Template template = engine.getTemplate(templateContext);
-            render = template.render(data);
-        } catch (Exception e) {
-            System.out.println("templatePath:" + templatePath + "出现异常了");
-            e.printStackTrace();
-        }
-        return render;
-    }
+	@Override
+	public String process(Map<String, Object> data, String templatePath) {
+		String render = "";
+
+		try {
+			FreemarkerEngine engine = new FreemarkerEngine();
+			String templateContext = FileUtil.readString(this.getClass().getClassLoader().getResource(templatePath),
+					"utf-8");
+			Template template = engine.getTemplate(templateContext);
+			render = template.render(data);
+		}
+		catch (Exception e) {
+			System.out.println("templatePath:" + templatePath + "出现异常了");
+			e.printStackTrace();
+		}
+		return render;
+	}
 
 }

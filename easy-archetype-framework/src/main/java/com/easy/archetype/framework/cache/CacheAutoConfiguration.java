@@ -16,12 +16,11 @@ import org.springframework.context.annotation.Import;
  * @since 2021/1/21
  **/
 @ConditionalOnBean(annotation = EnableCaching.class)
-@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "cache.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "cache.enable", havingValue = "true",
+		matchIfMissing = true)
 @Configuration
 @EnableConfigurationProperties(CacheProperties.class)
-@Import({CacheConfig.class,RedisCacheAutoConfiguration.class})
+@Import({ CacheConfig.class, RedisCacheAutoConfiguration.class })
 public class CacheAutoConfiguration {
-
-
 
 }

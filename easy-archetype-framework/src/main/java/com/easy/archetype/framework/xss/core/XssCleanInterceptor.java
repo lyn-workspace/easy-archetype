@@ -21,37 +21,39 @@ import javax.servlet.http.HttpServletResponse;
 @RequiredArgsConstructor
 public class XssCleanInterceptor extends HandlerInterceptorAdapter {
 
+	private final XssProperties xssProperties;
 
-    private final XssProperties xssProperties;
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		// 1. 没有开启
+		if (!xssProperties.isEnable()) {
+			return true;
+		}
+		// 2. 非控制器直接跳出
+		if (!(handler instanceof HandlerMethod)) {
+			return true;
+		}
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // 1. 没有开启
-        if (!xssProperties.isEnable()) {
-            return true;
-        }
-        // 2. 非控制器直接跳出
-        if (!(handler instanceof HandlerMethod)) {
-            return true;
-        }
+		// 3. 只过滤 POST PUT
+		if (!StrUtil.equalsAnyIgnoreCase(request.getMethod(), HttpMethod.POST.name(), HttpMethod.PUT.name())) {
+			return true;
+		}
 
-        // 3. 只过滤 POST PUT
-        if (!StrUtil.equalsAnyIgnoreCase(request.getMethod(), HttpMethod.POST.name(), HttpMethod.PUT.name())) {
-            return true;
-        }
+		// 4. 处理 XssIgnore 注解
+		HandlerMethod handlerMethod = (HandlerMethod) handler;
+		XssCleanIgnore xssCleanIgnore = AnnotationUtils.findAnnotation(handlerMethod.getMethod(), XssCleanIgnore.class);
+		if (xssCleanIgnore == null) {
+			XssHolder.setEnable();
+		}
+		return true;
 
-        // 4. 处理 XssIgnore 注解
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
-        XssCleanIgnore xssCleanIgnore = AnnotationUtils.findAnnotation(handlerMethod.getMethod(), XssCleanIgnore.class);
-        if (xssCleanIgnore == null) {
-            XssHolder.setEnable();
-        }
-        return true;
+	}
 
-    }
+	@Override
+	public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		XssHolder.remove();
+	}
 
-    @Override
-    public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        XssHolder.remove();
-    }
 }

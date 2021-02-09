@@ -10,26 +10,26 @@ import lombok.Data;
  **/
 @Data
 public class OutputFile {
-    /**
-     * 输出文件名称
-     *
-     * @since 2021/2/1
-     */
-    private String fileName;
 
+	/**
+	 * 输出文件名称
+	 *
+	 * @since 2021/2/1
+	 */
+	private String fileName;
 
-    /**
-     * 输出文件路径
-     *
-     * @since 2021/2/1
-     */
-    private String filePath;
+	/**
+	 * 输出文件路径
+	 *
+	 * @since 2021/2/1
+	 */
+	private String filePath;
 
+	/**
+	 * 输出内容
+	 *
+	 * @since 2021/2/1
+	 */
+	private String content;
 
-    /**
-     * 输出内容
-     *
-     * @since 2021/2/1
-     */
-    private String content;
 }

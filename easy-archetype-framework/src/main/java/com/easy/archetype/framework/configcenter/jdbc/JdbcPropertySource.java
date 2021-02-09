@@ -31,67 +31,66 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class JdbcPropertySource implements PropertySource {
 
-    /**
-     * 默认的分组
-     *
-     * @since 2021/1/30
-     */
-    private static final String DEFAULT_GROUP = "default";
-    private DataSource dataSource;
+	/**
+	 * 默认的分组
+	 *
+	 * @since 2021/1/30
+	 */
+	private static final String DEFAULT_GROUP = "default";
 
-    /**
-     * 分组
-     *
-     * @since 2021/1/30
-     */
-    private String group;
+	private DataSource dataSource;
 
-    public JdbcPropertySource(DataSource dataSource, String group) {
-        this.dataSource = dataSource;
-        this.group = group;
-    }
+	/**
+	 * 分组
+	 *
+	 * @since 2021/1/30
+	 */
+	private String group;
 
-    private String sql = "select id,group_name,config_key,config_value,remark,create_time,update_time from cc_config";
+	public JdbcPropertySource(DataSource dataSource, String group) {
+		this.dataSource = dataSource;
+		this.group = group;
+	}
 
-    @SneakyThrows
-    @Override
-    public Map<String, Object> properties() {
-        List<ConfigEntity> configs = null;
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            configs =
-                    SqlExecutor.query(connection, sql, (RsHandler<List<ConfigEntity>>) rs -> {
-                        List<ConfigEntity> configEntities = new ArrayList<>();
-                        while (rs.next()) {
-                            ConfigEntity configEntity = new ConfigEntity();
-                            for (Field declaredField : ConfigEntity.class.getDeclaredFields()) {
-                                String name = declaredField.getName();
-                                // 转换为数据库字段
-                                String s = StrUtil.toSymbolCase(name, '_');
-                                Object object = rs.getObject(s);
-                                ReflectUtil.setFieldValue(configEntity, name, object);
-                            }
-                            configEntities.add(configEntity);
-                        }
-                        return configEntities;
-                    });
+	private String sql = "select id,group_name,config_key,config_value,remark,create_time,update_time from cc_config";
 
+	@SneakyThrows
+	@Override
+	public Map<String, Object> properties() {
+		List<ConfigEntity> configs = null;
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			configs = SqlExecutor.query(connection, sql, (RsHandler<List<ConfigEntity>>) rs -> {
+				List<ConfigEntity> configEntities = new ArrayList<>();
+				while (rs.next()) {
+					ConfigEntity configEntity = new ConfigEntity();
+					for (Field declaredField : ConfigEntity.class.getDeclaredFields()) {
+						String name = declaredField.getName();
+						// 转换为数据库字段
+						String s = StrUtil.toSymbolCase(name, '_');
+						Object object = rs.getObject(s);
+						ReflectUtil.setFieldValue(configEntity, name, object);
+					}
+					configEntities.add(configEntity);
+				}
+				return configEntities;
+			});
 
-        } finally {
-            if (null != connection) {
-                connection.close();
-            }
-        }
-        Map<String, Object> properties = new HashMap<>(16);
+		}
+		finally {
+			if (null != connection) {
+				connection.close();
+			}
+		}
+		Map<String, Object> properties = new HashMap<>(16);
 
-        if (CollectionUtil.isNotEmpty(configs)) {
-            configs.stream().forEach(a -> {
-                properties.put(a.getConfigKey(), a.getConfigValue());
-            });
-        }
-        return properties;
-    }
-
+		if (CollectionUtil.isNotEmpty(configs)) {
+			configs.stream().forEach(a -> {
+				properties.put(a.getConfigKey(), a.getConfigValue());
+			});
+		}
+		return properties;
+	}
 
 }

@@ -18,11 +18,12 @@ import javax.sql.DataSource;
 @Configuration
 public class PropertySourceConfiguration {
 
-    @Value("${spring.application.name}")
-    private String applicationName;
+	@Value("${spring.application.name}")
+	private String applicationName;
 
-//    @Bean
-//    public PropertySource propertySource(DataSource dataSource) {
-//        return new JdbcPropertySource(dataSource, applicationName);
-//    }
+	// @Bean
+	// public PropertySource propertySource(DataSource dataSource) {
+	// return new JdbcPropertySource(dataSource, applicationName);
+	// }
+
 }

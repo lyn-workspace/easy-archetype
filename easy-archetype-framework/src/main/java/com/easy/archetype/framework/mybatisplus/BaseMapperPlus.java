@@ -13,23 +13,21 @@ import org.apache.ibatis.annotations.Param;
  **/
 public interface BaseMapperPlus<T> extends BaseMapper<T> {
 
-    /**
-     * 根据实体条件逻辑删除并填充字段
-     *
-     * @param params 删除条件
-     * @return int
-     * @since 2021/1/21
-     */
-    int deleteByIdWithFill(T params);
+	/**
+	 * 根据实体条件逻辑删除并填充字段
+	 * @param params 删除条件
+	 * @return int
+	 * @since 2021/1/21
+	 */
+	int deleteByIdWithFill(T params);
 
+	/**
+	 * 批量逻辑删除并填充字段
+	 * @param param
+	 * @param wrapper
+	 * @return int
+	 * @since 2021/1/21
+	 */
+	int batchDeleteWithFill(@Param(Constants.ENTITY) T param, @Param(Constants.WRAPPER) Wrapper<T> wrapper);
 
-    /**
-     * 批量逻辑删除并填充字段
-     *
-     * @param param
-     * @param wrapper
-     * @return int
-     * @since 2021/1/21
-     */
-    int batchDeleteWithFill(@Param(Constants.ENTITY) T param, @Param(Constants.WRAPPER) Wrapper<T> wrapper);
 }

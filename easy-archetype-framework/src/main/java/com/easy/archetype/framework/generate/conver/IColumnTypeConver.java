@@ -9,13 +9,12 @@ package com.easy.archetype.framework.generate.conver;
 @FunctionalInterface
 public interface IColumnTypeConver {
 
+	/**
+	 * 根据数据库类型查询Java类型
+	 * @param jdbcType 数据库类型
+	 * @return com.easy.archetype.framework.generate.conver.IColumnType
+	 * @since 2021/1/31
+	 */
+	IColumnType convert(String jdbcType);
 
-    /**
-     * 根据数据库类型查询Java类型
-     *
-     * @param jdbcType 数据库类型
-     * @return com.easy.archetype.framework.generate.conver.IColumnType
-     * @since 2021/1/31
-     */
-    IColumnType convert(String jdbcType);
 }

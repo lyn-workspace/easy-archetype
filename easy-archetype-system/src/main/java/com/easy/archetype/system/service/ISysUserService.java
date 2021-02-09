@@ -12,12 +12,12 @@ import com.easy.archetype.system.entity.SysUserDo;
  */
 public interface ISysUserService {
 
-    /**
-     * 根据用户id查询
-     *
-     * @param userId 用户id
-     * @return com.easy.archetype.system.entity.SysUserDo
-     * @since 2021/2/4
-     */
-    SysUserDo findById(Long userId);
+	/**
+	 * 根据用户id查询
+	 * @param userId 用户id
+	 * @return com.easy.archetype.system.entity.SysUserDo
+	 * @since 2021/2/4
+	 */
+	SysUserDo findById(Long userId);
+
 }

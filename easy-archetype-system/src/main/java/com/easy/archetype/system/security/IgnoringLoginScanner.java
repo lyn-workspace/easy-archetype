@@ -23,38 +23,37 @@ import java.util.Set;
 @Component
 public class IgnoringLoginScanner implements InitializingBean, ServletContextAware {
 
-    private Set<String> ignoringLoginUrl = new HashSet<>();
-    @Autowired
-    private RequestMappingHandlerMapping requestMappingHandlerMapping;
+	private Set<String> ignoringLoginUrl = new HashSet<>();
 
-    @Override
-    public void afterPropertiesSet() {
+	@Autowired
+	private RequestMappingHandlerMapping requestMappingHandlerMapping;
 
-    }
+	@Override
+	public void afterPropertiesSet() {
 
-    @Override
-    public void setServletContext(ServletContext servletContext) {
+	}
 
+	@Override
+	public void setServletContext(ServletContext servletContext) {
 
-        Map<RequestMappingInfo, HandlerMethod> handlerMethods = requestMappingHandlerMapping.getHandlerMethods();
-        if (CollectionUtil.isNotEmpty(handlerMethods)) {
-            for (Map.Entry<RequestMappingInfo, HandlerMethod> entry : handlerMethods.entrySet()) {
+		Map<RequestMappingInfo, HandlerMethod> handlerMethods = requestMappingHandlerMapping.getHandlerMethods();
+		if (CollectionUtil.isNotEmpty(handlerMethods)) {
+			for (Map.Entry<RequestMappingInfo, HandlerMethod> entry : handlerMethods.entrySet()) {
 
-                HandlerMethod method = entry.getValue();
-                if (method.hasMethodAnnotation(IgnoringLogin.class) ||
-                        method.getMethod().getDeclaringClass().isAnnotationPresent(IgnoringLogin.class)) {
-                    Set<String> patterns = entry.getKey().getPatternsCondition().getPatterns();
-                    ignoringLoginUrl.addAll(patterns);
+				HandlerMethod method = entry.getValue();
+				if (method.hasMethodAnnotation(IgnoringLogin.class)
+						|| method.getMethod().getDeclaringClass().isAnnotationPresent(IgnoringLogin.class)) {
+					Set<String> patterns = entry.getKey().getPatternsCondition().getPatterns();
+					ignoringLoginUrl.addAll(patterns);
 
-                }
-            }
-        }
+				}
+			}
+		}
 
-    }
+	}
 
-    public Set<String> getIgnoringLoginUrl() {
-        return ignoringLoginUrl;
-    }
-
+	public Set<String> getIgnoringLoginUrl() {
+		return ignoringLoginUrl;
+	}
 
 }

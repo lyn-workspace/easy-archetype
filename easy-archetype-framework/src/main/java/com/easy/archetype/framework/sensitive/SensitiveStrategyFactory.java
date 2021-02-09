@@ -13,17 +13,19 @@ import java.util.Map;
  * @since 2021/2/8
  **/
 public class SensitiveStrategyFactory {
-    public static Map<Class<? extends SensitiveStrategy>, SensitiveStrategy> cache = new HashMap<>();
 
-    @SneakyThrows
-    public static SensitiveStrategy get(Class<? extends SensitiveStrategy> sensitiveStrategy) {
-        Assert.isNull(sensitiveStrategy, "脱敏策略不能为空");
-        SensitiveStrategy strategy = cache.get(sensitiveStrategy);
-        if (null == strategy) {
-            // 默认实例化一个
-            strategy = sensitiveStrategy.newInstance();
-            cache.put(sensitiveStrategy, strategy);
-        }
-        return strategy;
-    }
+	public static Map<Class<? extends SensitiveStrategy>, SensitiveStrategy> cache = new HashMap<>();
+
+	@SneakyThrows
+	public static SensitiveStrategy get(Class<? extends SensitiveStrategy> sensitiveStrategy) {
+		Assert.isNull(sensitiveStrategy, "脱敏策略不能为空");
+		SensitiveStrategy strategy = cache.get(sensitiveStrategy);
+		if (null == strategy) {
+			// 默认实例化一个
+			strategy = sensitiveStrategy.newInstance();
+			cache.put(sensitiveStrategy, strategy);
+		}
+		return strategy;
+	}
+
 }

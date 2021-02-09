@@ -16,21 +16,20 @@ import java.util.Collections;
  **/
 public class ConstomerCacheResolver extends AbstractCacheResolver {
 
-    public ConstomerCacheResolver() {
-    }
+	public ConstomerCacheResolver() {
+	}
 
-    public ConstomerCacheResolver(CacheManager cacheManager) {
-        super(cacheManager);
-    }
+	public ConstomerCacheResolver(CacheManager cacheManager) {
+		super(cacheManager);
+	}
 
-    @Override
-    protected Collection<String> getCacheNames(CacheOperationInvocationContext<?> context) {
-        Collection<String> cacheNames = (context.getOperation().getCacheNames() == null
-                || context.getOperation().getCacheNames().size() == 0) ?
-                Collections.singleton(context.getTarget().getClass().getName()) :
-                context.getOperation().getCacheNames();
-        return cacheNames;
-    }
-
+	@Override
+	protected Collection<String> getCacheNames(CacheOperationInvocationContext<?> context) {
+		Collection<String> cacheNames = (context.getOperation().getCacheNames() == null
+				|| context.getOperation().getCacheNames().size() == 0)
+						? Collections.singleton(context.getTarget().getClass().getName())
+						: context.getOperation().getCacheNames();
+		return cacheNames;
+	}
 
 }

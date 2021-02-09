@@ -17,22 +17,24 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CurrUserServiceImpl implements CurrUserService {
-    @Override
-    public Long userId() {
-        return user().getUserId();
-    }
 
-    @Override
-    public CurrUserVo user() {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	@Override
+	public Long userId() {
+		return user().getUserId();
+	}
 
-        if (null == userDetails) {
-            return null;
-        }
-        String username = userDetails.getUsername();
-        if (StrUtil.isBlank(username)) {
-            return null;
-        }
-        return JSON.parseObject(username, CurrUserVo.class);
-    }
+	@Override
+	public CurrUserVo user() {
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (null == userDetails) {
+			return null;
+		}
+		String username = userDetails.getUsername();
+		if (StrUtil.isBlank(username)) {
+			return null;
+		}
+		return JSON.parseObject(username, CurrUserVo.class);
+	}
+
 }

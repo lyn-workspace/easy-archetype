@@ -1,14 +1,15 @@
 package com.easy.archetype.system.entity;
 
-import java.util.Date ;
-import  io.swagger.annotations.ApiModelProperty ;
-import io.swagger.annotations.ApiModel ;
-import com.baomidou.mybatisplus.annotation.* ;
+import java.util.Date;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
+import com.baomidou.mybatisplus.annotation.*;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * 字典数据表
@@ -16,102 +17,100 @@ import lombok.NoArgsConstructor;
  *
  * @author luyanan
  * @since 2021-02-03
-*/
+ */
 @ApiModel(value = "字典数据表")
 @TableName("sys_dict_data")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysDictDataDo implements Serializable{
+public class SysDictDataDo implements Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-    * 字典编码
-    */
-    @ApiModelProperty(value = "字典编码")
-    @TableId(type = IdType.AUTO)
-    private Long dictCode;
+	/**
+	 * 字典编码
+	 */
+	@ApiModelProperty(value = "字典编码")
+	@TableId(type = IdType.AUTO)
+	private Long dictCode;
 
-    /**
-    * 字典排序
-    */
-    @ApiModelProperty(value = "字典排序")
-    private Integer dictSort;
+	/**
+	 * 字典排序
+	 */
+	@ApiModelProperty(value = "字典排序")
+	private Integer dictSort;
 
-    /**
-    * 字典标签
-    */
-    @ApiModelProperty(value = "字典标签")
-    private String dictLabel;
+	/**
+	 * 字典标签
+	 */
+	@ApiModelProperty(value = "字典标签")
+	private String dictLabel;
 
-    /**
-    * 字典键值
-    */
-    @ApiModelProperty(value = "字典键值")
-    private String dictValue;
+	/**
+	 * 字典键值
+	 */
+	@ApiModelProperty(value = "字典键值")
+	private String dictValue;
 
-    /**
-    * 字典类型
-    */
-    @ApiModelProperty(value = "字典类型")
-    private String dictType;
+	/**
+	 * 字典类型
+	 */
+	@ApiModelProperty(value = "字典类型")
+	private String dictType;
 
-    /**
-    * 样式属性（其他样式扩展）
-    */
-    @ApiModelProperty(value = "样式属性（其他样式扩展）")
-    private String cssClass;
+	/**
+	 * 样式属性（其他样式扩展）
+	 */
+	@ApiModelProperty(value = "样式属性（其他样式扩展）")
+	private String cssClass;
 
-    /**
-    * 表格回显样式
-    */
-    @ApiModelProperty(value = "表格回显样式")
-    private String listClass;
+	/**
+	 * 表格回显样式
+	 */
+	@ApiModelProperty(value = "表格回显样式")
+	private String listClass;
 
-    /**
-    * 是否默认（Y是 N否）
-    */
-    @ApiModelProperty(value = "是否默认（Y是 N否）")
-    private String isDefault;
+	/**
+	 * 是否默认（Y是 N否）
+	 */
+	@ApiModelProperty(value = "是否默认（Y是 N否）")
+	private String isDefault;
 
-    /**
-    * 状态（0正常 1停用）
-    */
-    @ApiModelProperty(value = "状态（0正常 1停用）")
-    private String status;
+	/**
+	 * 状态（0正常 1停用）
+	 */
+	@ApiModelProperty(value = "状态（0正常 1停用）")
+	private String status;
 
-    /**
-    * 创建者
-    */
-    @ApiModelProperty(value = "创建者")
-    private String createBy;
+	/**
+	 * 创建者
+	 */
+	@ApiModelProperty(value = "创建者")
+	private String createBy;
 
-    /**
-    * 创建时间
-    */
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
+	/**
+	 * 创建时间
+	 */
+	@ApiModelProperty(value = "创建时间")
+	private Date createTime;
 
-    /**
-    * 更新者
-    */
-    @ApiModelProperty(value = "更新者")
-    private String updateBy;
+	/**
+	 * 更新者
+	 */
+	@ApiModelProperty(value = "更新者")
+	private String updateBy;
 
-    /**
-    * 更新时间
-    */
-    @ApiModelProperty(value = "更新时间")
-    private Date updateTime;
+	/**
+	 * 更新时间
+	 */
+	@ApiModelProperty(value = "更新时间")
+	private Date updateTime;
 
-    /**
-    * 备注
-    */
-    @ApiModelProperty(value = "备注")
-    private String remark;
-
-
+	/**
+	 * 备注
+	 */
+	@ApiModelProperty(value = "备注")
+	private String remark;
 
 }

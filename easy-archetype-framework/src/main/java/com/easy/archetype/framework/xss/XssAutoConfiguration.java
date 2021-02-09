@@ -24,24 +24,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableConfigurationProperties(XssProperties.class)
 @ConditionalOnProperty(value = XssProperties.PREFIX + ".enable", havingValue = "true", matchIfMissing = true)
 public class XssAutoConfiguration implements WebMvcConfigurer {
-    private final XssProperties xssProperties;
 
-    @Bean
-    public FormXssClean formXssClean() {
-        return new FormXssClean();
-    }
+	private final XssProperties xssProperties;
 
-    @Bean
-    public Jackson2ObjectMapperBuilderCustomizer xssJacksonCustomizer() {
-        return builder -> builder.deserializerByType(String.class, new JacksonXssClean());
-    }
+	@Bean
+	public FormXssClean formXssClean() {
+		return new FormXssClean();
+	}
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        XssCleanInterceptor interceptor = new XssCleanInterceptor(xssProperties);
-        registry.addInterceptor(interceptor).addPathPatterns(xssProperties.getPathPatterns())
-                .excludePathPatterns(xssProperties.getExcludePatterns()).order(Ordered.LOWEST_PRECEDENCE);
-    }
+	@Bean
+	public Jackson2ObjectMapperBuilderCustomizer xssJacksonCustomizer() {
+		return builder -> builder.deserializerByType(String.class, new JacksonXssClean());
+	}
 
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		XssCleanInterceptor interceptor = new XssCleanInterceptor(xssProperties);
+		registry.addInterceptor(interceptor).addPathPatterns(xssProperties.getPathPatterns())
+				.excludePathPatterns(xssProperties.getExcludePatterns()).order(Ordered.LOWEST_PRECEDENCE);
+	}
 
 }

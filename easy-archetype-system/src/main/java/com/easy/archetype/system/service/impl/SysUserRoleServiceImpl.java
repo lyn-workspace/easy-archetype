@@ -21,13 +21,13 @@ import java.util.Optional;
 @Service
 public class SysUserRoleServiceImpl implements ISysUserRoleService {
 
+	@Autowired
+	private ISysUserRoleManage sysUserRoleManage;
 
-    @Autowired
-    private ISysUserRoleManage sysUserRoleManage;
+	@Override
+	public List<SysUserRoleDo> list(SysUserRoleDo sysUserRoleDo) {
+		return Optional.ofNullable(sysUserRoleManage.list(sysUserRoleDo)).orElse(new ArrayList<>());
 
-    @Override
-    public List<SysUserRoleDo> list(SysUserRoleDo sysUserRoleDo) {
-        return Optional.ofNullable(sysUserRoleManage.list(sysUserRoleDo)).orElse(new ArrayList<>());
+	}
 
-    }
 }

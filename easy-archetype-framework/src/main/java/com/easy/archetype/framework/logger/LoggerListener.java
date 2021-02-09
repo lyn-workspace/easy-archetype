@@ -15,21 +15,20 @@ import org.springframework.scheduling.annotation.Async;
 @Slf4j
 public class LoggerListener {
 
+	private ObjectProvider<LoggerHandler> loggerHandlers;
 
-    private ObjectProvider<LoggerHandler> loggerHandlers;
+	public LoggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
+		this.loggerHandlers = loggerHandlers;
+	}
 
+	@Async
+	@Order
+	@EventListener
+	public void listener(LoggerEvent loggerEvent) {
+		LoggerVo loggerVo = (LoggerVo) loggerEvent.getSource();
+		loggerHandlers.orderedStream().forEach(loggerHandler -> {
+			loggerHandler.handler(loggerVo);
+		});
+	}
 
-    public LoggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
-        this.loggerHandlers = loggerHandlers;
-    }
-
-    @Async
-    @Order
-    @EventListener
-    public void listener(LoggerEvent loggerEvent) {
-        LoggerVo loggerVo = (LoggerVo) loggerEvent.getSource();
-        loggerHandlers.orderedStream().forEach(loggerHandler -> {
-            loggerHandler.handler(loggerVo);
-        });
-    }
 }

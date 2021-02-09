@@ -13,12 +13,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(SystemProperties.PERFIX)
 public class SystemProperties {
 
-    public static final String PERFIX = "system";
+	public static final String PERFIX = "system";
 
-    /**
-     * 验证码类型
-     *
-     * @since 2021/2/4
-     */
-    private String captchaType;
+	/**
+	 * 验证码类型
+	 *
+	 * @since 2021/2/4
+	 */
+	private String captchaType;
+
 }

@@ -19,13 +19,12 @@ import java.util.List;
 @Mapper
 public interface SysRoleMapper extends BaseMapperPlus<SysRoleDo> {
 
+	/**
+	 * 根据用户id查询角色
+	 * @param userId 用户id
+	 * @return java.util.List<com.easy.archetype.system.entity.SysRoleDo>
+	 * @since 2021/2/4
+	 */
+	List<SysRoleDo> selectRolePermissionByUserId(@Param("userId") Long userId);
 
-    /**
-     * 根据用户id查询角色
-     *
-     * @param userId 用户id
-     * @return java.util.List<com.easy.archetype.system.entity.SysRoleDo>
-     * @since 2021/2/4
-     */
-    List<SysRoleDo> selectRolePermissionByUserId(@Param("userId") Long userId);
 }

@@ -19,92 +19,83 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author luyanan
  * @since 2021/1/20
  **/
-public abstract class AbstractManageImpl<M extends BaseMapperPlus<T>, T> extends ServiceImpl<M, T> implements IManage<T> {
+public abstract class AbstractManageImpl<M extends BaseMapperPlus<T>, T> extends ServiceImpl<M, T>
+		implements IManage<T> {
 
+	@Autowired
+	protected M baseMapper;
 
-    @Autowired
-    protected M baseMapper;
+	/**
+	 * Lambda 查询条件构造器
+	 * @param entity 实体条件
+	 * @return com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<T>
+	 * @since 2021/1/20
+	 */
+	protected LambdaQueryWrapper<T> lambdaQueryWrapper(T entity) {
+		return queryWrapper(entity).lambda();
+	}
 
+	/**
+	 * 查询条件构造器
+	 * @param entity 实体条件
+	 * @return com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
+	 * @since 2021/1/20
+	 */
+	protected QueryWrapper<T> queryWrapper(T entity) {
+		QueryWrapper queryWrapper = new QueryWrapper();
+		return queryWrapper;
+	}
 
-    /**
-     * Lambda 查询条件构造器
-     *
-     * @param entity 实体条件
-     * @return com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<T>
-     * @since 2021/1/20
-     */
-    protected LambdaQueryWrapper<T> lambdaQueryWrapper(T entity) {
-        return queryWrapper(entity).lambda();
-    }
+	/**
+	 * 修改条件构造器
+	 * @param entity 实体条件
+	 * @return com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper<T>
+	 * @since 2021/1/20
+	 */
+	protected UpdateWrapper<T> updateWrapper(T entity) {
+		return new UpdateWrapper<>(entity);
+	}
 
+	/**
+	 * 修改条件构造器
+	 * @param entity 实体条件
+	 * @return com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper<T>
+	 * @since 2021/1/20
+	 */
+	protected LambdaUpdateWrapper<T> lambdaUpdateWrapper(T entity) {
+		return updateWrapper(entity).lambda();
+	}
 
-    /**
-     * 查询条件构造器
-     *
-     * @param entity 实体条件
-     * @return com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
-     * @since 2021/1/20
-     */
-    protected QueryWrapper<T> queryWrapper(T entity) {
-        QueryWrapper queryWrapper = new QueryWrapper();
-        return queryWrapper;
-    }
+	@Override
+	public boolean updateById(T entity) {
+		return false;
+	}
 
-    /**
-     * 修改条件构造器
-     *
-     * @param entity 实体条件
-     * @return com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper<T>
-     * @since 2021/1/20
-     */
-    protected UpdateWrapper<T> updateWrapper(T entity) {
-        return new UpdateWrapper<>(entity);
-    }
+	/**
+	 * 获取分页IPage
+	 * @param requestParams 分页请求参数
+	 * @param queryWrapper 条件
+	 * @return com.baomidou.mybatisplus.core.metadata.IPage
+	 * @since 2021/1/21
+	 */
+	public <E extends IPage<T>> IPage toPage(PageRequestParams<T> requestParams, Wrapper<T> queryWrapper) {
+		IPage<T> page = new Page<>(requestParams.getPage(), requestParams.getSize());
+		page = this.baseMapper.selectPage(page, queryWrapper);
+		return page;
+	}
 
-    /**
-     * 修改条件构造器
-     *
-     * @param entity 实体条件
-     * @return com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper<T>
-     * @since 2021/1/20
-     */
-    protected LambdaUpdateWrapper<T> lambdaUpdateWrapper(T entity) {
-        return updateWrapper(entity).lambda();
-    }
-
-
-    @Override
-    public boolean updateById(T entity) {
-        return false;
-    }
-
-
-    /**
-     * 获取分页IPage
-     *
-     * @param requestParams 分页请求参数
-     * @param queryWrapper  条件
-     * @return com.baomidou.mybatisplus.core.metadata.IPage
-     * @since 2021/1/21
-     */
-    public <E extends IPage<T>> IPage toPage(PageRequestParams<T> requestParams, Wrapper<T> queryWrapper) {
-        IPage<T> page = new Page<>(requestParams.getPage(), requestParams.getSize());
-        page = this.baseMapper.selectPage(page, queryWrapper);
-        return page;
-    }
-
-    /**
-     * 获取分页的结果
-     *
-     * @param pageRequestParams 分页请求参数
-     * @param queryWrapper      条件构造器
-     * @return com.easy.archetype.framework.core.PageInfo<T>
-     * @since 2021/1/21
-     */
-    public <E extends IPage<T>> PageInfo<T> toPageInfo(PageRequestParams<T> pageRequestParams, Wrapper<T> queryWrapper) {
-        IPage page = toPage(pageRequestParams, queryWrapper);
-        PageInfo<T> pageInfo = new PageInfo<T>(page.getRecords(), page.getTotal(), pageRequestParams);
-        return pageInfo;
-    }
+	/**
+	 * 获取分页的结果
+	 * @param pageRequestParams 分页请求参数
+	 * @param queryWrapper 条件构造器
+	 * @return com.easy.archetype.framework.core.PageInfo<T>
+	 * @since 2021/1/21
+	 */
+	public <E extends IPage<T>> PageInfo<T> toPageInfo(PageRequestParams<T> pageRequestParams,
+			Wrapper<T> queryWrapper) {
+		IPage page = toPage(pageRequestParams, queryWrapper);
+		PageInfo<T> pageInfo = new PageInfo<T>(page.getRecords(), page.getTotal(), pageRequestParams);
+		return pageInfo;
+	}
 
 }

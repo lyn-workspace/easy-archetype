@@ -16,62 +16,62 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ThreadPoolMonitorVo {
-    /**
-     * 线程类前缀
-     *
-     * @since 2021/1/22
-     */
-    private String threadNamePrefix;
 
-    /**
-     * 线程总数
-     *
-     * @since 2021/1/22
-     */
-    private Long taskCount;
+	/**
+	 * 线程类前缀
+	 *
+	 * @since 2021/1/22
+	 */
+	private String threadNamePrefix;
 
-    /**
-     * 已经完成的线程数量
-     *
-     * @since 2021/1/22
-     */
-    private Long completedTaskCount;
+	/**
+	 * 线程总数
+	 *
+	 * @since 2021/1/22
+	 */
+	private Long taskCount;
 
-    /**
-     * 活跃线程数量
-     *
-     * @since 2021/1/22
-     */
-    private Integer activeCount;
+	/**
+	 * 已经完成的线程数量
+	 *
+	 * @since 2021/1/22
+	 */
+	private Long completedTaskCount;
 
-    /**
-     * 队列大小
-     *
-     * @since 2021/1/22
-     */
-    private Integer queueSize;
+	/**
+	 * 活跃线程数量
+	 *
+	 * @since 2021/1/22
+	 */
+	private Integer activeCount;
 
-    /**
-     * 拒绝策略
-     *
-     * @since 2021/1/22
-     */
-    private String rejectedExecutionHandler;
+	/**
+	 * 队列大小
+	 *
+	 * @since 2021/1/22
+	 */
+	private Integer queueSize;
 
-    /**
-     * 核心线程池大小
-     *
-     * @since 2021/1/22
-     */
-    private Integer corePoolSize;
+	/**
+	 * 拒绝策略
+	 *
+	 * @since 2021/1/22
+	 */
+	private String rejectedExecutionHandler;
 
-    /**
-     * 最大线程池大小
-     *
-     * @since 2021/1/22
-     */
+	/**
+	 * 核心线程池大小
+	 *
+	 * @since 2021/1/22
+	 */
+	private Integer corePoolSize;
 
-    private Integer maxPoolSize;
+	/**
+	 * 最大线程池大小
+	 *
+	 * @since 2021/1/22
+	 */
+
+	private Integer maxPoolSize;
+
 }
-
-

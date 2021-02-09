@@ -24,24 +24,20 @@ import java.util.stream.Collectors;
 @Service
 public class SysRoleServiceImpl implements ISysRoleService {
 
+	@Autowired
+	private ISysRoleManage sysRoleManage;
 
-    @Autowired
-    private ISysRoleManage sysRoleManage;
+	@Autowired
+	private ISysUserRoleService sysUserRoleService;
 
+	@Override
+	public List<SysRoleDo> listByUserId(Long userId) {
+		// 根据用户id查询关联的角色id
+		List<SysUserRoleDo> sysUserRoleDos = sysUserRoleService.list(SysUserRoleDo.builder().userId(userId).build());
+		return Optional
+				.ofNullable(sysRoleManage.findByIds(
+						sysUserRoleDos.stream().map(SysUserRoleDo::getRoleId).distinct().collect(Collectors.toList())))
+				.orElse(new ArrayList<>());
+	}
 
-    @Autowired
-    private ISysUserRoleService sysUserRoleService;
-
-    @Override
-    public List<SysRoleDo> listByUserId(Long userId) {
-        // 根据用户id查询关联的角色id
-        List<SysUserRoleDo> sysUserRoleDos = sysUserRoleService.list(SysUserRoleDo.builder().userId(userId).build());
-        return Optional
-                .ofNullable(sysRoleManage.findByIds(sysUserRoleDos
-                        .stream()
-                        .map(SysUserRoleDo::getRoleId)
-                        .distinct()
-                        .collect(Collectors.toList())))
-                .orElse(new ArrayList<>());
-    }
 }

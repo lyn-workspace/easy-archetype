@@ -10,19 +10,19 @@ import com.easy.archetype.framework.generate.template.AbstractTemplate;
  **/
 public class ServiceTemplate extends AbstractTemplate {
 
+	@Override
+	public String templatePath() {
+		return "templates/service.ftl";
+	}
 
-    @Override
-    public String templatePath() {
-        return "templates/service.ftl";
-    }
+	@Override
+	public String fileNameFormat() {
+		return "I%sService";
+	}
 
-    @Override
-    public String fileNameFormat() {
-        return "I%sService";
-    }
+	@Override
+	public String pkg() {
+		return "service";
+	}
 
-    @Override
-    public String pkg() {
-        return "service";
-    }
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 /**
  * <p>
  * 角色和菜单关联表
@@ -16,29 +17,27 @@ import java.io.Serializable;
  *
  * @author luyanan
  * @since 2021-02-03
-*/
+ */
 @ApiModel(value = "角色和菜单关联表")
 @TableName("sys_role_menu")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysRoleMenuDo implements Serializable{
+public class SysRoleMenuDo implements Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-    * 角色ID
-    */
-    @ApiModelProperty(value = "角色ID")
-    private Long roleId;
+	/**
+	 * 角色ID
+	 */
+	@ApiModelProperty(value = "角色ID")
+	private Long roleId;
 
-    /**
-    * 菜单ID
-    */
-    @ApiModelProperty(value = "菜单ID")
-    private Long menuId;
-
-
+	/**
+	 * 菜单ID
+	 */
+	@ApiModelProperty(value = "菜单ID")
+	private Long menuId;
 
 }

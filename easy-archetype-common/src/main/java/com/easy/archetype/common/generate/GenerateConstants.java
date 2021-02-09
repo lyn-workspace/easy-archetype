@@ -8,10 +8,11 @@ package com.easy.archetype.common.generate;
  **/
 public interface GenerateConstants {
 
-    /**
-     * 模板路径
-     *
-     * @since 2021/2/3
-     */
-    String TEMPLATE_PATH = "generate/templates/";
+	/**
+	 * 模板路径
+	 *
+	 * @since 2021/2/3
+	 */
+	String TEMPLATE_PATH = "generate/templates/";
+
 }

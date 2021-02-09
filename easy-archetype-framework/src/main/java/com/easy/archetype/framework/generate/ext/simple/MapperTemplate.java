@@ -14,56 +14,54 @@ import java.util.Map;
  **/
 public class MapperTemplate extends AbstractTemplate {
 
-    /**
-     * 实体类模板配置文件
-     *
-     * @since 2021/2/2
-     */
-    private TemplateConfig entityConfig ;
+	/**
+	 * 实体类模板配置文件
+	 *
+	 * @since 2021/2/2
+	 */
+	private TemplateConfig entityConfig;
 
+	/**
+	 * mybatis plus开关
+	 *
+	 * @since 2021/2/2
+	 */
+	private boolean mybatisPlus = false;
 
-    /**
-     * mybatis plus开关
-     *
-     * @since 2021/2/2
-     */
-    private boolean mybatisPlus = false;
+	public MapperTemplate(TemplateConfig entityConfig, boolean mybatisPlus) {
+		this.entityConfig = entityConfig;
+		this.mybatisPlus = mybatisPlus;
+	}
 
+	public MapperTemplate(TemplateConfig entityConfig) {
+		this.entityConfig = entityConfig;
+	}
 
-    public MapperTemplate(TemplateConfig entityConfig, boolean mybatisPlus) {
-        this.entityConfig = entityConfig;
-        this.mybatisPlus = mybatisPlus;
-    }
+	@Override
+	public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
+		data.put("mybatisPlus", mybatisPlus);
+		data.put("entityConfig", this.entityConfig);
+		if (mybatisPlus) {
+			setImport("com.baomidou.mybatisplus.core.mapper.BaseMapper");
+		}
+		setImport(this.entityConfig.getFullPkg());
+		setImport("org.apache.ibatis.annotations.Mapper");
+		setAnnotations("@Mapper");
+	}
 
-    public MapperTemplate(TemplateConfig entityConfig) {
-        this.entityConfig = entityConfig;
-    }
+	@Override
+	public String templatePath() {
+		return "templates/mapper.ftl";
+	}
 
+	@Override
+	public String fileNameFormat() {
+		return "%sMapper";
+	}
 
-    @Override
-    public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
-        data.put("mybatisPlus", mybatisPlus);
-        data.put("entityConfig", this.entityConfig);
-        if (mybatisPlus) {
-            setImport("com.baomidou.mybatisplus.core.mapper.BaseMapper");
-        }
-        setImport(this.entityConfig.getFullPkg());
-        setImport("org.apache.ibatis.annotations.Mapper");
-        setAnnotations("@Mapper");
-    }
+	@Override
+	public String pkg() {
+		return "mapper";
+	}
 
-    @Override
-    public String templatePath() {
-        return "templates/mapper.ftl";
-    }
-
-    @Override
-    public String fileNameFormat() {
-        return "%sMapper";
-    }
-
-    @Override
-    public String pkg() {
-        return "mapper";
-    }
 }

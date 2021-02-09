@@ -15,16 +15,17 @@ import org.springframework.context.ApplicationListener;
 @RequiredArgsConstructor
 public class ConfigUpdateListener implements ApplicationListener<ConfigUpdateEvent> {
 
-    private ConfigCenter configCenter;
+	private ConfigCenter configCenter;
 
-    @Override
+	@Override
 
-    public void onApplicationEvent(ConfigUpdateEvent event) {
+	public void onApplicationEvent(ConfigUpdateEvent event) {
 
-        log.debug("配置刷新");
-        // 加载配置
-        configCenter.mergeProperties();
-        // 配置刷新
-        configCenter.refresh();
-    }
+		log.debug("配置刷新");
+		// 加载配置
+		configCenter.mergeProperties();
+		// 配置刷新
+		configCenter.refresh();
+	}
+
 }

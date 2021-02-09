@@ -17,18 +17,23 @@ import java.io.IOException;
  **/
 @Slf4j
 public class JacksonXssClean extends JsonDeserializer<String> {
-    @Override
-    public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        // XSS filter
-        String text = jsonParser.getValueAsString();
-        if (text == null) {
-            return null;
-        } else if (XssHolder.isEnabled()) {
-            String value = XssUtil.clean(text);
-            log.trace("Json property value:{} cleaned up by xss, current value is:{}.", text, value);
-            return value;
-        } else {
-            return text;
-        }
-    }
+
+	@Override
+	public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
+			throws IOException, JsonProcessingException {
+		// XSS filter
+		String text = jsonParser.getValueAsString();
+		if (text == null) {
+			return null;
+		}
+		else if (XssHolder.isEnabled()) {
+			String value = XssUtil.clean(text);
+			log.trace("Json property value:{} cleaned up by xss, current value is:{}.", text, value);
+			return value;
+		}
+		else {
+			return text;
+		}
+	}
+
 }

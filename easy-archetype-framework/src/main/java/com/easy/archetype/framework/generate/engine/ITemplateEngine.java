@@ -10,14 +10,13 @@ import java.util.Map;
  **/
 public interface ITemplateEngine {
 
-    /**
-     * 生成模板文件
-     *
-     * @param data         输出到模板的数据
-     * @param templatePath 模板路径
-     * @return java.lang.String
-     * @since 2021/2/1
-     */
-    String process(Map<String, Object> data, String templatePath);
+	/**
+	 * 生成模板文件
+	 * @param data 输出到模板的数据
+	 * @param templatePath 模板路径
+	 * @return java.lang.String
+	 * @since 2021/2/1
+	 */
+	String process(Map<String, Object> data, String templatePath);
 
 }

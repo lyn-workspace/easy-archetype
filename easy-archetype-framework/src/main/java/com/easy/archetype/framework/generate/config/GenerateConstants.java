@@ -8,52 +8,51 @@ package com.easy.archetype.framework.generate.config;
  **/
 public class GenerateConstants {
 
-    /***********内置变量***************/
-    /**
-     * classpath
-     *
-     * @since 2021/1/31
-     */
-    public final static String CLASS_PATH = "classpath:";
+	/*********** 内置变量 ***************/
+	/**
+	 * classpath
+	 *
+	 * @since 2021/1/31
+	 */
+	public final static String CLASS_PATH = "classpath:";
 
+	/**
+	 * 项目所在的路径
+	 *
+	 * @since 2021/1/31
+	 */
+	public final static String PROJECT_PATH = "projectpath:";
 
-    /**
-     * 项目所在的路径
-     *
-     * @since 2021/1/31
-     */
-    public final static String PROJECT_PATH = "projectpath:";
+	/**************** 支持文件格式 **************/
 
-    /****************支持文件格式**************/
+	/**
+	 * properties
+	 *
+	 * @since 2021/1/31
+	 */
+	public final static String PROPERTIES = "properties";
 
-    /**
-     * properties
-     *
-     * @since 2021/1/31
-     */
-    public final static String PROPERTIES = "properties";
+	/**
+	 * yml
+	 *
+	 * @since 2021/1/31
+	 */
+	public final static String YML = "yml";
 
-    /**
-     * yml
-     *
-     * @since 2021/1/31
-     */
-    public final static String YML = "yml";
+	/***************** 其他配置 *******************/
 
-    /*****************其他配置*******************/
+	/**
+	 * 默认的模板的配置文件所在的路径
+	 *
+	 * @since 2021/1/31
+	 */
+	public static final String DEFAULT_PROPERTIES = CLASS_PATH + "generate.properties";
 
-    /**
-     * 默认的模板的配置文件所在的路径
-     *
-     * @since 2021/1/31
-     */
-    public static final String DEFAULT_PROPERTIES = CLASS_PATH + "generate.properties";
+	/**
+	 * 外部配置文件的key
+	 *
+	 * @since 2021/1/31
+	 */
+	public static final String PROPERTIES_SOURCE = "propertiesSource";
 
-
-    /**
-     * 外部配置文件的key
-     *
-     * @since 2021/1/31
-     */
-    public static final String PROPERTIES_SOURCE = "propertiesSource";
 }

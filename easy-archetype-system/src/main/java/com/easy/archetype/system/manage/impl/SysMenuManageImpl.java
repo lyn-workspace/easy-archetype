@@ -22,11 +22,12 @@ import java.util.List;
 @Service
 public class SysMenuManageImpl extends ManageImpl<SysMenuMapper, SysMenuDo> implements ISysMenuManage {
 
-    @Override
-    public List<SysMenuDo> findByIds(Collection<Long> menuIds, List<String> menuType) {
-        LambdaQueryWrapper<SysMenuDo> queryWrapper = lambdaQueryWrapper(null);
-        queryWrapper.in(CollectionUtil.isNotEmpty(menuType), SysMenuDo::getMenuType);
-        queryWrapper.in(CollectionUtil.isNotEmpty(menuIds), SysMenuDo::getMenuId, menuIds);
-        return this.list(queryWrapper);
-    }
+	@Override
+	public List<SysMenuDo> findByIds(Collection<Long> menuIds, List<String> menuType) {
+		LambdaQueryWrapper<SysMenuDo> queryWrapper = lambdaQueryWrapper(null);
+		queryWrapper.in(CollectionUtil.isNotEmpty(menuType), SysMenuDo::getMenuType);
+		queryWrapper.in(CollectionUtil.isNotEmpty(menuIds), SysMenuDo::getMenuId, menuIds);
+		return this.list(queryWrapper);
+	}
+
 }

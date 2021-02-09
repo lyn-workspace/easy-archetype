@@ -14,13 +14,12 @@ import java.util.List;
  */
 public interface ISysUserRoleService {
 
+	/**
+	 * 根据条件查询
+	 * @param sysUserRoleDo
+	 * @return java.util.List<com.easy.archetype.system.entity.SysUserRoleDo>
+	 * @since 2021/2/4
+	 */
+	List<SysUserRoleDo> list(SysUserRoleDo sysUserRoleDo);
 
-    /**
-     * 根据条件查询
-     *
-     * @param sysUserRoleDo
-     * @return java.util.List<com.easy.archetype.system.entity.SysUserRoleDo>
-     * @since 2021/2/4
-     */
-    List<SysUserRoleDo> list(SysUserRoleDo sysUserRoleDo);
 }

@@ -13,12 +13,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties(prefix = ConfigCenterProperties.PREFIX)
 public class ConfigCenterProperties {
-    public static final String PREFIX = EasyArchetypeFrameworkProperties.PREFIX + ".config.center";
 
-    /**
-     * 是否开启
-     *
-     * @since 2021/1/30
-     */
-    private Boolean enable;
+	public static final String PREFIX = EasyArchetypeFrameworkProperties.PREFIX + ".config.center";
+
+	/**
+	 * 是否开启
+	 *
+	 * @since 2021/1/30
+	 */
+	private Boolean enable;
+
 }

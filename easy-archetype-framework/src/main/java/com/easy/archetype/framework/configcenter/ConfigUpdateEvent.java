@@ -9,13 +9,14 @@ import org.springframework.context.ApplicationEvent;
  * @since 2021/1/29
  **/
 public class ConfigUpdateEvent extends ApplicationEvent {
-    /**
-     * Create a new {@code ApplicationEvent}.
-     *
-     * @param source the object on which the event initially occurred or with
-     *               which the event is associated (never {@code null})
-     */
-    public ConfigUpdateEvent(Object source) {
-        super(source);
-    }
+
+	/**
+	 * Create a new {@code ApplicationEvent}.
+	 * @param source the object on which the event initially occurred or with which the
+	 * event is associated (never {@code null})
+	 */
+	public ConfigUpdateEvent(Object source) {
+		super(source);
+	}
+
 }

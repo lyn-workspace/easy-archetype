@@ -23,27 +23,25 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Configuration(proxyBeanMethods = false)
 public class LoggerAutoConfiguration {
 
+	@Bean
+	@ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "loggerPrint", havingValue = "true")
+	public LoggerHandler loggerHandler() {
+		return new WebLoggerHandlerPrint();
+	}
 
-    @Bean
-    @ConditionalOnProperty(prefix = LoggerProperties.PREFIX, name = "loggerPrint", havingValue = "true")
-    public LoggerHandler loggerHandler() {
-        return new WebLoggerHandlerPrint();
-    }
+	@Bean
+	public LoggerListener loggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
+		return new LoggerListener(loggerHandlers);
+	}
 
-    @Bean
-    public LoggerListener loggerListener(ObjectProvider<LoggerHandler> loggerHandlers) {
-        return new LoggerListener(loggerHandlers);
-    }
+	@Bean
+	public LoggerAspect loggerAspect() {
+		return new LoggerAspect();
+	}
 
-    @Bean
-    public LoggerAspect loggerAspect() {
-        return new LoggerAspect();
-    }
-
-    @Bean
-    public ApplicationLoggerInitializer applicationLoggerInitializer() {
-        return new ApplicationLoggerInitializer();
-    }
-
+	@Bean
+	public ApplicationLoggerInitializer applicationLoggerInitializer() {
+		return new ApplicationLoggerInitializer();
+	}
 
 }

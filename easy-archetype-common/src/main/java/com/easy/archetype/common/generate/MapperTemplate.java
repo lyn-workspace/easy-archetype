@@ -13,24 +13,24 @@ import java.util.Map;
  * @since 2021/2/3
  **/
 public class MapperTemplate extends com.easy.archetype.framework.generate.ext.simple.MapperTemplate {
-    public MapperTemplate(TemplateConfig entityConfig, boolean mybatisPlus) {
-        super(entityConfig, mybatisPlus);
-    }
 
-    public MapperTemplate(TemplateConfig entityConfig) {
-        super(entityConfig);
-    }
+	public MapperTemplate(TemplateConfig entityConfig, boolean mybatisPlus) {
+		super(entityConfig, mybatisPlus);
+	}
 
+	public MapperTemplate(TemplateConfig entityConfig) {
+		super(entityConfig);
+	}
 
-    @Override
-    public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
-        super.before(tableInfoEntity, config, data);
-        setImport(BaseMapperPlus.class);
-    }
+	@Override
+	public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
+		super.before(tableInfoEntity, config, data);
+		setImport(BaseMapperPlus.class);
+	}
 
+	@Override
+	public String templatePath() {
+		return GenerateConstants.TEMPLATE_PATH + "mapper.ftl";
+	}
 
-    @Override
-    public String templatePath() {
-        return GenerateConstants.TEMPLATE_PATH + "mapper.ftl";
-    }
 }

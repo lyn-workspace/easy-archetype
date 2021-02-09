@@ -21,18 +21,16 @@ import java.util.Optional;
 @Primary
 public class SysUserServiceImpl implements ISysUserService {
 
+	@Autowired
+	private ISysUserManage iSysUserManage;
 
-    @Autowired
-    private ISysUserManage iSysUserManage;
-
-
-    @Override
-    public SysUserDo findById(Long userId) {
-        return Optional.ofNullable(iSysUserManage.findById(userId)).map(a -> {
-            // 不返回密码
-            a.setPassword(null);
-            return a;
-        }).get();
-    }
+	@Override
+	public SysUserDo findById(Long userId) {
+		return Optional.ofNullable(iSysUserManage.findById(userId)).map(a -> {
+			// 不返回密码
+			a.setPassword(null);
+			return a;
+		}).get();
+	}
 
 }

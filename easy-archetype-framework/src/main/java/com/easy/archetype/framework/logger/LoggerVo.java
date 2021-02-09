@@ -22,61 +22,61 @@ import javax.servlet.http.HttpServletRequest;
 @NoArgsConstructor
 public class LoggerVo {
 
-    /**
-     * 方法签名
-     *
-     * @since 2021/1/23
-     */
-    private MethodSignature methodSignature;
+	/**
+	 * 方法签名
+	 *
+	 * @since 2021/1/23
+	 */
+	private MethodSignature methodSignature;
 
-    /**
-     * 参数
-     *
-     * @author luyanan
-     * @since 2021/1/23
-     */
-    private Object[] args;
-    /**
-     * 注解
-     *
-     * @since 2021/1/23
-     */
-    private ApiOperation apiOperation;
+	/**
+	 * 参数
+	 *
+	 * @author luyanan
+	 * @since 2021/1/23
+	 */
+	private Object[] args;
 
+	/**
+	 * 注解
+	 *
+	 * @since 2021/1/23
+	 */
+	private ApiOperation apiOperation;
 
-    /**
-     * 抛出的异常
-     *
-     * @since 2021/1/23
-     */
-    private Exception exception;
+	/**
+	 * 抛出的异常
+	 *
+	 * @since 2021/1/23
+	 */
+	private Exception exception;
 
+	/**
+	 * 开始时间
+	 *
+	 * @since 2021/1/23
+	 */
+	private Long startTime;
 
-    /**
-     * 开始时间
-     *
-     * @since 2021/1/23
-     */
-    private Long startTime;
+	/**
+	 * 结束时间
+	 *
+	 * @since 2021/1/23
+	 */
+	private Long endTime;
 
-    /**
-     * 结束时间
-     *
-     * @since 2021/1/23
-     */
-    private Long endTime;
+	/**
+	 * 返回结果
+	 *
+	 * @since 2021/1/23
+	 */
+	private Object result;
 
-    /**
-     * 返回结果
-     *
-     * @since 2021/1/23
-     */
-    private Object result;
+	/**
+	 * http request对象
+	 *
+	 * @since 2021/1/23
+	 */
+	private HttpServletRequest request;
 
-    /**
-     * http request对象
-     *
-     * @since 2021/1/23
-     */
-    private HttpServletRequest request;
 }

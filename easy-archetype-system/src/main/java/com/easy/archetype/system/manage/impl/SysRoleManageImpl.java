@@ -21,11 +21,11 @@ import java.util.List;
 @Service
 public class SysRoleManageImpl extends ManageImpl<SysRoleMapper, SysRoleDo> implements ISysRoleManage {
 
-    @Override
-    public List<SysRoleDo> selectRolePermissionByUserId(Long userId) {
+	@Override
+	public List<SysRoleDo> selectRolePermissionByUserId(Long userId) {
 
+		return this.baseMapper.selectRolePermissionByUserId(userId);
 
-        return this.baseMapper.selectRolePermissionByUserId(userId);
+	}
 
-    }
 }

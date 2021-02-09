@@ -16,14 +16,12 @@ import java.io.Serializable;
  */
 public interface ISysRoleManage extends IManage<SysRoleDo> {
 
-
-    /**
-     * 根据用户id查询角色
-     *
-     * @param userId 用户id
-     * @return java.util.List<com.easy.archetype.system.entity.SysRoleDo>
-     * @since 2021/2/4
-     */
-    List<SysRoleDo> selectRolePermissionByUserId(Long userId);
+	/**
+	 * 根据用户id查询角色
+	 * @param userId 用户id
+	 * @return java.util.List<com.easy.archetype.system.entity.SysRoleDo>
+	 * @since 2021/2/4
+	 */
+	List<SysRoleDo> selectRolePermissionByUserId(Long userId);
 
 }

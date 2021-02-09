@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 /**
- * <p>主启动类</p>
+ * <p>
+ * 主启动类
+ * </p>
  *
  * @author luyanan
  * @since 2021/1/18
@@ -13,7 +15,9 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 @SpringBootApplication
 public class EasyArchetypeAllApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(EasyArchetypeAllApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(EasyArchetypeAllApplication.class, args);
+	}
+
 }

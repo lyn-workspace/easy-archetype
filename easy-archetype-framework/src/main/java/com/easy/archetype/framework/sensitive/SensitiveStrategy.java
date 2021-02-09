@@ -8,14 +8,13 @@ package com.easy.archetype.framework.sensitive;
  **/
 public interface SensitiveStrategy {
 
-    /**
-     * 转换
-     *
-     * @param type  脱敏类型
-     * @param value 需要转换的值
-     * @return java.lang.String 转换后的值
-     * @since 2021/2/8
-     */
-    String conver(SensitiveTypeEnum type, String value);
+	/**
+	 * 转换
+	 * @param type 脱敏类型
+	 * @param value 需要转换的值
+	 * @return java.lang.String 转换后的值
+	 * @since 2021/2/8
+	 */
+	String conver(SensitiveTypeEnum type, String value);
 
 }

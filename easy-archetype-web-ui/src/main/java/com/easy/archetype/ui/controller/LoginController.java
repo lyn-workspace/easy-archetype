@@ -19,31 +19,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Api(value = "登陆")
 public class LoginController {
 
-    @Autowired
-    private CurrUserService currUserService;
+	@Autowired
+	private CurrUserService currUserService;
 
-    /**
-     * 跳转到登陆页面
-     *
-     * @return java.lang.String
-     * @since 2021/1/24
-     */
-    @ApiOperation(value = "跳转到login页面")
-    @GetMapping("login")
-    public String login() {
-        return "login";
-    }
+	/**
+	 * 跳转到登陆页面
+	 * @return java.lang.String
+	 * @since 2021/1/24
+	 */
+	@ApiOperation(value = "跳转到login页面")
+	@GetMapping("login")
+	public String login() {
+		return "login";
+	}
 
+	/**
+	 * 跳转到未授权页面
+	 * @return java.lang.String
+	 * @since 2021/1/31
+	 */
+	@ApiOperation(value = "未授权页面")
+	@GetMapping("unauth")
+	public String unauth() {
+		return "error/unauth";
+	}
 
-    /**
-     * 跳转到未授权页面
-     *
-     * @return java.lang.String
-     * @since 2021/1/31
-     */
-    @ApiOperation(value = "未授权页面")
-    @GetMapping("unauth")
-    public String unauth() {
-        return "error/unauth";
-    }
 }

@@ -23,24 +23,23 @@ import java.util.List;
 @RestController
 @RequestMapping("system/menu")
 public class SysMenuController {
-    @Autowired
-    private CurrUserService currUserService;
 
-    @Autowired
-    private ISysMenuService sysMenuService;
+	@Autowired
+	private CurrUserService currUserService;
 
-    /**
-     * 获取路由信息
-     *
-     * @return com.easy.archetype.framework.core.RespEntity
-     * @since 2021/2/7
-     */
-    @ApiOperation(value = "获取路由信息", response = RouterVo.class)
-    @GetMapping("getRouters")
-    public RespEntity getRouters() {
+	@Autowired
+	private ISysMenuService sysMenuService;
 
-        List<RouterVo> routers = sysMenuService.getRouters(currUserService.userId());
-        return RespEntity.success(routers);
-    }
+	/**
+	 * 获取路由信息
+	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @since 2021/2/7
+	 */
+	@ApiOperation(value = "获取路由信息", response = RouterVo.class)
+	@GetMapping("getRouters")
+	public RespEntity getRouters() {
+		List<RouterVo> routers = sysMenuService.getRouters(currUserService.userId());
+		return RespEntity.success(routers);
+	}
 
 }

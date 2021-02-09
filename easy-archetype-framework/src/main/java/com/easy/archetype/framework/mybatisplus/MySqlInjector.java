@@ -13,12 +13,12 @@ import java.util.List;
  **/
 public class MySqlInjector extends DefaultSqlInjector {
 
+	@Override
+	public List<AbstractMethod> getMethodList(Class<?> mapperClass) {
 
-    @Override
-    public List<AbstractMethod> getMethodList(Class<?> mapperClass) {
+		List<AbstractMethod> methodList = super.getMethodList(mapperClass);
+		// 这里加入自己定义的一些方法
+		return methodList;
+	}
 
-        List<AbstractMethod> methodList = super.getMethodList(mapperClass);
-        // 这里加入自己定义的一些方法
-        return methodList;
-    }
 }

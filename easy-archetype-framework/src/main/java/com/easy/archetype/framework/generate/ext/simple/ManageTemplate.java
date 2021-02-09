@@ -10,19 +10,19 @@ import com.easy.archetype.framework.generate.template.AbstractTemplate;
  **/
 public class ManageTemplate extends AbstractTemplate {
 
+	@Override
+	public String templatePath() {
+		return "templates/manage.ftl";
+	}
 
-    @Override
-    public String templatePath() {
-        return "templates/manage.ftl";
-    }
+	@Override
+	public String fileNameFormat() {
+		return "I%sManage";
+	}
 
-    @Override
-    public String fileNameFormat() {
-        return "I%sManage";
-    }
+	@Override
+	public String pkg() {
+		return "manage";
+	}
 
-    @Override
-    public String pkg() {
-        return "manage";
-    }
 }

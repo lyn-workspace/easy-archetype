@@ -13,50 +13,49 @@ import java.util.Map;
  **/
 public class MapperXmlTemplate extends AbstractTemplate {
 
+	/**
+	 * 实体类模板配置文件
+	 *
+	 * @since 2021/2/2
+	 */
+	private TemplateConfig entityConfig;
 
-    /**
-     * 实体类模板配置文件
-     *
-     * @since 2021/2/2
-     */
-    private TemplateConfig entityConfig;
+	/**
+	 * mapper类模板配置文件
+	 *
+	 * @since 2021/2/2
+	 */
+	private TemplateConfig mapperConfig;
 
+	public MapperXmlTemplate(TemplateConfig entityConfig, TemplateConfig mapperConfig) {
+		this.entityConfig = entityConfig;
+		this.mapperConfig = mapperConfig;
+	}
 
-    /**
-     * mapper类模板配置文件
-     *
-     * @since 2021/2/2
-     */
-    private TemplateConfig mapperConfig;
+	@Override
+	public void after(Map<String, Object> data) {
+		data.put("entityConfig", entityConfig);
+		data.put("mapperConfig", mapperConfig);
+	}
 
-    public MapperXmlTemplate(TemplateConfig entityConfig, TemplateConfig mapperConfig) {
-        this.entityConfig = entityConfig;
-        this.mapperConfig = mapperConfig;
-    }
+	@Override
+	public String templatePath() {
+		return "templates/mapperXml.ftl";
+	}
 
-    @Override
-    public void after(Map<String, Object> data) {
-        data.put("entityConfig", entityConfig);
-        data.put("mapperConfig", mapperConfig);
-    }
+	@Override
+	public String fileNameFormat() {
+		return "%sxml";
+	}
 
-    @Override
-    public String templatePath() {
-        return "templates/mapperXml.ftl";
-    }
+	@Override
+	public String pkg() {
+		return "mapper/xml";
+	}
 
-    @Override
-    public String fileNameFormat() {
-        return "%sxml";
-    }
+	@Override
+	public String fileNameSuffix() {
+		return ".xml";
+	}
 
-    @Override
-    public String pkg() {
-        return "mapper/xml";
-    }
-
-    @Override
-    public String fileNameSuffix() {
-        return ".xml";
-    }
 }

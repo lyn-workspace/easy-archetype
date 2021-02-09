@@ -15,119 +15,123 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(EasyArchetypeFrameworkProperties.PREFIX)
 public class EasyArchetypeFrameworkProperties {
 
+	public static final String PREFIX = "easy.archetype.framework";
 
-    public static final String PREFIX = "easy.archetype.framework";
+	/**
+	 * 是否开启
+	 *
+	 * @author luyanan
+	 * @since 2021/1/22
+	 */
+	private Boolean enable;
 
+	/**
+	 * 线程池配置
+	 *
+	 * @since 2021/1/22
+	 */
+	private BusinessThreadPoolProperties thread;
 
-    /**
-     * 是否开启
-     *
-     * @author luyanan
-     * @since 2021/1/22
-     */
-    private Boolean enable;
-    /**
-     * 线程池配置
-     *
-     * @since 2021/1/22
-     */
-    private BusinessThreadPoolProperties thread;
+	/**
+	 * redis的配置
+	 *
+	 * @since 2021/1/22
+	 */
+	private RedisProperties redis;
 
-    /**
-     * redis的配置
-     *
-     * @since 2021/1/22
-     */
-    private RedisProperties redis;
+	/**
+	 * 缓存的配置
+	 *
+	 * @since 2021/1/22
+	 */
+	private CacheProperties cache;
 
-    /**
-     * 缓存的配置
-     *
-     * @since 2021/1/22
-     */
-    private CacheProperties cache;
+	/**
+	 * Mybatis Plus的配置
+	 *
+	 * @since 2021/1/22
+	 */
+	private MybatisPlusProperties mybatisPlus;
 
+	/**
+	 * 日志的配置
+	 *
+	 * @since 2021/1/23
+	 */
+	private LoggerProperties logger;
 
-    /**
-     * Mybatis Plus的配置
-     *
-     * @since 2021/1/22
-     */
-    private MybatisPlusProperties mybatisPlus;
+	/**
+	 * spring的配置
+	 *
+	 * @since 2021/1/24
+	 */
+	private SpringProperties spring;
 
-    /**
-     * 日志的配置
-     *
-     * @since 2021/1/23
-     */
-    private LoggerProperties logger;
+	/**
+	 * spring的配置
+	 *
+	 * @author luyanan
+	 * @since 2021/1/24
+	 */
+	@Data
+	public static class SpringProperties {
 
-    /**
-     * spring的配置
-     *
-     * @since 2021/1/24
-     */
-    private SpringProperties spring;
+		/**
+		 * 开启开关
+		 *
+		 * @since 2021/1/24
+		 */
+		private Boolean enable;
 
-    /**
-     * spring的配置
-     *
-     * @author luyanan
-     * @since 2021/1/24
-     */
-    @Data
-    public static class SpringProperties {
-        /**
-         * 开启开关
-         *
-         * @since 2021/1/24
-         */
-        private Boolean enable;
-    }
+	}
 
-    /**
-     * Mybatis Plus的配置
-     *
-     * @author luyanan
-     * @since 2021/1/22
-     */
-    @Data
-    public static class MybatisPlusProperties {
-        /**
-         * 是否开启
-         *
-         * @since 2021/1/22
-         */
-        private Boolean enable;
-    }
+	/**
+	 * Mybatis Plus的配置
+	 *
+	 * @author luyanan
+	 * @since 2021/1/22
+	 */
+	@Data
+	public static class MybatisPlusProperties {
 
+		/**
+		 * 是否开启
+		 *
+		 * @since 2021/1/22
+		 */
+		private Boolean enable;
 
-    /**
-     * 缓存的配置
-     *
-     * @author luyanan
-     * @since 2021/1/22
-     */
-    @Data
-    public static class CacheProperties {
+	}
 
-        /**
-         * 是否开启
-         *
-         * @since 2021/1/22
-         */
-        private Boolean enable;
-    }
+	/**
+	 * 缓存的配置
+	 *
+	 * @author luyanan
+	 * @since 2021/1/22
+	 */
+	@Data
+	public static class CacheProperties {
 
-    /**
-     * redis的配置
-     *
-     * @author luyanan
-     * @since 2021/1/22
-     */
-    @Data
-    public static class RedisProperties {
+		/**
+		 * 是否开启
+		 *
+		 * @since 2021/1/22
+		 */
+		private Boolean enable;
 
-        private Boolean enable;
-    }
+	}
+
+	/**
+	 * redis的配置
+	 *
+	 * @author luyanan
+	 * @since 2021/1/22
+	 */
+	@Data
+	public static class RedisProperties {
+
+		private Boolean enable;
+
+	}
+
 }

@@ -34,53 +34,55 @@ import java.util.UUID;
 @RestController
 public class CaptchaController {
 
-    @Resource(name = "captchaProducer")
-    private Producer captchaProducer;
+	@Resource(name = "captchaProducer")
+	private Producer captchaProducer;
 
-    @Resource(name = "captchaProducerMath")
-    private Producer captchaProducerMath;
+	@Resource(name = "captchaProducerMath")
+	private Producer captchaProducerMath;
 
+	@Autowired
+	private SystemProperties systemProperties;
 
-    @Autowired
-    private SystemProperties systemProperties;
+	@Autowired
+	private RedisTemplate redisTemplate;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+	@ApiOperation(value = "生成验证码")
+	@IgnoreLogger(type = IgnoreLogger.IgnoreLoggerType.RESULT)
+	@GetMapping("captchaImage")
+	public RespEntity getCode() {
+		String uuid = UUID.randomUUID().toString();
+		String redisKey = SystemRedisKeyEnums.CAPTCHA_CODES.getKey(uuid);
+		// 生成验证码
+		String capStr = null, code = null;
+		BufferedImage image = null;
 
-    @ApiOperation(value = "生成验证码")
-    @IgnoreLogger(type = IgnoreLogger.IgnoreLoggerType.RESULT)
-    @GetMapping("captchaImage")
-    public RespEntity getCode() {
-        String uuid = UUID.randomUUID().toString();
-        String redisKey = SystemRedisKeyEnums.CAPTCHA_CODES.getKey(uuid);
-        // 生成验证码
-        String capStr = null, code = null;
-        BufferedImage image = null;
+		String captchaType = systemProperties.getCaptchaType();
+		if ("math".equals(captchaType)) {
+			String capText = captchaProducerMath.createText();
+			capStr = capText.substring(0, capText.lastIndexOf("@"));
+			code = capText.substring(capText.lastIndexOf("@") + 1);
+			image = captchaProducerMath.createImage(capStr);
+		}
+		else if ("char".equals(captchaType)) {
+			capStr = code = captchaProducer.createText();
+			image = captchaProducer.createImage(capStr);
+		}
+		// 保存到redis中
+		redisTemplate.opsForValue().set(redisKey, code, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
 
-        String captchaType = systemProperties.getCaptchaType();
-        if ("math".equals(captchaType)) {
-            String capText = captchaProducerMath.createText();
-            capStr = capText.substring(0, capText.lastIndexOf("@"));
-            code = capText.substring(capText.lastIndexOf("@") + 1);
-            image = captchaProducerMath.createImage(capStr);
-        } else if ("char".equals(captchaType)) {
-            capStr = code = captchaProducer.createText();
-            image = captchaProducer.createImage(capStr);
-        }
-        // 保存到redis中
-        redisTemplate.opsForValue().set(redisKey, code, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
+		// 转换流信息写出
+		FastByteArrayOutputStream os = new FastByteArrayOutputStream();
+		try {
+			ImageIO.write(image, "jpg", os);
+		}
+		catch (IOException e) {
+			throw new BusinessException(IMsgCode.CAPTCHA_GENERATE_FAIL);
+		}
 
-        // 转换流信息写出
-        FastByteArrayOutputStream os = new FastByteArrayOutputStream();
-        try {
-            ImageIO.write(image, "jpg", os);
-        } catch (IOException e) {
-            throw new BusinessException(IMsgCode.CAPTCHA_GENERATE_FAIL);
-        }
+		return RespEntity.success(map -> {
+			map.put("uuid", uuid);
+			map.put("img", Base64.encode(os.toByteArray()));
+		});
+	}
 
-        return RespEntity.success(map -> {
-            map.put("uuid", uuid);
-            map.put("img", Base64.encode(os.toByteArray()));
-        });
-    }
 }

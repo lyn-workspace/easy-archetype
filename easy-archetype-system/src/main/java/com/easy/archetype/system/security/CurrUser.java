@@ -20,65 +20,68 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 public class CurrUser implements UserDetails {
-    /**
-     * 用户名
-     *
-     * @since 2021/1/30
-     */
-    private String username;
-    /**
-     * 密码
-     *
-     * @since 2021/1/30
-     */
-    private String password;
-    /**
-     * 是否启用
-     *
-     * @since 2021/1/30
-     */
-    private boolean enabled;
 
-    /**
-     * 权限列表
-     *
-     * @since 2021/1/30
-     */
-    private Collection<? extends GrantedAuthority> authorities;
+	/**
+	 * 用户名
+	 *
+	 * @since 2021/1/30
+	 */
+	private String username;
 
+	/**
+	 * 密码
+	 *
+	 * @since 2021/1/30
+	 */
+	private String password;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
+	/**
+	 * 是否启用
+	 *
+	 * @since 2021/1/30
+	 */
+	private boolean enabled;
 
-    @Override
-    public String getPassword() {
-        return this.password;
-    }
+	/**
+	 * 权限列表
+	 *
+	 * @since 2021/1/30
+	 */
+	private Collection<? extends GrantedAuthority> authorities;
 
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.authorities;
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	@Override
+	public String getPassword() {
+		return this.password;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	@Override
+	public String getUsername() {
+		return this.username;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return this.enabled;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+
 }

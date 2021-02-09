@@ -14,33 +14,35 @@ import java.sql.SQLException;
  * @since 2021/2/2
  **/
 public class SimpleDataSource extends AbstractDataSource {
-    private String driverClassName;
 
-    private String url;
+	private String driverClassName;
 
-    private String userName;
-    private String passWord;
+	private String url;
 
+	private String userName;
 
-    public SimpleDataSource(String driverClassName, String url, String userName, String passWord) {
-        this.driverClassName = driverClassName;
-        this.url = url;
-        this.userName = userName;
-        this.passWord = passWord;
+	private String passWord;
 
-    }
+	public SimpleDataSource(String driverClassName, String url, String userName, String passWord) {
+		this.driverClassName = driverClassName;
+		this.url = url;
+		this.userName = userName;
+		this.passWord = passWord;
 
-    @Override
-    public void close() throws IOException {
-    }
+	}
 
-    @Override
-    public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(this.url, this.userName, this.passWord);
-    }
+	@Override
+	public void close() throws IOException {
+	}
 
-    @Override
-    public Connection getConnection(String username, String password) throws SQLException {
-        return DriverManager.getConnection(this.url, username, password);
-    }
+	@Override
+	public Connection getConnection() throws SQLException {
+		return DriverManager.getConnection(this.url, this.userName, this.passWord);
+	}
+
+	@Override
+	public Connection getConnection(String username, String password) throws SQLException {
+		return DriverManager.getConnection(this.url, username, password);
+	}
+
 }

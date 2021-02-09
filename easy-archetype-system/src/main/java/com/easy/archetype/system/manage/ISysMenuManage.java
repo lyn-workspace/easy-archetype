@@ -16,14 +16,13 @@ import java.util.List;
  */
 public interface ISysMenuManage extends IManage<SysMenuDo> {
 
+	/**
+	 * 根据id集合和菜单类型查询
+	 * @param menuIds id集合
+	 * @param menuType 菜单类型
+	 * @return java.util.List<com.easy.archetype.system.entity.SysMenuDo>
+	 * @since 2021/2/7
+	 */
+	List<SysMenuDo> findByIds(Collection<Long> menuIds, List<String> menuType);
 
-    /**
-     * 根据id集合和菜单类型查询
-     *
-     * @param menuIds  id集合
-     * @param menuType 菜单类型
-     * @return java.util.List<com.easy.archetype.system.entity.SysMenuDo>
-     * @since 2021/2/7
-     */
-    List<SysMenuDo> findByIds(Collection<Long> menuIds, List<String> menuType);
 }

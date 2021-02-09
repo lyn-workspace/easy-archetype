@@ -13,14 +13,13 @@ import java.util.List;
 @FunctionalInterface
 public interface FileOutputHandler {
 
+	/**
+	 * 文件处理
+	 * @param outputFiles 输出文件
+	 * @param globalConfig 全部配置
+	 * @return void
+	 * @since 2021/2/1
+	 */
+	void handler(List<OutputFile> outputFiles, GlobalConfig globalConfig);
 
-    /**
-     * 文件处理
-     *
-     * @param outputFiles  输出文件
-     * @param globalConfig 全部配置
-     * @return void
-     * @since 2021/2/1
-     */
-    void handler(List<OutputFile> outputFiles, GlobalConfig globalConfig);
 }

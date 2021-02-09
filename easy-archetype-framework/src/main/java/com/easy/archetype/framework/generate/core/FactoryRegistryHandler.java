@@ -9,13 +9,12 @@ package com.easy.archetype.framework.generate.core;
 @FunctionalInterface
 public interface FactoryRegistryHandler<T> {
 
-    /**
-     * 注册
-     *
-     * @param entity
-     * @return void
-     * @since 2021/1/31
-     */
-    void registry(T entity);
+	/**
+	 * 注册
+	 * @param entity
+	 * @return void
+	 * @since 2021/1/31
+	 */
+	void registry(T entity);
 
 }

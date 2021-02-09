@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 /**
  * <p>
  * 用户和角色关联表
@@ -16,29 +17,27 @@ import java.io.Serializable;
  *
  * @author luyanan
  * @since 2021-02-03
-*/
+ */
 @ApiModel(value = "用户和角色关联表")
 @TableName("sys_user_role")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysUserRoleDo implements Serializable{
+public class SysUserRoleDo implements Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-    * 用户ID
-    */
-    @ApiModelProperty(value = "用户ID")
-    private Long userId;
+	/**
+	 * 用户ID
+	 */
+	@ApiModelProperty(value = "用户ID")
+	private Long userId;
 
-    /**
-    * 角色ID
-    */
-    @ApiModelProperty(value = "角色ID")
-    private Long roleId;
-
-
+	/**
+	 * 角色ID
+	 */
+	@ApiModelProperty(value = "角色ID")
+	private Long roleId;
 
 }

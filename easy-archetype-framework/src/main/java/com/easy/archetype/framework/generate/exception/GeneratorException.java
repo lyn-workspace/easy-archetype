@@ -8,30 +8,29 @@ package com.easy.archetype.framework.generate.exception;
  **/
 public class GeneratorException extends RuntimeException {
 
-    /**
-     * 异常信息
-     *
-     * @since 2021/1/31
-     */
-    private String message;
+	/**
+	 * 异常信息
+	 *
+	 * @since 2021/1/31
+	 */
+	private String message;
 
-    public GeneratorException(String message) {
-        super(message);
-        this.message = message;
-    }
+	public GeneratorException(String message) {
+		super(message);
+		this.message = message;
+	}
 
+	public GeneratorException() {
+		super();
+	}
 
-    public GeneratorException() {
-        super();
-    }
+	@Override
+	public String getMessage() {
+		return message;
+	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

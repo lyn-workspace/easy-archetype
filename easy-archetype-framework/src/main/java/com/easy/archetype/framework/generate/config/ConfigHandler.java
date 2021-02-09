@@ -9,13 +9,12 @@ package com.easy.archetype.framework.generate.config;
 @FunctionalInterface
 public interface ConfigHandler {
 
+	/**
+	 * 配置处理
+	 * @param globalConfig 全局配置
+	 * @return void
+	 * @since 2021/1/31
+	 */
+	void handler(GlobalConfig globalConfig);
 
-    /**
-     * 配置处理
-     *
-     * @param globalConfig 全局配置
-     * @return void
-     * @since 2021/1/31
-     */
-    void handler(GlobalConfig globalConfig);
 }

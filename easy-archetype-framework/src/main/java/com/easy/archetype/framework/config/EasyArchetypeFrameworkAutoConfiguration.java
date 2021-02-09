@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
  * @author luyanan
  * @since 2021/1/20
  **/
-@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = true)
-@EnableConfigurationProperties({EasyArchetypeFrameworkProperties.class})
+@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "enable", havingValue = "true",
+		matchIfMissing = true)
+@EnableConfigurationProperties({ EasyArchetypeFrameworkProperties.class })
 @ComponentScan("com.easy.archetype.framework")
 @Configuration
 public class EasyArchetypeFrameworkAutoConfiguration {
-
 
 }

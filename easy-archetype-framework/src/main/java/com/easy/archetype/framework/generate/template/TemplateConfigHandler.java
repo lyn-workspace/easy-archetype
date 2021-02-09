@@ -11,13 +11,12 @@ import com.easy.archetype.framework.generate.config.TemplateConfig;
 @FunctionalInterface
 public interface TemplateConfigHandler {
 
-    /**
-     * 模板处理
-     *
-     * @param templateConfig 模板配置
-     * @return void
-     * @since 2021/2/2
-     */
-    void handler(TemplateConfig templateConfig);
+	/**
+	 * 模板处理
+	 * @param templateConfig 模板配置
+	 * @return void
+	 * @since 2021/2/2
+	 */
+	void handler(TemplateConfig templateConfig);
 
 }

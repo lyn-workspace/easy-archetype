@@ -7,7 +7,7 @@ package com.easy.archetype.system.service;
  *
  * @author luyanan
  * @since 2021-02-03
-*/
-public interface ISysPostService  {
+ */
+public interface ISysPostService {
 
 }

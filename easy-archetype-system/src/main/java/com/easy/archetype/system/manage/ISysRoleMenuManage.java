@@ -15,14 +15,12 @@ import java.util.List;
  */
 public interface ISysRoleMenuManage extends IManage<SysRoleMenuDo> {
 
-
-    /**
-     * 根据角色id集合查询
-     *
-     * @param roleIds 角色id集合
-     * @return java.util.List<com.easy.archetype.system.entity.SysRoleMenuDo>
-     * @since 2021/2/4
-     */
-    List<SysRoleMenuDo> findRoleIds(List<Long> roleIds);
+	/**
+	 * 根据角色id集合查询
+	 * @param roleIds 角色id集合
+	 * @return java.util.List<com.easy.archetype.system.entity.SysRoleMenuDo>
+	 * @since 2021/2/4
+	 */
+	List<SysRoleMenuDo> findRoleIds(List<Long> roleIds);
 
 }

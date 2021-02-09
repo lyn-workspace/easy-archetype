@@ -8,36 +8,33 @@ package com.easy.archetype.framework.xss.core;
  **/
 public class XssHolder {
 
-    private static final ThreadLocal<Boolean> TL = new ThreadLocal<>();
+	private static final ThreadLocal<Boolean> TL = new ThreadLocal<>();
 
-    /**
-     * 是否开启
-     *
-     * @return boolean
-     * @since 2021/2/8
-     */
-    public static boolean isEnabled() {
-        return Boolean.TRUE.equals(TL.get());
-    }
+	/**
+	 * 是否开启
+	 * @return boolean
+	 * @since 2021/2/8
+	 */
+	public static boolean isEnabled() {
+		return Boolean.TRUE.equals(TL.get());
+	}
 
+	/**
+	 * 设置为开启状态
+	 * @return void
+	 * @since 2021/2/8
+	 */
+	public static void setEnable() {
+		TL.set(Boolean.TRUE);
+	}
 
-    /**
-     * 设置为开启状态
-     *
-     * @return void
-     * @since 2021/2/8
-     */
-    public static void setEnable() {
-        TL.set(Boolean.TRUE);
-    }
+	/**
+	 * 移除
+	 * @return void
+	 * @since 2021/2/8
+	 */
+	public static void remove() {
+		TL.remove();
+	}
 
-    /**
-     * 移除
-     *
-     * @return void
-     * @since 2021/2/8
-     */
-    public static void remove() {
-        TL.remove();
-    }
 }

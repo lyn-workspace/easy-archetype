@@ -14,15 +14,17 @@ import java.util.List;
  **/
 public class DefaultFileOutputHandler implements FileOutputHandler {
 
-    @Override
-    public void handler(List<OutputFile> outputFiles, GlobalConfig globalConfig) {
-        if (CollectionUtil.isEmpty(outputFiles)) {
-            return;
-        }
-        for (OutputFile outputFile : outputFiles) {
-            String file = globalConfig.getOutPutFile() + "/" + outputFile.getFilePath() + "/" + outputFile.getFileName();
-            FileUtil.writeString(outputFile.getContent(), file, "utf-8");
-            System.out.println("模板生成:" + file);
-        }
-    }
+	@Override
+	public void handler(List<OutputFile> outputFiles, GlobalConfig globalConfig) {
+		if (CollectionUtil.isEmpty(outputFiles)) {
+			return;
+		}
+		for (OutputFile outputFile : outputFiles) {
+			String file = globalConfig.getOutPutFile() + "/" + outputFile.getFilePath() + "/"
+					+ outputFile.getFileName();
+			FileUtil.writeString(outputFile.getContent(), file, "utf-8");
+			System.out.println("模板生成:" + file);
+		}
+	}
+
 }

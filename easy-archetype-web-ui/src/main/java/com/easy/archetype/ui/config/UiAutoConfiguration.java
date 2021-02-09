@@ -12,4 +12,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("com.easy.archetype.ui")
 public class UiAutoConfiguration {
+
 }

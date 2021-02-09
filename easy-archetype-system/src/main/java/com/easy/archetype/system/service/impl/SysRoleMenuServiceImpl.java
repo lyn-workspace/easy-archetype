@@ -21,16 +21,15 @@ import java.util.Optional;
 @Service
 public class SysRoleMenuServiceImpl implements ISysRoleMenuService {
 
+	@Autowired
+	private ISysRoleMenuManage iSysRoleMenuManage;
 
-    @Autowired
-    private ISysRoleMenuManage iSysRoleMenuManage;
+	@Override
+	public List<SysRoleMenuDo> findRoleIds(List<Long> roleIds) {
 
+		List<SysRoleMenuDo> sysRoleMenuDos = iSysRoleMenuManage.findRoleIds(roleIds);
 
-    @Override
-    public List<SysRoleMenuDo> findRoleIds(List<Long> roleIds) {
+		return Optional.ofNullable(sysRoleMenuDos).orElse(new ArrayList<>());
+	}
 
-        List<SysRoleMenuDo> sysRoleMenuDos = iSysRoleMenuManage.findRoleIds(roleIds);
-
-        return Optional.ofNullable(sysRoleMenuDos).orElse(new ArrayList<>());
-    }
 }

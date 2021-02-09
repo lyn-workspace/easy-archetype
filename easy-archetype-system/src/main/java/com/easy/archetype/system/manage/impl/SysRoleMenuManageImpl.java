@@ -21,10 +21,11 @@ import java.util.List;
 @Service
 public class SysRoleMenuManageImpl extends ManageImpl<SysRoleMenuMapper, SysRoleMenuDo> implements ISysRoleMenuManage {
 
-    @Override
-    public List<SysRoleMenuDo> findRoleIds(List<Long> roleIds) {
-        LambdaQueryWrapper<SysRoleMenuDo> queryWrapper = lambdaQueryWrapper(null);
-        queryWrapper.in(CollectionUtil.isNotEmpty(roleIds), SysRoleMenuDo::getRoleId, roleIds);
-        return this.list(queryWrapper);
-    }
+	@Override
+	public List<SysRoleMenuDo> findRoleIds(List<Long> roleIds) {
+		LambdaQueryWrapper<SysRoleMenuDo> queryWrapper = lambdaQueryWrapper(null);
+		queryWrapper.in(CollectionUtil.isNotEmpty(roleIds), SysRoleMenuDo::getRoleId, roleIds);
+		return this.list(queryWrapper);
+	}
+
 }

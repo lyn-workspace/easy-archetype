@@ -18,33 +18,35 @@ import java.beans.PropertyEditorSupport;
 @ControllerAdvice
 public class FormXssClean {
 
+	@InitBinder
+	public void initBinder(WebDataBinder webDataBinder) {
 
-    @InitBinder
-    public void initBinder(WebDataBinder webDataBinder) {
+	}
 
+	@Slf4j
+	public static class StringPropertiesEditor extends PropertyEditorSupport {
 
-    }
+		@Override
+		public String getAsText() {
+			Object value = getValue();
+			return value != null ? value.toString() : StrUtil.EMPTY;
+		}
 
-    @Slf4j
-    public static class StringPropertiesEditor extends PropertyEditorSupport {
-        @Override
-        public String getAsText() {
-            Object value = getValue();
-            return value != null ? value.toString() : StrUtil.EMPTY;
-        }
+		@Override
+		public void setAsText(String text) throws IllegalArgumentException {
+			if (text == null) {
+				setValue(null);
+			}
+			else if (XssHolder.isEnabled()) {
+				String value = XssUtil.clean(text);
+				setValue(value);
+				log.trace("Request parameter value:{} cleaned up by xss, current value is:{}.", text, value);
+			}
+			else {
+				setValue(text);
+			}
+		}
 
+	}
 
-        @Override
-        public void setAsText(String text) throws IllegalArgumentException {
-            if (text == null) {
-                setValue(null);
-            } else if (XssHolder.isEnabled()) {
-                String value = XssUtil.clean(text);
-                setValue(value);
-                log.trace("Request parameter value:{} cleaned up by xss, current value is:{}.", text, value);
-            } else {
-                setValue(text);
-            }
-        }
-    }
 }

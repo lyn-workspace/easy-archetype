@@ -20,18 +20,19 @@ import org.springframework.core.env.ConfigurableEnvironment;
  **/
 @ConditionalOnWebApplication
 @ConditionalOnClass(ContextRefresher.class)
-@ConditionalOnProperty(prefix = ConfigCenterProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = ConfigCenterProperties.PREFIX, name = "enable", havingValue = "true",
+		matchIfMissing = true)
 @EnableConfigurationProperties(ConfigCenterProperties.class)
 @Configuration
 public class ConfigCenterConfiguration {
 
-
-    @ConditionalOnBean(PropertySource.class)
-    @Bean
-    public ConfigCenter configCenter(PropertySource propertySource, ContextRefresher contextRefresher, ConfigurableEnvironment configurableEnvironment) {
-        ConfigCenter configCenter = new ConfigCenter(propertySource, contextRefresher, configurableEnvironment);
-        configCenter.mergeProperties();
-        return configCenter;
-    }
+	@ConditionalOnBean(PropertySource.class)
+	@Bean
+	public ConfigCenter configCenter(PropertySource propertySource, ContextRefresher contextRefresher,
+			ConfigurableEnvironment configurableEnvironment) {
+		ConfigCenter configCenter = new ConfigCenter(propertySource, contextRefresher, configurableEnvironment);
+		configCenter.mergeProperties();
+		return configCenter;
+	}
 
 }

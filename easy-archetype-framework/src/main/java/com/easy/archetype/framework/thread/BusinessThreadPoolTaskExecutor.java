@@ -18,110 +18,109 @@ import java.util.function.Supplier;
  **/
 @Slf4j
 public class BusinessThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
-    public final static String BEAN_NAME = "businessThreadPoolTaskExecutor";
 
-    private ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider;
+	public final static String BEAN_NAME = "businessThreadPoolTaskExecutor";
 
-    public static InheritableThreadLocal<Map<String, Object>> threadLocal = new InheritableThreadLocal<>();
+	private ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider;
 
-    public BusinessThreadPoolTaskExecutor(ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider) {
-        this.businessThreadInterceptorObjectProvider = businessThreadInterceptorObjectProvider;
-    }
+	public static InheritableThreadLocal<Map<String, Object>> threadLocal = new InheritableThreadLocal<>();
 
-    @Override
-    public void execute(Runnable task) {
+	public BusinessThreadPoolTaskExecutor(
+			ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider) {
+		this.businessThreadInterceptorObjectProvider = businessThreadInterceptorObjectProvider;
+	}
 
-        // 先执行主线程拦截器
-        businessThreadInterceptorObjectProvider.orderedStream().forEachOrdered(a -> {
-            a.main(threadLocal);
-        });
+	@Override
+	public void execute(Runnable task) {
 
-        //  执行子线程
-        new AsyncRunnable(task, threadLocal, businessThreadInterceptorObjectProvider).run();
-    }
+		// 先执行主线程拦截器
+		businessThreadInterceptorObjectProvider.orderedStream().forEachOrdered(a -> {
+			a.main(threadLocal);
+		});
 
-    public static class AsyncRunnable implements Runnable {
+		// 执行子线程
+		new AsyncRunnable(task, threadLocal, businessThreadInterceptorObjectProvider).run();
+	}
 
-        private Runnable runnable;
+	public static class AsyncRunnable implements Runnable {
 
-        private HashMap hashMap = new HashMap();
+		private Runnable runnable;
 
-        private InheritableThreadLocal<Map<String, Object>> threadLocal;
+		private HashMap hashMap = new HashMap();
 
-        private ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider;
+		private InheritableThreadLocal<Map<String, Object>> threadLocal;
 
-        public AsyncRunnable(Runnable runnable, InheritableThreadLocal<Map<String, Object>> threadLocal, ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider) {
-            this.runnable = runnable;
-            this.threadLocal = threadLocal;
-            this.businessThreadInterceptorObjectProvider = businessThreadInterceptorObjectProvider;
-            copy(runnable, threadLocal);
-        }
+		private ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider;
 
-        @Override
-        public void run() {
-            try {
-                threadLocal.set(hashMap);
-                businessThreadInterceptorObjectProvider.orderedStream().forEachOrdered(a -> {
-                    a.childThread(threadLocal);
-                });
-                runnable.run();
-            } finally {
-                hashMap = new HashMap(16);
-                threadLocal.remove();
-            }
+		public AsyncRunnable(Runnable runnable, InheritableThreadLocal<Map<String, Object>> threadLocal,
+				ObjectProvider<BusinessThreadInterceptor> businessThreadInterceptorObjectProvider) {
+			this.runnable = runnable;
+			this.threadLocal = threadLocal;
+			this.businessThreadInterceptorObjectProvider = businessThreadInterceptorObjectProvider;
+			copy(runnable, threadLocal);
+		}
 
-        }
+		@Override
+		public void run() {
+			try {
+				threadLocal.set(hashMap);
+				businessThreadInterceptorObjectProvider.orderedStream().forEachOrdered(a -> {
+					a.childThread(threadLocal);
+				});
+				runnable.run();
+			}
+			finally {
+				hashMap = new HashMap(16);
+				threadLocal.remove();
+			}
 
+		}
 
-        private void copy(Runnable runnable, InheritableThreadLocal<Map<String, Object>> threadLocal) {
-            if (null != threadLocal.get()) {
-                hashMap.putAll(threadLocal.get());
-            }
-        }
-    }
+		private void copy(Runnable runnable, InheritableThreadLocal<Map<String, Object>> threadLocal) {
+			if (null != threadLocal.get()) {
+				hashMap.putAll(threadLocal.get());
+			}
+		}
 
+	}
 
-    /**
-     * 无返回值的异步
-     *
-     * @param runnable
-     * @return java.util.concurrent.CompletableFuture
-     * @since 2021/1/22
-     */
-    public CompletableFuture runAsync(Runnable runnable) {
-        return CompletableFuture.runAsync(runnable, this);
-    }
+	/**
+	 * 无返回值的异步
+	 * @param runnable
+	 * @return java.util.concurrent.CompletableFuture
+	 * @since 2021/1/22
+	 */
+	public CompletableFuture runAsync(Runnable runnable) {
+		return CompletableFuture.runAsync(runnable, this);
+	}
 
-    /**
-     * 有返回值的异步
-     *
-     * @param supplier
-     * @return java.util.concurrent.CompletableFuture<U>
-     * @since 2021/1/22
-     */
-    public <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier) {
-        return CompletableFuture.supplyAsync(supplier);
-    }
+	/**
+	 * 有返回值的异步
+	 * @param supplier
+	 * @return java.util.concurrent.CompletableFuture<U>
+	 * @since 2021/1/22
+	 */
+	public <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier) {
+		return CompletableFuture.supplyAsync(supplier);
+	}
 
-    /**
-     * 获取监控数据
-     *
-     * @return com.easy.archetype.framework.thread.ThreadPoolMonitorVo
-     * @since 2021/1/22
-     */
-    public ThreadPoolMonitorVo getThreadPoolMonitorVo() {
-        ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
-        if (null == threadPoolExecutor) {
-            return null;
-        }
-        return ThreadPoolMonitorVo.builder().threadNamePrefix(this.getThreadNamePrefix())
-                .activeCount(threadPoolExecutor.getActiveCount())
-                .completedTaskCount(threadPoolExecutor.getCompletedTaskCount())
-                .taskCount(threadPoolExecutor.getTaskCount())
-                .queueSize(threadPoolExecutor.getQueue().size())
-                .corePoolSize(threadPoolExecutor.getCorePoolSize())
-                .maxPoolSize(threadPoolExecutor.getPoolSize())
-                .rejectedExecutionHandler(threadPoolExecutor.getRejectedExecutionHandler().getClass().getSimpleName())
-                .build();
-    }
+	/**
+	 * 获取监控数据
+	 * @return com.easy.archetype.framework.thread.ThreadPoolMonitorVo
+	 * @since 2021/1/22
+	 */
+	public ThreadPoolMonitorVo getThreadPoolMonitorVo() {
+		ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
+		if (null == threadPoolExecutor) {
+			return null;
+		}
+		return ThreadPoolMonitorVo.builder().threadNamePrefix(this.getThreadNamePrefix())
+				.activeCount(threadPoolExecutor.getActiveCount())
+				.completedTaskCount(threadPoolExecutor.getCompletedTaskCount())
+				.taskCount(threadPoolExecutor.getTaskCount()).queueSize(threadPoolExecutor.getQueue().size())
+				.corePoolSize(threadPoolExecutor.getCorePoolSize()).maxPoolSize(threadPoolExecutor.getPoolSize())
+				.rejectedExecutionHandler(threadPoolExecutor.getRejectedExecutionHandler().getClass().getSimpleName())
+				.build();
+	}
+
 }

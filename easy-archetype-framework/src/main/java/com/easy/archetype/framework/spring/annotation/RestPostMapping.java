@@ -8,36 +8,37 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.lang.annotation.*;
 
 /**
- * Restful风格的PostMapping 注解
- * 等于  @PostMapping + @ResponseBody
+ * Restful风格的PostMapping 注解 等于 @PostMapping + @ResponseBody
  *
  * @author luyanan
  * @since 2021/1/21
  **/
-@Target({ElementType.METHOD})
+@Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(method = {RequestMethod.POST})
+@RequestMapping(method = { RequestMethod.POST })
 @ResponseBody
 public @interface RestPostMapping {
-    @AliasFor(annotation = RequestMapping.class)
-    String name() default "";
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] value() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String name() default "";
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] path() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String[] value() default {};
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] params() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String[] path() default {};
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] headers() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String[] params() default {};
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] consumes() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String[] headers() default {};
 
-    @AliasFor(annotation = RequestMapping.class)
-    String[] produces() default {};
+	@AliasFor(annotation = RequestMapping.class)
+	String[] consumes() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] produces() default {};
+
 }

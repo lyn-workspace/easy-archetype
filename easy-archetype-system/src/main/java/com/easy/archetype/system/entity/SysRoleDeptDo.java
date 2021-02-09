@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 /**
  * <p>
  * 角色和部门关联表
@@ -16,29 +17,27 @@ import java.io.Serializable;
  *
  * @author luyanan
  * @since 2021-02-03
-*/
+ */
 @ApiModel(value = "角色和部门关联表")
 @TableName("sys_role_dept")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysRoleDeptDo implements Serializable{
+public class SysRoleDeptDo implements Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-    * 角色ID
-    */
-    @ApiModelProperty(value = "角色ID")
-    private Long roleId;
+	/**
+	 * 角色ID
+	 */
+	@ApiModelProperty(value = "角色ID")
+	private Long roleId;
 
-    /**
-    * 部门ID
-    */
-    @ApiModelProperty(value = "部门ID")
-    private Long deptId;
-
-
+	/**
+	 * 部门ID
+	 */
+	@ApiModelProperty(value = "部门ID")
+	private Long deptId;
 
 }
