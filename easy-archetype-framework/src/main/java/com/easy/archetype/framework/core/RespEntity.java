@@ -67,6 +67,7 @@ public class RespEntity<T> implements Serializable {
 
 	/**
 	 * 成功返回
+	 *
 	 * @param data 返回的数据
 	 * @return com.easy.archetype.framework.core.RespEntity<T>
 	 * @since 2021/1/24
@@ -89,6 +90,7 @@ public class RespEntity<T> implements Serializable {
 
 	/**
 	 * 异常信息
+	 *
 	 * @param code
 	 * @return com.easy.archetype.framework.core.RespEntity<T>
 	 * @since 2021/1/24
@@ -105,11 +107,24 @@ public class RespEntity<T> implements Serializable {
 		return respEntity;
 	}
 
+	public static <T> RespEntity<T> error(String code, String msg) {
+		RespEntity<T> respEntity = new RespEntity<>();
+		respEntity.setStatus(code);
+		respEntity.setMsg(msg);
+		HttpServletRequest request = SpringContextHolder.getRequest();
+		respEntity.setTimestamp(System.currentTimeMillis());
+		if (null != request) {
+			respEntity.setPath(request.getRequestURI());
+		}
+		return respEntity;
+	}
+
 	@FunctionalInterface
 	public static interface RespEntityMapHandler {
 
 		/**
 		 * 设置元素
+		 *
 		 * @param map
 		 * @return void
 		 * @since 2021/2/4

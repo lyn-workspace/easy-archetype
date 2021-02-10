@@ -209,9 +209,9 @@
 							<failsOnError>true</failsOnError>
 							<includeTestSourceDirectory>false</includeTestSourceDirectory>
 						</configuration>
-						<goals>
-							<goal>check</goal>
-						</goals>
+<!--						<goals>-->
+						<!--							<goal>check</goal>-->
+						<!--						</goals>-->
 					</execution>
 				</executions>
 			</plugin>
@@ -238,9 +238,9 @@
 					<execution>
 						<id>validate</id>
 						<phase>validate</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
+<!--						<goals>-->
+						<!--							<goal>check</goal>-->
+						<!--						</goals>-->
 					</execution>
 				</executions>
 				<dependencies>

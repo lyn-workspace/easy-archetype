@@ -8,6 +8,8 @@ import com.easy.archetype.framework.logger.annotation.IgnoreLogger;
 import com.easy.archetype.system.config.SystemProperties;
 import com.easy.archetype.system.enums.SystemRedisKeyEnums;
 import com.easy.archetype.system.security.IgnoringLogin;
+import com.easy.archetype.system.security.validatecode.ValidateCodeConstant;
+import com.easy.archetype.system.security.validatecode.ValidateCodeTemplate;
 import com.google.code.kaptcha.Producer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,6 +23,7 @@ import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -34,14 +37,10 @@ import java.util.UUID;
 @RestController
 public class CaptchaController {
 
-	@Resource(name = "captchaProducer")
-	private Producer captchaProducer;
-
-	@Resource(name = "captchaProducerMath")
-	private Producer captchaProducerMath;
 
 	@Autowired
-	private SystemProperties systemProperties;
+	private ValidateCodeTemplate validateCodeTemplate;
+
 
 	@Autowired
 	private RedisTemplate redisTemplate;
@@ -51,38 +50,11 @@ public class CaptchaController {
 	@GetMapping("captchaImage")
 	public RespEntity getCode() {
 		String uuid = UUID.randomUUID().toString();
-		String redisKey = SystemRedisKeyEnums.CAPTCHA_CODES.getKey(uuid);
-		// 生成验证码
-		String capStr = null, code = null;
-		BufferedImage image = null;
+		// 创建验证码
+		Map<String, Object> map =
+				validateCodeTemplate.create(uuid, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
 
-		String captchaType = systemProperties.getCaptchaType();
-		if ("math".equals(captchaType)) {
-			String capText = captchaProducerMath.createText();
-			capStr = capText.substring(0, capText.lastIndexOf("@"));
-			code = capText.substring(capText.lastIndexOf("@") + 1);
-			image = captchaProducerMath.createImage(capStr);
-		}
-		else if ("char".equals(captchaType)) {
-			capStr = code = captchaProducer.createText();
-			image = captchaProducer.createImage(capStr);
-		}
-		// 保存到redis中
-		redisTemplate.opsForValue().set(redisKey, code, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
-
-		// 转换流信息写出
-		FastByteArrayOutputStream os = new FastByteArrayOutputStream();
-		try {
-			ImageIO.write(image, "jpg", os);
-		}
-		catch (IOException e) {
-			throw new BusinessException(IMsgCode.CAPTCHA_GENERATE_FAIL);
-		}
-
-		return RespEntity.success(map -> {
-			map.put("uuid", uuid);
-			map.put("img", Base64.encode(os.toByteArray()));
-		});
+		return RespEntity.success(map);
 	}
 
 }

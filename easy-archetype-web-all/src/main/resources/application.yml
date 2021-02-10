@@ -73,6 +73,9 @@ easy:
       # Spring 增强
       spring:
         enable: true
+        # 开启cors
+        cors:
+          enable: true
       # 缓存增强
       cache:
         enable: true

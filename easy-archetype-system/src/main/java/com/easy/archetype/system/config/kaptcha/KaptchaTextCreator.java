@@ -1,5 +1,8 @@
 package com.easy.archetype.system.config.kaptcha;
 
+import cn.hutool.core.convert.impl.NumberConverter;
+import cn.hutool.core.util.NumberUtil;
+import com.easy.archetype.framework.constant.NumberConstants;
 import com.google.code.kaptcha.text.impl.DefaultTextCreator;
 
 import java.util.Random;
@@ -27,36 +30,31 @@ public class KaptchaTextCreator extends DefaultTextCreator {
 			suChinese.append(CNUMBERS[x]);
 			suChinese.append("*");
 			suChinese.append(CNUMBERS[y]);
-		}
-		else if (randomoperands == 1) {
+		} else if (randomoperands == 1) {
 			if (!(x == 0) && y % x == 0) {
 				result = y / x;
 				suChinese.append(CNUMBERS[y]);
 				suChinese.append("/");
 				suChinese.append(CNUMBERS[x]);
-			}
-			else {
+			} else {
 				result = x + y;
 				suChinese.append(CNUMBERS[x]);
 				suChinese.append("+");
 				suChinese.append(CNUMBERS[y]);
 			}
-		}
-		else if (randomoperands == 2) {
+		} else if (randomoperands == NumberConstants.TWO) {
 			if (x >= y) {
 				result = x - y;
 				suChinese.append(CNUMBERS[x]);
 				suChinese.append("-");
 				suChinese.append(CNUMBERS[y]);
-			}
-			else {
+			} else {
 				result = y - x;
 				suChinese.append(CNUMBERS[y]);
 				suChinese.append("-");
 				suChinese.append(CNUMBERS[x]);
 			}
-		}
-		else {
+		} else {
 			result = x + y;
 			suChinese.append(CNUMBERS[x]);
 			suChinese.append("+");

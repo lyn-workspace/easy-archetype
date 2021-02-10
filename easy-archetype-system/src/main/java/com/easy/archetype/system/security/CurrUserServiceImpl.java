@@ -25,16 +25,11 @@ public class CurrUserServiceImpl implements CurrUserService {
 
 	@Override
 	public CurrUserVo user() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		if (null == userDetails) {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (null == principal) {
 			return null;
 		}
-		String username = userDetails.getUsername();
-		if (StrUtil.isBlank(username)) {
-			return null;
-		}
-		return JSON.parseObject(username, CurrUserVo.class);
+		return JSON.parseObject(principal.toString(), CurrUserVo.class);
 	}
 
 }

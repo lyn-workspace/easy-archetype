@@ -1,5 +1,10 @@
 package com.easy.archetype.system.security.validatecode;
 
+import com.easy.archetype.system.security.validatecode.storage.ValidateCodeStorage;
+
+import java.time.Duration;
+import java.util.Map;
+
 /**
  * 验证码处理逻辑
  *
@@ -8,16 +13,33 @@ package com.easy.archetype.system.security.validatecode;
  **/
 public interface ValidateCodeProcessor {
 
+	/**
+	 * 验证码处理器类型
+	 *
+	 * @return java.lang.String 验证码处理器类型
+	 * @since 2021/2/9
+	 */
+	String type();
+
+
+	/**
+	 * 设置验证码存储气
+	 *
+	 * @return com.easy.archetype.system.security.validatecode.storage.ValidateCodeStorage
+	 * @since 2021/2/10
+	 */
+	ValidateCodeStorage validateCodeStorage();
+
 
 	/**
 	 * 验证码创建
 	 *
-	 * @param key  验证码的key
-	 * @param code 验证码
-	 * @return void
-	 * @since 2021/2/9
+	 * @param key     验证码的key
+	 * @param timeout 有效时间
+	 * @return java.util.Map<java.lang.String, java.lang.Object>
+	 * @since 2021/2/10
 	 */
-	void create(String key, String code);
+	Map<String, Object> create(String key, Duration timeout);
 
 
 	/**

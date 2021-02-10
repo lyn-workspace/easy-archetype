@@ -39,7 +39,7 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 		return CurrUser.builder().authorities(authorityList)
 				.username(JSON.toJSONString(
 						CurrUserVo.builder().loginName(username).userId(1L).status(1).userName("admin").build()))
-				.password(passwordEncoder.encode("12345")).enabled(true).build();
+				.password(passwordEncoder.encode("admin123")).enabled(true).build();
 	}
 
 }

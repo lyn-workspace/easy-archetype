@@ -8,12 +8,65 @@ package com.easy.archetype.system.enums;
  **/
 public enum SysMenuEnums {
 
-	TYPE_DIR("M", "目录"), TYPE_MENU("C", "菜单"), TYPE_BUTTON("F", "按钮"),
+	/**
+	 * 目录
+	 *
+	 * @since 2021/2/10
+	 */
+	TYPE_DIR("M", "目录"),
 
-	STATUS_NORMAL(0, "显示"), STATUS_EXCEPTION(1, "隐藏"),
+	/**
+	 * 菜单
+	 *
+	 * @since 2021/2/10
+	 */
+	TYPE_MENU("C", "菜单"),
+	/**
+	 * 按钮
+	 *
+	 * @since 2021/2/10
+	 */
+	TYPE_BUTTON("F", "按钮"),
 
-	YES_FRAME(0, "是"), NO_FRAME(1, "否"), LAYOUT("Layout", "Layout组件标识"),
+	/**
+	 * 显示
+	 *
+	 * @since 2021/2/10
+	 */
+	STATUS_NORMAL(0, "显示"),
+	/**
+	 * 状态-隐藏
+	 *
+	 * @since 2021/2/10
+	 */
+	STATUS_EXCEPTION(1, "隐藏"),
 
+	/**
+	 * 是
+	 *
+	 * @since 2021/2/10
+	 */
+	YES_FRAME(0, "是"),
+
+	/**
+	 * 不是
+	 *
+	 * @since 2021/2/10
+	 */
+	NO_FRAME(1, "否"),
+
+	/**
+	 * Layout组件标识
+	 *
+	 * @since 2021/2/10
+	 */
+	LAYOUT("Layout", "Layout组件标识"),
+
+	/**
+	 * ParentView组件标识
+	 *
+	 * @since 2021/2/10
+	 */
 	PARENT_VIEW("ParentView", "ParentView组件标识");
 
 	private String code;
