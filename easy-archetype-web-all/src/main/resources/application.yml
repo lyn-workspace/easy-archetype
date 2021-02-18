@@ -63,6 +63,9 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
+  session:
+    store-type: redis
+    timeout: 5h
 
 # 自定义配置
 
@@ -96,8 +99,8 @@ mybatis-plus:
       select-strategy: not_empty
       update-strategy: not_empty
       logic-delete-field: delFlag
-      logic-delete-value: 0
-      logic-not-delete-value: 1
+      logic-delete-value: 2
+      logic-not-delete-value: 0
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapper-locations: classpath*:mapper/**/*Mapper.xml
   #  搜索指定包别名

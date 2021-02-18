@@ -1,6 +1,6 @@
 package com.easy.archetype.ui.controller;
 
-import com.easy.archetype.common.user.CurrUserService;
+import com.easy.archetype.common.user.LoginUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 	@Autowired
-	private CurrUserService currUserService;
+	private LoginUserService loginUserService;
 
 	/**
 	 * 跳转到登陆页面

@@ -1,0 +1,73 @@
+package com.easy.archetype.system.service;
+
+import com.easy.archetype.framework.core.PageInfo;
+import com.easy.archetype.framework.core.PageRequestParams;
+import com.easy.archetype.system.entity.SysDictTypeDo;
+
+import java.util.List;
+
+
+/**
+ * <p>
+ * 字典类型表 service
+ * </p>
+ *
+ * @author luyanan
+ * @since 2021-02-03
+ */
+public interface ISysDictTypeService {
+
+	/**
+	 * 分页查询
+	 *
+	 * @param pageRequestParams
+	 * @return com.easy.archetype.framework.core.PageInfo<com.easy.archetype.system.entity.SysDictTypeDo>
+	 * @since 2021/2/12
+	 */
+	PageInfo<SysDictTypeDo> findByPage(PageRequestParams<SysDictTypeDo> pageRequestParams);
+
+	/**
+	 * 字典类型新增
+	 *
+	 * @param dict
+	 * @return void
+	 * @since 2021/2/12
+	 */
+	void save(SysDictTypeDo dict);
+
+	/**
+	 * 字典类型修改
+	 *
+	 * @param dict
+	 * @return void
+	 * @since 2021/2/12
+	 */
+	void update(SysDictTypeDo dict);
+
+	/**
+	 * 根据条件查询
+	 *
+	 * @param sysDictTypeDo 条件
+	 * @return java.util.List<com.easy.archetype.system.entity.SysDictTypeDo>
+	 * @since 2021/2/12
+	 */
+	List<SysDictTypeDo> list(SysDictTypeDo sysDictTypeDo);
+
+	/**
+	 * 根据id集合删除
+	 *
+	 * @param ids id集合
+	 * @return void
+	 * @since 2021/2/12
+	 */
+	void deleteByIds(List<Long> ids);
+
+	/**
+	 * 根据id查询详情
+	 *
+	 * @param dictId
+	 * @return com.easy.archetype.system.entity.SysDictTypeDo
+	 * @since 2021/2/12
+	 */
+	SysDictTypeDo findById(Long dictId);
+}

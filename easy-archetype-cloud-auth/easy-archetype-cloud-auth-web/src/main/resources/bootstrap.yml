@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: easy-archetype-cloud-auth-web
