@@ -90,6 +90,16 @@ easy:
         enable: false
       thread:
         enable: true
+    security:
+      ignoring-login-url:
+        - /captchaImage
+        - /login
+        - /login?logout
+      validatecode:
+        captcha-type: math
+        enable: true
+        validate-code-urls: /login
+
 ## mybatis-plus配置
 mybatis-plus:
   global-config:
@@ -105,9 +115,6 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/**/*Mapper.xml
   #  搜索指定包别名
   type-aliases-package: com.easy.archetype.**.entity
-system:
-  # 验证码类型
-  captcha-type: math
 # 接口文档
 knife4j:
   enable: true

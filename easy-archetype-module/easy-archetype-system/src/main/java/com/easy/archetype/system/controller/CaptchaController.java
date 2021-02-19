@@ -5,11 +5,11 @@ import com.easy.archetype.common.exception.BusinessException;
 import com.easy.archetype.common.exception.IMsgCode;
 import com.easy.archetype.framework.core.RespEntity;
 import com.easy.archetype.framework.logger.annotation.IgnoreLogger;
+import com.easy.archetype.security.annotation.IgnoringLogin;
+import com.easy.archetype.security.validatecode.ValidateCodeTemplate;
 import com.easy.archetype.system.config.SystemProperties;
 import com.easy.archetype.system.enums.SystemRedisKeyEnums;
-import com.easy.archetype.system.security.IgnoringLogin;
-import com.easy.archetype.system.security.validatecode.ValidateCodeConstant;
-import com.easy.archetype.system.security.validatecode.ValidateCodeTemplate;
+
 import com.google.code.kaptcha.Producer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,10 +40,6 @@ public class CaptchaController {
 
 	@Autowired
 	private ValidateCodeTemplate validateCodeTemplate;
-
-
-	@Autowired
-	private RedisTemplate redisTemplate;
 
 	@ApiOperation(value = "生成验证码")
 	@IgnoreLogger(type = IgnoreLogger.IgnoreLoggerType.RESULT)

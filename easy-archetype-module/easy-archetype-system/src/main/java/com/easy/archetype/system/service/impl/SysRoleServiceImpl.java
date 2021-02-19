@@ -2,11 +2,11 @@ package com.easy.archetype.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.common.user.LoginUserService;
 import com.easy.archetype.framework.constant.NumberConstants;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.utils.BeanUtils;
+import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysRoleDeptDo;
 import com.easy.archetype.system.entity.SysRoleDo;

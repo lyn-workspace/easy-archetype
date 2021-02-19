@@ -1,6 +1,6 @@
 package com.easy.archetype.ui.controller;
 
-import com.easy.archetype.common.user.LoginUserService;
+import com.easy.archetype.security.core.LoginUserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

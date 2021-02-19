@@ -1,6 +1,5 @@
 package com.easy.archetype.system.service;
 
-import com.easy.archetype.common.user.LoginUserVo;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.core.RespEntity;

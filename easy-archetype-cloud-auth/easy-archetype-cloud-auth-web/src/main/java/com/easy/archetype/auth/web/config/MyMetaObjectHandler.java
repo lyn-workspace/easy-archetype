@@ -1,7 +1,7 @@
 package com.easy.archetype.auth.web.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.easy.archetype.common.user.LoginUserService;
+import com.easy.archetype.security.core.LoginUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.beans.factory.annotation.Autowired;

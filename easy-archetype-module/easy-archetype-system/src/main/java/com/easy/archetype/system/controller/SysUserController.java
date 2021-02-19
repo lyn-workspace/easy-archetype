@@ -2,10 +2,10 @@ package com.easy.archetype.system.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.easy.archetype.common.user.LoginUserService;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysPostDo;
 import com.easy.archetype.system.entity.SysRoleDo;

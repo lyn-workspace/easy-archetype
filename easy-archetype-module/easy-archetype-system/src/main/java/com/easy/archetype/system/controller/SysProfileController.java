@@ -1,7 +1,7 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.common.user.LoginUserService;
 import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.service.ISysUserService;
 import com.easy.archetype.system.vo.SysUserVo;
 import io.swagger.annotations.Api;

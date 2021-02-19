@@ -2,10 +2,10 @@ package com.easy.archetype.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.common.user.LoginUserService;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.utils.BeanUtils;
+import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.*;
 import com.easy.archetype.system.manage.ISysUserManage;
@@ -263,7 +263,7 @@ public class SysUserServiceImpl implements ISysUserService {
 		// 判断是否为admin用户
 		boolean isAdmin = list.stream().filter(a -> a.getRoleId().equals(1L)).findFirst().isPresent();
 
-		if (isAdmin && !loginUserService.getUser().getRoleIds().contains(1L)) {
+		if (isAdmin && !loginUserService.getUser().getRoles().contains("admin")) {
 			throw new BusinessException(SystemMsgCode.PERMISSION_DENIED);
 		}
 	}
