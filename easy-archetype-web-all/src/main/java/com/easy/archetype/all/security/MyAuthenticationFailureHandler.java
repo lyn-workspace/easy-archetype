@@ -34,7 +34,7 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException ex) throws IOException, ServletException {
 		response.setContentType("application/json;charset=utf-8");
-		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+		response.setStatus(HttpServletResponse.SC_OK);
 		PrintWriter out = response.getWriter();
 		Map<String, Object> map = new HashMap<String, Object>(16);
 		String msg = "登录失败";
@@ -45,7 +45,7 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
 		} else if (ex instanceof ValidateCodeException) {
 			msg = "验证码错误";
 		}
-		out.write(objectMapper.writeValueAsString(RespEntity.error(IMsgCode.HTTP_UNAUTHORIZED, msg)));
+		out.write(objectMapper.writeValueAsString(RespEntity.error(IMsgCode.INTERNAL_SERVER_ERROR, msg)));
 		out.flush();
 		out.close();
 	}

@@ -23,7 +23,7 @@ import java.io.IOException;
  **/
 @Slf4j
 @ConditionalOnProperty(value = ValidateCodeProperties.PREFIX, name = "validateCodeFilter", havingValue = "true", matchIfMissing = false)
-public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
+public class ValidateCodeFilter extends OncePerRequestFilter {
 
 	@Autowired
 	private ValidateCodeProperties validateCodeProperties;
@@ -47,7 +47,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-		if (validateCodeProperties.getValidateCodeFilter().equals(Boolean.TRUE)
+		if (null != validateCodeProperties.getValidateCodeFilter() && validateCodeProperties.getValidateCodeFilter().equals(Boolean.TRUE)
 				&& CollectionUtil.isNotEmpty(validateCodeProperties.getValidateCodeUrls())
 				&& validateCodeProperties.getValidateCodeUrls().contains(request.getRequestURI())
 		) {
@@ -55,7 +55,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 			String code = request.getParameter(validateCodeProperties.getValidateCodeFilterCodeParameter());
 			// 验证码校验
 			log.debug("开始/login接口的验证码校验,{}:{},{}:{}", validateCodeProperties.getValidateCodeFilterKeyParameter(),
-					uuid,validateCodeProperties.getValidateCodeFilterCodeParameter(), code);
+					uuid, validateCodeProperties.getValidateCodeFilterCodeParameter(), code);
 			try {
 				validateCodeTemplate.validate(uuid, code);
 			} catch (ValidateCodeException e) {

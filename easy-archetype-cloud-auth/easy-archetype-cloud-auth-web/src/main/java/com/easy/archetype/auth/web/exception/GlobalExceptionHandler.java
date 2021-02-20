@@ -7,6 +7,7 @@ import com.easy.archetype.framework.spring.SpringContextHolder;
 import com.easy.archetype.system.SystemMsgCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -37,6 +38,11 @@ public class GlobalExceptionHandler {
 	public RespEntity handleException(HttpRequestMethodNotSupportedException e) {
 		log.error(e.getMessage(), e);
 		return RespEntity.error(IMsgCode.HTTP_NOT_FOUND, e.getMethod());
+	}
+
+	@ExceptionHandler(AccountExpiredException.class)
+	public RespEntity accountExpiredException(AccountExpiredException accountExpiredException) {
+		return RespEntity.error(IMsgCode.HTTP_UNAUTHORIZED);
 	}
 
 	/**

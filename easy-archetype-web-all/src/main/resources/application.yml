@@ -99,6 +99,7 @@ easy:
         captcha-type: math
         enable: true
         validate-code-urls: /login
+        validate-code-filter: true
 
 ## mybatis-plus配置
 mybatis-plus:

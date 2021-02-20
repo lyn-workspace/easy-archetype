@@ -18,7 +18,7 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @author luyanan
  * @since 2021/2/10
  **/
-@ConditionalOnProperty(value = ValidateCodeProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = false)
+@ConditionalOnProperty(prefix = ValidateCodeProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = false)
 @EnableConfigurationProperties(ValidateCodeProperties.class)
 @Configuration
 @Import(CaptchaConfig.class)
@@ -41,4 +41,8 @@ public class ValidateCodeAutoConfiguration {
 	}
 
 
+	@Bean
+	public ValidateCodeFilter validateCodeFilter() {
+		return new ValidateCodeFilter();
+	}
 }

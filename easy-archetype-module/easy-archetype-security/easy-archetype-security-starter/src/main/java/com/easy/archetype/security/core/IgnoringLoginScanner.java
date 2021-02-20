@@ -2,6 +2,7 @@ package com.easy.archetype.security.core;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.security.annotation.IgnoringLogin;
+import com.easy.archetype.security.security.SecurityProperties;
 import lombok.Getter;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,14 @@ import java.util.Set;
  **/
 public class IgnoringLoginScanner implements InitializingBean {
 
+	@Autowired(required = false)
+	private SecurityProperties securityProperties;
 	/**
 	 * 忽略登录校验的url
 	 *
 	 * @since 2021/2/18
 	 */
-	@Getter
+
 	private Set<String> ignoringLoginUrl = new HashSet<>();
 
 	@Autowired
@@ -50,5 +53,10 @@ public class IgnoringLoginScanner implements InitializingBean {
 		}
 	}
 
-
+	public Set<String> getIgnoringLoginUrl() {
+		if (null != securityProperties && CollectionUtil.isNotEmpty(securityProperties.getIgnoringLoginUrl())) {
+			ignoringLoginUrl.addAll(securityProperties.getIgnoringLoginUrl());
+		}
+		return ignoringLoginUrl;
+	}
 }

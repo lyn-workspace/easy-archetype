@@ -1,4 +1,4 @@
-package com.easy.archetype.all.security;
+package com.easy.archetype.auth.web.security;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;

@@ -38,7 +38,7 @@ import java.util.UUID;
 public class CaptchaController {
 
 
-	@Autowired
+	@Autowired(required = false)
 	private ValidateCodeTemplate validateCodeTemplate;
 
 	@ApiOperation(value = "生成验证码")

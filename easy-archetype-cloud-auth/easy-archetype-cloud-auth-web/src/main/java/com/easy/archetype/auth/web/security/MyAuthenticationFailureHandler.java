@@ -1,4 +1,4 @@
-package com.easy.archetype.all.security;
+package com.easy.archetype.auth.web.security;
 
 import com.easy.archetype.common.exception.IMsgCode;
 import com.easy.archetype.framework.core.RespEntity;

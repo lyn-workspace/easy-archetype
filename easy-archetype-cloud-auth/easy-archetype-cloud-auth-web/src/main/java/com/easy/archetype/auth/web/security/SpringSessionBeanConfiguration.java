@@ -1,4 +1,4 @@
-package com.easy.archetype.all.security;
+package com.easy.archetype.auth.web.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

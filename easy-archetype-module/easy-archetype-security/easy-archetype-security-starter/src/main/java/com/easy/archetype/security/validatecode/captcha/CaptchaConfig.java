@@ -67,7 +67,7 @@ public class CaptchaConfig {
 		properties.setProperty(KAPTCHA_SESSION_CONFIG_KEY, "kaptchaCodeMath");
 		// 验证码文本生成器
 		properties.setProperty(KAPTCHA_TEXTPRODUCER_IMPL,
-				"com.easy.archetype.system.config.kaptcha.KaptchaTextCreator");
+				KaptchaTextCreator.class.getName());
 		// 验证码文本字符间距 默认为2
 		properties.setProperty(KAPTCHA_TEXTPRODUCER_CHAR_SPACE, "3");
 		// 验证码文本字符长度 默认为5

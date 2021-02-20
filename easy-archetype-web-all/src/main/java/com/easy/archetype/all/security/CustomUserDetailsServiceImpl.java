@@ -57,10 +57,10 @@ public class CustomUserDetailsServiceImpl extends AbstractUserDetailsService {
 		// 查询角色
 		Set<String> roleKeys = sysRoleService.listByUserId(sysUserDo.getUserId()).stream().map(SysRoleDo::getRoleKey).distinct().collect(Collectors.toSet());
 
-//
 		return LoginUserVo
 				.builder()
 				.userName(sysUserDo.getUserName())
+				.password(sysUserDo.getPassword())
 				.nickName(sysUserDo.getNickName())
 				.userId(sysUserDo.getUserId())
 				.permissions(perms)

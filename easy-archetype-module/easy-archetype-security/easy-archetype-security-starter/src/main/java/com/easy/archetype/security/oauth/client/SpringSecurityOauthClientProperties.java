@@ -1,6 +1,7 @@
-package com.easy.archetype.security.oauth.client.annotation;
+package com.easy.archetype.security.oauth.client;
 
 import com.easy.archetype.security.oauth.SpringSecurityOauthProperties;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -9,7 +10,48 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author luyanan
  * @since 2021/2/19
  **/
-@ConfigurationProperties(prefix = SpringSecurityOauthClientProperties.class)
+@Data
+@ConfigurationProperties(prefix = SpringSecurityOauthClientProperties.PREFIX)
 public class SpringSecurityOauthClientProperties {
 	public static final String PREFIX = SpringSecurityOauthProperties.PREFIX + ".client";
+
+	/**
+	 * 资源id
+	 *
+	 * @since 2021/2/19
+	 */
+
+	private String resourceId;
+
+	/**
+	 * 授权中心的host地址
+	 *
+	 * @since 2021/2/19
+	 */
+
+	private String authorizationServerHost;
+
+	/**
+	 * 授权中心的服务名
+	 *
+	 * @since 2021/2/19
+	 */
+
+	private String authorizationServerName;
+
+	/**
+	 * 客户端id
+	 *
+	 * @since 2021/2/19
+	 */
+
+	private String clientId;
+
+	/**
+	 * 客户端密钥
+	 *
+	 * @since 2021/2/19
+	 */
+
+	private String clientSecret;
 }

@@ -4,6 +4,7 @@ import com.easy.archetype.security.core.IgnoringLoginScanner;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.security.core.LoginUserServiceImpl;
 import com.easy.archetype.security.core.PermissionService;
+import com.easy.archetype.security.validatecode.ValidateCodeFilter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,5 +49,7 @@ public class WebSecurityAutoConfiguration {
 	public LoginUserService loginUserService() {
 		return new LoginUserServiceImpl();
 	}
+
+
 
 }

@@ -1,5 +1,6 @@
 package com.easy.archetype.all;
 
+import com.easy.archetype.security.security.annotation.EnableSecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -12,6 +13,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author luyanan
  * @since 2021/1/18
  **/
+@EnableSecurity
 @EnableCaching
 @SpringBootApplication
 public class EasyArchetypeAllApplication {

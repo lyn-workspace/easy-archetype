@@ -2,6 +2,8 @@ package com.easy.archetype.security.security;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.security.core.IgnoringLoginScanner;
+import com.easy.archetype.security.validatecode.ValidateCodeFilter;
+import com.easy.archetype.security.validatecode.ValidateCodeProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -36,6 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired(required = false)
 	private HttpSecurityConfigHandler httpSecurityConfigHandler;
 
+	@Autowired(required = false)
+	private ValidateCodeProperties validateCodeProperties;
+
+	@Autowired(required = false)
+	private ValidateCodeFilter validateCodeFilter;
+
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -45,15 +54,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		Set<String> ignoringLoginUrl = ignoringLoginScanner.getIgnoringLoginUrl();
-		if (CollectionUtil.isNotEmpty(securityProperties.getIgnoringLoginUrl())) {
-			ignoringLoginUrl.addAll(securityProperties.getIgnoringLoginUrl());
-		}
 		List<String> antMatchers = new LinkedList<>();
 		for (String s : ignoringLoginScanner.getIgnoringLoginUrl()) {
 			antMatchers.add(s);
 		}
-		http.authorizeRequests().antMatchers(antMatchers.toArray(new String[antMatchers.size()])).permitAll();
+		if (null != validateCodeFilter && null != validateCodeProperties && null != validateCodeProperties.getValidateCodeFilter() && validateCodeProperties.getValidateCodeFilter().equals(Boolean.TRUE)) {
+			http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class);
+		}
+		http.authorizeRequests().antMatchers(antMatchers.toArray(new String[antMatchers.size()])).permitAll().anyRequest().authenticated();
 		if (null != httpSecurityConfigHandler) {
 			httpSecurityConfigHandler.configure(http);
 		}

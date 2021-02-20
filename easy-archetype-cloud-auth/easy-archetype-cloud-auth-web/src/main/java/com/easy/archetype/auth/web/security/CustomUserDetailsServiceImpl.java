@@ -1,22 +1,16 @@
-package com.easy.archetype.all.security;
+package com.easy.archetype.auth.web.security;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSON;
 import com.easy.archetype.security.core.LoginUserVo;
 import com.easy.archetype.security.security.AbstractUserDetailsService;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysRoleDo;
 import com.easy.archetype.system.entity.SysUserDo;
-import com.easy.archetype.system.entity.SysUserRoleDo;
 import com.easy.archetype.system.service.ISysMenuService;
 import com.easy.archetype.system.service.ISysRoleService;
-import com.easy.archetype.system.service.ISysUserRoleService;
 import com.easy.archetype.system.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 

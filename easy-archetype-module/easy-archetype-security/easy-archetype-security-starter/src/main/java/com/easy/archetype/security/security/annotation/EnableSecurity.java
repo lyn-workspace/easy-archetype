@@ -1,4 +1,4 @@
-package com.easy.archetype.security.annotation;
+package com.easy.archetype.security.security.annotation;
 
 import com.easy.archetype.security.security.WebSecurityAutoConfiguration;
 import org.springframework.context.annotation.Import;
