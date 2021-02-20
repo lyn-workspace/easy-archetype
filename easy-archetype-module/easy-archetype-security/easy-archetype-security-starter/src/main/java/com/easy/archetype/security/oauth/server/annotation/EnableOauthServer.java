@@ -1,5 +1,9 @@
 package com.easy.archetype.security.annotation;
 
+import com.easy.archetype.security.oauth.server.OauthServerAutoConfiguration;
+import com.easy.archetype.security.security.annotation.EnableSecurity;
+import org.springframework.context.annotation.Import;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,5 +15,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Documented
+@EnableSecurity
+@Import(OauthServerAutoConfiguration.class)
 public @interface EnableOauthServer {
 }
