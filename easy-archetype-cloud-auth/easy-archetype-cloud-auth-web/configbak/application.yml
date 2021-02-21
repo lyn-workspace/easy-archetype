@@ -3,7 +3,7 @@ server:
   port: 9001
   servlet:
     ## 应用的访问路径
-    context-path: /
+    context-path: /uaa
   #  tomcat:
   #    # tomcat的URI 编码
   #    uri-encoding: utf-8
@@ -43,9 +43,6 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  profiles:
-    # 指定启用哪个环境的配置文件
-    active: dev
   # 文件上传
   servlet:
     multipart:
@@ -54,8 +51,6 @@ spring:
       # 设置总上传的文件大小
       max-request-size: 200MB
       enabled: true
-  application:
-    name: easy-archetype
   main:
     allow-bean-definition-overriding: true
   http:
@@ -66,7 +61,16 @@ spring:
   session:
     store-type: redis
     timeout: 5h
-
+  cloud:
+    ## sentinel 配置
+    sentinel:
+      ## #取消Sentinel控制台懒加载
+      eager: true
+      filter:
+        url-patterns: /**
+      transport:
+        ## 控制台地址
+        dashboard: http://localhost:8719
 # 自定义配置
 
 easy:
@@ -122,9 +126,6 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/**/*Mapper.xml
   #  搜索指定包别名
   type-aliases-package: com.easy.archetype.**.entity
-system:
-  # 验证码类型
-  captcha-type: math
 # 接口文档
 knife4j:
   enable: true
@@ -161,3 +162,37 @@ knife4j:
     enable: false
     username: test
     password: 12313
+## feign配置
+feign:
+  sentinel:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+##  监控暴露端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+

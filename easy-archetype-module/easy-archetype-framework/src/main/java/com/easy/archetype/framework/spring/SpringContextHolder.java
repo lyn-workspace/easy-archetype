@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
@@ -32,9 +33,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author luyanan
  * @since 2021/1/23
  **/
-@ConditionalOnProperty(prefix = EasyArchetypeFrameworkProperties.PREFIX, name = "spring.enable", havingValue = "true",
-		matchIfMissing = true)
-@Component
+
+@Configuration
 @Slf4j
 @Lazy(false)
 public class SpringContextHolder extends org.springframework.web.util.WebUtils

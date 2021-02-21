@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    hostname: easy-archetype-cloud-auth-web
+    container_name: easy-archetype-cloud-auth-web
+    image: registry.cn-hangzhou.aliyuncs.com/easy-archetype/easy-archetype-cloud-auth-web:1.0-SNAPSHOT
+    volumes:
+      - ./logs:/logs
+    ports:
+      - "9001:9001"
+    restart: always
+    environment:
+      JAVA_OPTS: "-Xms128m -Xmx256m -Djava.security.egd=file:/dev/./urandom"
+      SPRING_PROFILES_ACTIVE: dev
+  #      RUN_OPTS: "--server.port=9999"
+

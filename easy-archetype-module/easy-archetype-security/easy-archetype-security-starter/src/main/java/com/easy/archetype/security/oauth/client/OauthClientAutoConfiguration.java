@@ -1,5 +1,6 @@
 package com.easy.archetype.security.oauth.client;
 
+import com.easy.archetype.security.oauth.SpringSecurityOauthProperties;
 import com.easy.archetype.security.oauth.TokenConfig;
 import com.easy.archetype.security.security.annotation.EnableSecurity;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,7 +16,8 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @EnableSecurity
-@EnableConfigurationProperties(SpringSecurityOauthClientProperties.class)
+@EnableConfigurationProperties({SpringSecurityOauthProperties.class,
+		SpringSecurityOauthClientProperties.class})
 @Import({TokenConfig.class, ResourceServerConfig.class})
 public class OauthClientAutoConfiguration {
 	@Bean

@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.easy.archetype.framework.core.PageInfo;
 import com.easy.archetype.framework.core.PageRequestParams;
 import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.utils.BeanUtils;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysPostDo;
@@ -212,5 +213,20 @@ public class SysUserController {
 
 		sysUserService.changeStatus(user);
 		return RespEntity.success();
+	}
+
+
+	/**
+	 * 根据id查询详情
+	 *
+	 * @param userId 用户id
+	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.vo.SysUserVo>
+	 * @since 2021/2/21
+	 */
+	@ApiOperation(value = "根据id查询详情")
+	@GetMapping("find/id/{userId}")
+	public RespEntity<SysUserVo> findById(@PathVariable("userId") Long userId) {
+		SysUserDo userDo = sysUserService.findById(userId);
+		return RespEntity.success(BeanUtils.copyProperties(userDo, SysUserVo.class));
 	}
 }

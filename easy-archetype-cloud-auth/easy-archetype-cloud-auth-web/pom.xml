@@ -14,18 +14,16 @@
 	<description>授权服务</description>
 	<dependencies>
 
+
 		<dependency>
-			<groupId>com.easy.archetype.security</groupId>
-			<artifactId>easy-archetype-security-starter</artifactId>
+			<groupId>com.easy.archetype.common</groupId>
+			<artifactId>easy-archetype-cloud-common</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.easy.archetype.system</groupId>
 			<artifactId>easy-archetype-system</artifactId>
 			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.session</groupId>
-			<artifactId>spring-session-data-redis</artifactId>
 		</dependency>
 
 		<dependency>
@@ -51,11 +49,6 @@
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
 
-		<!-- SpringBoot 拦截器 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
 
 		<!-- spring-boot-devtools -->
 		<dependency>
@@ -65,28 +58,6 @@
 		</dependency>
 
 
-<!--		&lt;!&ndash; SpringCloud Ailibaba Nacos &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--		</dependency>-->
-<!--		&lt;!&ndash; SpringCloud Ailibaba Nacos Config &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>

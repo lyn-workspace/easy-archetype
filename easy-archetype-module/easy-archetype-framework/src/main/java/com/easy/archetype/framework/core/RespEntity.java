@@ -120,17 +120,17 @@ public class RespEntity<T> implements Serializable {
 		return respEntity;
 	}
 
-	public static <T> RespEntity<T> error(String code, String msg) {
-		RespEntity<T> respEntity = new RespEntity<>();
-		respEntity.setStatus(code);
-		respEntity.setMsg(msg);
-		HttpServletRequest request = SpringContextHolder.getRequest();
-		respEntity.setTimestamp(System.currentTimeMillis());
-		if (null != request) {
-			respEntity.setPath(request.getRequestURI());
-		}
-		return respEntity;
-	}
+//	public static <T> RespEntity<T> error(String code, String msg) {
+//		RespEntity<T> respEntity = new RespEntity<>();
+//		respEntity.setStatus(code);
+//		respEntity.setMsg(msg);
+//		HttpServletRequest request = SpringContextHolder.getRequest();
+//		respEntity.setTimestamp(System.currentTimeMillis());
+//		if (null != request) {
+//			respEntity.setPath(request.getRequestURI());
+//		}
+//		return respEntity;
+//	}
 
 	@FunctionalInterface
 	public static interface RespEntityMapHandler {

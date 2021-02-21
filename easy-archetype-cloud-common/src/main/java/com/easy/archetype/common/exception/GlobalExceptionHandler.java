@@ -1,11 +1,9 @@
-package com.easy.archetype.auth.web.exception;
+package com.easy.archetype.common.exception;
 
-import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.common.exception.IMsgCode;
 import com.easy.archetype.framework.core.RespEntity;
 import com.easy.archetype.framework.spring.SpringContextHolder;
-import com.easy.archetype.system.SystemMsgCode;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.validation.BindException;
@@ -85,8 +83,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(AccessDeniedException.class)
 	public RespEntity accessDeniedException(AccessDeniedException e) {
 		log.error(e.getMessage(), e);
-
-		return RespEntity.error(SystemMsgCode.PERMISSION_DENIED);
+		return RespEntity.error(IMsgCode.PERMISSION_DENIED);
 	}
 
 	/**

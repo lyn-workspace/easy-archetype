@@ -4,7 +4,6 @@ import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -23,7 +22,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @ConditionalOnClass(RedisConnectionFactory.class)
 @ConditionalOnBean({ RedisConnectionFactory.class, RedisAutoConfiguration.class })
 @Configuration
-public class RedisConfig {
+public class RedisAutoConfiguration {
 
 	@Bean
 	public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {

@@ -1,0 +1,100 @@
+## 日志配置
+logging:
+  level:
+    com.easy: debug
+    org.springframework: warn
+spring:
+  thymeleaf:
+    # thymeleaf  禁用缓存
+    cache: false
+    # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+      ## 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://easy-mysql:3306/easy-archetype-dev?characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowMultiQueries=true
+    password: luyanan
+    username: luyanan
+  redis:
+    host: easy-mysql
+    password: luyanan
+    port: 6379
+    database: 3
+# 一些自定义的配置
+easy:
+  archetype:
+    framework:
+      enable: true
+      # Spring 增强
+      spring:
+        enable: true
+        # 开启cors
+        cors:
+          enable: true
+      # 缓存增强
+      cache:
+        enable: true
+      logger:
+        enable: true
+        # 是否开启日志打印
+        logger-print: true
+      mybatis-plus:
+        enable: false
+      thread:
+        enable: true
+    security:
+      oauth:
+        token-signing-key: easy-archetype
+        client:
+          authorization-server-host: http://localhost:9001/
+          client-id: c1
+          client-secret: secret
+          resource-id: res1
+      ignoring-login-url:
+        - /actuator/**
+        - /oauth/*
+        - /token/**
+      validatecode:
+        validate-code-filter: true
+        enable: true
+        validate-code-urls: /login
+        captcha-type: math
+# 接口文档
+knife4j:
+  enable: true
+  documents:
+    - group: 2.X版本
+      name: 接口签名
+      locations: classpath:sign/*
+  setting:
+    language: zh-CN
+    enableSwaggerModels: true
+    enableDocumentManage: true
+    swaggerModelName: 实体类列表
+    enableVersion: true
+    enableReloadCacheParameter: false
+    enableAfterScript: true
+    enableFilterMultipartApiMethodType: POST
+    enableFilterMultipartApis: false
+    enableRequestCache: true
+    enableHost: false
+    enableHostText: 192.168.0.193:8000
+    enableHomeCustom: true
+    homeCustomLocation: classpath:markdown/home.md
+    enableSearch: false
+    enableFooter: false
+    enableFooterCustom: true
+    footerCustomContent: Apache License 2.0 | Copyright  2019-[浙江八一菜刀股份有限公司](https://gitee.com/xiaoym/knife4j)
+    enableDynamicParameter: true
+    enableDebug: true
+    enableOpenApi: false
+    enableGroup: true
+  cors: false
+  production: false
+  basic:
+    enable: false
+    username: test
+    password: 12313

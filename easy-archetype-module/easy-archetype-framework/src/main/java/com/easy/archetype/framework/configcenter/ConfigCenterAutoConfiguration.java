@@ -24,7 +24,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 		matchIfMissing = true)
 @EnableConfigurationProperties(ConfigCenterProperties.class)
 @Configuration
-public class ConfigCenterConfiguration {
+public class ConfigCenterAutoConfiguration {
 
 	@ConditionalOnBean(PropertySource.class)
 	@Bean

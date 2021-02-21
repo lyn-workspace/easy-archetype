@@ -26,13 +26,9 @@ import java.util.Set;
  * @since 2021/2/18
  **/
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	@Autowired
-	private SecurityProperties securityProperties;
-
-
 	@Autowired
 	private IgnoringLoginScanner ignoringLoginScanner;
 

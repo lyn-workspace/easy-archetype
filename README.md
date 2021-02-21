@@ -33,3 +33,19 @@
 #### es
 
 #### .....
+
+##  springcloud环境启动
+### 1. 启动顺序
+1. 先启动mysql
+2. 启动nacos
+2. 启动其他服务
+
+### 2. hosts准备
+
+
+```hosts
+
+mysql 数据库地址
+nacos nacos地址
+
+```

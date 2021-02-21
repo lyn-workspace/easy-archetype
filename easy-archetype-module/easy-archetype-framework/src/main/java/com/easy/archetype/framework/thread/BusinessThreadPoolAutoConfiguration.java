@@ -1,18 +1,16 @@
 package com.easy.archetype.framework.thread;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
-import com.baomidou.mybatisplus.core.toolkit.ArrayUtils;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.core.util.StrUtil;
 import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -37,6 +35,7 @@ public class BusinessThreadPoolAutoConfiguration implements AsyncConfigurer {
 	/**
 	 * 定义线程池 使用{@link java.util.concurrent.LinkedBlockingQueue}(FIFO）队列，是一个用于并发环境下的阻塞队列集合类
 	 * ThreadPoolTaskExecutor不是完全被IOC容器管理的bean,可以在方法上加上@Bean注解交给容器管理,这样可以将taskExecutor.initialize()方法调用去掉，容器会自动调用
+	 *
 	 * @return
 	 */
 	@Primary
@@ -58,7 +57,7 @@ public class BusinessThreadPoolAutoConfiguration implements AsyncConfigurer {
 		taskExecutor.setQueueCapacity(Objects.nonNull(asyncThreadPoolProperties.getMaxPoolSize())
 				? asyncThreadPoolProperties.getMaxPoolSize() : 80000);
 		// 线程名称前缀
-		taskExecutor.setThreadNamePrefix(StringUtils.isNotBlank(asyncThreadPoolProperties.getThreadNamePrefix())
+		taskExecutor.setThreadNamePrefix(StrUtil.isNotBlank(asyncThreadPoolProperties.getThreadNamePrefix())
 				? asyncThreadPoolProperties.getThreadNamePrefix() : "Business-ThreadPool-");
 		// 线程池中线程最大空闲时间，默认：60，单位：秒
 		taskExecutor.setKeepAliveSeconds(asyncThreadPoolProperties.getKeepAliveSeconds());
@@ -83,14 +82,15 @@ public class BusinessThreadPoolAutoConfiguration implements AsyncConfigurer {
 
 	/**
 	 * 异步方法执行的过程中抛出的异常捕获
+	 *
 	 * @return
 	 */
 	@Override
 	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
 		return (throwable, method, objects) -> {
-			String msg = StringUtils.EMPTY;
+			String msg = StrUtil.EMPTY;
 
-			if (ArrayUtils.isNotEmpty(objects) && objects.length > 0) {
+			if (ArrayUtil.isNotEmpty(objects) && objects.length > 0) {
 				msg = String.join(msg, "参数是：");
 				for (int i = 0; i < objects.length; i++) {
 					msg = String.join(msg, objects[i].toString(), ":");

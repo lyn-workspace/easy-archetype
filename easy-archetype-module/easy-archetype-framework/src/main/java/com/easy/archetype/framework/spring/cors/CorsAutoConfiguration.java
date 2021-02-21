@@ -2,6 +2,7 @@ package com.easy.archetype.framework.spring.cors;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -12,8 +13,11 @@ import org.springframework.context.annotation.Import;
  * @since 2021/2/10
  **/
 @Configuration
-@ConditionalOnProperty(prefix = CorsProperties.PREFIX, name = "enable", havingValue = "true", matchIfMissing = false)
+@ConditionalOnProperty(prefix = CorsProperties.PREFIX, name = "enable", havingValue = "true")
 @EnableConfigurationProperties(CorsProperties.class)
 @Import(CorsConfig.class)
 public class CorsAutoConfiguration {
+
+
+
 }

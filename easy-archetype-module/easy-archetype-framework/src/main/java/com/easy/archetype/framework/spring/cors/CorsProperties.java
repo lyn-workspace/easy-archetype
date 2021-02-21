@@ -20,7 +20,7 @@ public class CorsProperties {
 	 *
 	 * @since 2021/2/10
 	 */
-	private boolean enable = false;
+	private Boolean enable = false;
 
 	/**
 	 * 允许跨域的路径
