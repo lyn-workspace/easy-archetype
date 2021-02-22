@@ -36,3 +36,4 @@ logs
 nacos/data
 nacos/logs
 nacos/status
+nacos/conf/cluster.conf
