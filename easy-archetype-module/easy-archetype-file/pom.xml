@@ -3,21 +3,16 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<artifactId>easy-archetype</artifactId>
+		<artifactId>easy-archetype-module</artifactId>
 		<groupId>com.easy.archetype</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<packaging>pom</packaging>
-	<artifactId>easy-archetype-module</artifactId>
+	<groupId>com.easy.archetype.file</groupId>
+	<artifactId>easy-archetype-file</artifactId>
 
 
-	<modules>
-		<module>easy-archetype-framework</module>
-		<module>easy-archetype-common</module>
-		<module>easy-archetype-system</module>
-		<module>easy-archetype-security</module>
-		<module>easy-archetype-file</module>
-	</modules>
+	<description>文件服务
+	</description>
 </project>
