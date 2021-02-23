@@ -21,4 +21,10 @@ public class FileProperties {
 	 * @since 2021/2/22
 	 */
 	private String fileHost;
+
+
+
+
+
+
 }

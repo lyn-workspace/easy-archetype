@@ -17,9 +17,8 @@ public class FileServiceClientImpl implements IFileService {
 	}
 
 
-
 	@Override
-	public String removeFile(String path) {
-		return null;
+	public boolean removeFile(String path) {
+		return false;
 	}
 }

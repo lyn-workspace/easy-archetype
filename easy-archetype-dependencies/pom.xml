@@ -39,6 +39,7 @@
 		<spring.checkstyle.version>0.0.23</spring.checkstyle.version>
 		<git.commit.version>2.2.5</git.commit.version>
 		<hibernate-validator.version.version>6.0.14.Final</hibernate-validator.version.version>
+		<aws.version>1.11.543</aws.version>
 		<!--自定义组件 -->
 		<easy-archetype-framework.version>1.0-SNAPSHOT</easy-archetype-framework.version>
 		<easy-archetype-security.version>1.0-SNAPSHOT</easy-archetype-security.version>
@@ -64,6 +65,13 @@
 				<version>${easy-archetype-framework.version}</version>
 			</dependency>
 			<!--自定义组件结束 -->
+
+
+			<dependency>
+				<groupId>com.amazonaws</groupId>
+				<artifactId>aws-java-sdk-s3</artifactId>
+				<version>${aws.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>

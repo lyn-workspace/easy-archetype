@@ -1,6 +1,7 @@
 package com.easy.archetype.framework.file;
 
 import cn.hutool.core.util.StrUtil;
+import com.easy.archetype.framework.constant.Constants;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +42,7 @@ public class FileTemplate {
 		}
 		return Arrays.stream(path.split(MULTIPLE_FILES_SEPARATE)).filter(a -> StrUtil.isNotBlank(a))
 				.map(p -> {
-					if (p.startsWith("http://") || p.startsWith("https://")) {
+					if (p.startsWith(Constants.HTTP) || p.startsWith(Constants.HTTPS)) {
 						return p;
 					}
 					return (fileProperties.getFileHost() + "/" + p).replace("/+", "/");
