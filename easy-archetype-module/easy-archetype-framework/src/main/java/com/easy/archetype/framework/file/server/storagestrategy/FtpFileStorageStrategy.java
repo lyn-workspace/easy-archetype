@@ -6,6 +6,7 @@ import com.easy.archetype.framework.file.exception.FileException;
 import com.easy.archetype.framework.file.server.FileServerProperties;
 import com.easy.archetype.framework.file.server.IFileStorageStrategy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import javax.annotation.PostConstruct;
 import java.io.InputStream;

@@ -65,7 +65,6 @@
 	</dependencyManagement>
 
 	<modules>
-		<module>easy-archetype-dependencies</module>
 		<module>easy-archetype-module</module>
 		<module>easy-archetype-web-ui</module>
 		<module>easy-archetype-web-all</module>

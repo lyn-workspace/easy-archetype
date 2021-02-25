@@ -28,7 +28,7 @@
 		<fastjson.version>1.2.73</fastjson.version>
 		<swagger-annotations.version>1.5.22</swagger-annotations.version>
 		<jsoup.version>1.11.2</jsoup.version>
-		<knife4j.version>3.0.2</knife4j.version>
+		<knife4j.version>2.0.6</knife4j.version>
 		<fastjson.version>1.2.73</fastjson.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<commons-configuration2.version>2.2</commons-configuration2.version>
@@ -170,13 +170,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
 				<version>${spring-boot.version}</version>
-				<exclusions>
-					<!--排除tomcat依赖-->
-					<exclusion>
-						<artifactId>spring-boot-starter-tomcat</artifactId>
-						<groupId>org.springframework.boot</groupId>
-					</exclusion>
-				</exclusions>
+<!--				<exclusions>-->
+<!--					&lt;!&ndash;排除tomcat依赖&ndash;&gt;-->
+<!--					<exclusion>-->
+<!--						<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--						<groupId>org.springframework.boot</groupId>-->
+<!--					</exclusion>-->
+<!--				</exclusions>-->
 			</dependency>
 		</dependencies>
 

@@ -14,6 +14,7 @@
 
 
 	<modules>
+		<module>easy-archetype-dependencies</module>
 		<module>easy-archetype-framework</module>
 		<module>easy-archetype-common</module>
 		<module>easy-archetype-system</module>

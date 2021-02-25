@@ -16,6 +16,7 @@ import com.easy.archetype.framework.file.server.IFileStorageStrategy;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -26,6 +27,7 @@ import java.io.InputStream;
  * @author luyanan
  * @since 2021/2/23
  **/
+@ConditionalOnProperty(prefix = FileServerProperties.PREFIX, name = "storeType", havingValue = "minio", matchIfMissing = false)
 @RequiredArgsConstructor
 public class MinioFileStorageStrategy implements IFileStorageStrategy, InitializingBean {
 

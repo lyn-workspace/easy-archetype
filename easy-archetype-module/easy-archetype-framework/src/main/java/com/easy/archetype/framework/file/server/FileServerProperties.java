@@ -3,7 +3,6 @@ package com.easy.archetype.framework.file.server;
 import com.easy.archetype.framework.file.FileProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Conditional;
 
 /**
  * 文件服务端的配置
@@ -16,6 +15,13 @@ import org.springframework.context.annotation.Conditional;
 public class FileServerProperties {
 
 	public final static String PREFIX = FileProperties.PREFIX + ".server";
+
+	/**
+	 * 存储类型(file/minio)
+	 *
+	 * @since 2021/2/25
+	 */
+	private String storeType;
 
 	/**
 	 * ftp的配置类

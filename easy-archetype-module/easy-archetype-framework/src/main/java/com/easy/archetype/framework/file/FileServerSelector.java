@@ -1,15 +1,12 @@
 package com.easy.archetype.framework.file;
 
 import com.easy.archetype.framework.file.annotation.EnableFileServer;
-import org.springframework.context.EnvironmentAware;
-import org.springframework.context.ResourceLoaderAware;
-import org.springframework.context.annotation.AdviceMode;
-import org.springframework.context.annotation.AdviceModeImportSelector;
-import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
+import com.easy.archetype.framework.file.server.FileServiceAutoConfiguration;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.ImportSelector;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
+
+import java.util.Map;
 
 /**
  * 文件服务配置文件动态导入
@@ -17,8 +14,19 @@ import org.springframework.core.type.AnnotationMetadata;
  * @author luyanan
  * @since 2021/2/24
  **/
-public class FileServerSelector implements ImportSelector<EnableFileServer> {
+@Slf4j
+public class FileServerSelector implements ImportSelector {
 
 
-
+	@Override
+	public String[] selectImports(AnnotationMetadata annotationMetadata) {
+		Map<String, Object> attrs = annotationMetadata
+				.getAnnotationAttributes(EnableFileServer.class.getName());
+		EnableFileServer.FileMode fileMode = (EnableFileServer.FileMode) attrs.get("mode");
+		if (fileMode.equals(EnableFileServer.FileMode.SERVER)) {
+			log.debug("开启文件服务服务端");
+			return new String[]{FileServiceAutoConfiguration.class.getName()};
+		}
+		return new String[0];
+	}
 }

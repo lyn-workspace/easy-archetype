@@ -2,6 +2,7 @@ package com.easy.archetype.framework.core;
 
 import com.easy.archetype.framework.spring.SpringContextHolder;
 import com.easy.archetype.framework.spring.message.MessageUtils;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import java.util.Map;
  * @since 2021/1/17
  **/
 @Data
+
 public class RespEntity<T> implements Serializable {
 
 	private static final long serialVersionUID = 1996369589258128651L;
@@ -54,6 +56,7 @@ public class RespEntity<T> implements Serializable {
 	 *
 	 * @since 2021/1/17
 	 */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private Long timestamp;
 
 	/**
@@ -63,6 +66,7 @@ public class RespEntity<T> implements Serializable {
 	 *
 	 * @since 2021/1/17
 	 */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private String path;
 
 	/**

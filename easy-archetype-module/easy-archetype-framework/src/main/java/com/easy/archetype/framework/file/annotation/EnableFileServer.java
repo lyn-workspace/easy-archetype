@@ -1,5 +1,8 @@
 package com.easy.archetype.framework.file.annotation;
 
+import com.easy.archetype.framework.file.FileServerSelector;
+import org.springframework.context.annotation.Import;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,6 +14,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+@Import(FileServerSelector.class)
 public @interface EnableFileServer {
 
 
@@ -30,14 +34,14 @@ public @interface EnableFileServer {
 		 * @since 2021/2/24
 		 */
 
-		Server,
+		SERVER,
 		/**
 		 * 负责将文件转发给客户端
 		 *
 		 * @since 2021/2/24
 		 */
 
-		Client;
+		CLIENT;
 	}
 
 }
