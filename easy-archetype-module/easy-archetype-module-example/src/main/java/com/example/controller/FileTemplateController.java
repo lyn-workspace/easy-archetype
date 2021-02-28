@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.framework.file.FileTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +28,8 @@ public class FileTemplateController {
 		return RespEntity.success(s);
 	}
 
-	@PostMapping(value = "/upload", consumes = "multipart/*", headers = "content-type=multipart/form-data")
-//	@ApiImplicitParam(name = "file", value = "文件流对象", required = true, dataType = "MultipartFile")
-//	@PostMapping("upload")
+
+	@PostMapping("upload")
 	public RespEntity upload(MultipartFile file) {
 		String upload = fileTemplate.upload(file, "/test");
 		return RespEntity.success(upload);

@@ -16,8 +16,17 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.easy.archetype.framework</groupId>
-			<artifactId>easy-archetype-framework</artifactId>
+			<artifactId>easy-archetype-framework-starter</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.easy.archetype.security</groupId>

@@ -1,6 +1,6 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

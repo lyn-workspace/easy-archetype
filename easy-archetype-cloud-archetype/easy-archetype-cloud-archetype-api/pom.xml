@@ -16,4 +16,16 @@
 	<description>
 		api模块
 	</description>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.easy.archetype.common</groupId>
+			<artifactId>easy-archetype-cloud-common</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+	</dependencies>
 </project>

@@ -1,9 +1,9 @@
 package com.easy.archetype.system.controller;
 
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.entity.SysPostDo;
 import com.easy.archetype.system.service.ISysPostService;
 import io.swagger.annotations.Api;
@@ -34,7 +34,7 @@ public class SysPostController {
 	 * 岗位列表
 	 *
 	 * @param pageRequestParams
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.framework.core.PageInfo < com.easy.archetype.system.entity.SysPostDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.framework.core.page.PageInfo < com.easy.archetype.system.entity.SysPostDo>>
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "岗位列表")
@@ -49,7 +49,7 @@ public class SysPostController {
 	 * 根据id查新岗位详情
 	 *
 	 * @param postId 岗位id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.entity.SysPostDo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.system.entity.SysPostDo>
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "根据id查新岗位详情")
@@ -66,7 +66,7 @@ public class SysPostController {
 	 * 岗位添加
 	 *
 	 * @param post
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "岗位添加")
@@ -97,7 +97,7 @@ public class SysPostController {
 	 * 岗位删除
 	 *
 	 * @param postIds 岗位id集合
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "岗位删除")
@@ -111,7 +111,7 @@ public class SysPostController {
 	/**
 	 * 获取岗位选择框列表
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "获取岗位选择框列表")

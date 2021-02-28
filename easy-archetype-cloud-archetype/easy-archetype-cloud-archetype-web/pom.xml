@@ -14,6 +14,11 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>com.easy.archetype.archetype.api</groupId>
+			<artifactId>easy-archetype-cloud-archetype-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.easy.archetype.auth.api</groupId>
 			<artifactId>easy-archetype-cloud-auth-api</artifactId>
 			<version>1.0-SNAPSHOT</version>

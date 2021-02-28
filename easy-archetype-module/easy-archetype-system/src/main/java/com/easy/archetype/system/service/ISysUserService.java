@@ -1,8 +1,7 @@
 package com.easy.archetype.system.service;
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
 import com.easy.archetype.system.entity.SysUserDo;
 import com.easy.archetype.system.vo.SysUserVo;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +40,7 @@ public interface ISysUserService {
 	 * 分页查询
 	 *
 	 * @param pageRequestParams 分页查询参数
-	 * @return com.easy.archetype.framework.core.PageInfo<com.easy.archetype.system.entity.SysUserDo>
+	 * @return com.easy.archetype.framework.core.page.PageInfo<com.easy.archetype.system.entity.SysUserDo>
 	 * @since 2021/2/11
 	 */
 	PageInfo<SysUserDo> findByPage(PageRequestParams<SysUserDo> pageRequestParams);

@@ -1,9 +1,8 @@
 package com.easy.archetype.common.exception;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.framework.spring.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.validation.BindException;
@@ -29,7 +28,7 @@ public class GlobalExceptionHandler {
 	 * 请求方法不支持
 	 *
 	 * @param e
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/1/24
 	 */
 	@ExceptionHandler({HttpRequestMethodNotSupportedException.class})
@@ -47,7 +46,7 @@ public class GlobalExceptionHandler {
 	 * 自定义校验异常
 	 *
 	 * @param e 异常
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/1/24
 	 */
 	@ExceptionHandler(BindException.class)
@@ -90,7 +89,7 @@ public class GlobalExceptionHandler {
 	 * 拦截未知异常
 	 *
 	 * @param e 异常信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/1/24
 	 */
 	@ExceptionHandler(Exception.class)

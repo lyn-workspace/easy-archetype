@@ -4,7 +4,7 @@ import com.easy.archetype.auth.api.api.SysUserApi;
 import com.easy.archetype.auth.api.vo.SysUserVo;
 import com.easy.archetype.common.exception.BusinessException;
 import com.easy.archetype.common.exception.IMsgCode;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import org.springframework.stereotype.Component;
 
 /**

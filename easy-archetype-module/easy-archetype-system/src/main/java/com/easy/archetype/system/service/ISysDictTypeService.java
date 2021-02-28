@@ -1,7 +1,7 @@
 package com.easy.archetype.system.service;
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
 import com.easy.archetype.system.entity.SysDictTypeDo;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface ISysDictTypeService {
 	 * 分页查询
 	 *
 	 * @param pageRequestParams
-	 * @return com.easy.archetype.framework.core.PageInfo<com.easy.archetype.system.entity.SysDictTypeDo>
+	 * @return com.easy.archetype.framework.core.page.PageInfo<com.easy.archetype.system.entity.SysDictTypeDo>
 	 * @since 2021/2/12
 	 */
 	PageInfo<SysDictTypeDo> findByPage(PageRequestParams<SysDictTypeDo> pageRequestParams);

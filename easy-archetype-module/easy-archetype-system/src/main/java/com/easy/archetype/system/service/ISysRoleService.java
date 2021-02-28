@@ -1,7 +1,7 @@
 package com.easy.archetype.system.service;
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
 import com.easy.archetype.system.entity.SysRoleDo;
 import com.easy.archetype.system.vo.SysRoleVo;
 
@@ -59,7 +59,7 @@ public interface ISysRoleService {
 	 * 角色列表分页查询
 	 *
 	 * @param pageRequestParams
-	 * @return com.easy.archetype.framework.core.PageInfo<com.easy.archetype.system.entity.SysRoleDo>
+	 * @return com.easy.archetype.framework.core.page.PageInfo<com.easy.archetype.system.entity.SysRoleDo>
 	 * @since 2021/2/15
 	 */
 	PageInfo<SysRoleDo> findByPage(PageRequestParams<SysRoleDo> pageRequestParams);

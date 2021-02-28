@@ -1,7 +1,7 @@
 package com.easy.archetype.all.security;
 
 import com.easy.archetype.common.exception.IMsgCode;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.security.validatecode.ValidateCodeException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

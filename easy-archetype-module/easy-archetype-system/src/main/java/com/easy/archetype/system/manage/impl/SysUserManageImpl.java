@@ -1,11 +1,9 @@
 package com.easy.archetype.system.manage.impl;
 
-import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
 import com.easy.archetype.framework.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysUserDo;
 import com.easy.archetype.system.manage.ISysUserManage;

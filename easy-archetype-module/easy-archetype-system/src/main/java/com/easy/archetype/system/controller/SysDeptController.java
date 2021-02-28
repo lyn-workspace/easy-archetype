@@ -1,6 +1,6 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.entity.SysDeptDo;
 import com.easy.archetype.system.service.ISysDeptService;
 import com.easy.archetype.system.vo.TreeSelectVo;
@@ -35,7 +35,7 @@ public class SysDeptController {
 	 * 获取部门列表
 	 *
 	 * @param dept
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDeptDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDeptDo>>
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "获取部门列表")
@@ -50,7 +50,7 @@ public class SysDeptController {
 	 * 查询部门列表(排除节点)
 	 *
 	 * @param deptId
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "查询部门列表(排除节点)")
@@ -89,7 +89,7 @@ public class SysDeptController {
 	 * 获取部门下拉树列表
 	 *
 	 * @param dept
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "获取部门下拉树列表", response = TreeSelectVo.class)
@@ -102,7 +102,7 @@ public class SysDeptController {
 	 * 加载对应角色部门列表树
 	 *
 	 * @param roleId 角色id
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "加载对应角色部门列表书")
@@ -137,7 +137,7 @@ public class SysDeptController {
 	 * 部门修改
 	 *
 	 * @param dept 部门信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "部门修改")
@@ -154,7 +154,7 @@ public class SysDeptController {
 	 * 删除部门
 	 *
 	 * @param deptId
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "删除部门")

@@ -1,8 +1,8 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.entity.SysDictTypeDo;
 import com.easy.archetype.system.service.ISysDictTypeService;
 import io.swagger.annotations.Api;
@@ -34,7 +34,7 @@ public class SysDictTypeController {
 	 * 字典类型分页查询
 	 *
 	 * @param pageRequestParams
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.framework.core.PageInfo < com.easy.archetype.system.entity.SysDictTypeDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.framework.core.page.PageInfo < com.easy.archetype.system.entity.SysDictTypeDo>>
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "字典类型分页查询", response = SysDictTypeDo.class)
@@ -50,7 +50,7 @@ public class SysDictTypeController {
 	 * 查询所有的字典类型
 	 *
 	 * @param sysDictTypeDo
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDictTypeDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDictTypeDo>>
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "查询所有的字典类型")
@@ -66,7 +66,7 @@ public class SysDictTypeController {
 	 * 根据字典类型id查询字典详情
 	 *
 	 * @param dictId
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "根据字典类型id查询字典详情")
@@ -81,7 +81,7 @@ public class SysDictTypeController {
 	 * 字典类型新增
 	 *
 	 * @param dict 字典信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "字典类型新增")
@@ -96,7 +96,7 @@ public class SysDictTypeController {
 	 * 字典类型修改
 	 *
 	 * @param dict
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "字典类型修改")
@@ -112,7 +112,7 @@ public class SysDictTypeController {
 	 * 删除字典类型
 	 *
 	 * @param dictIds 字典类型id
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "删除字典类型")
@@ -126,7 +126,7 @@ public class SysDictTypeController {
 	/**
 	 * 获取字典选择框列表
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "获取字典选择框列表")

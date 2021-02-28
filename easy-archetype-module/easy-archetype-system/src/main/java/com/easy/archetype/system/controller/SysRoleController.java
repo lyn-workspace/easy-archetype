@@ -1,9 +1,9 @@
 package com.easy.archetype.system.controller;
 
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.entity.SysRoleDo;
 import com.easy.archetype.system.service.ISysRoleService;
 import com.easy.archetype.system.vo.SysRoleVo;
@@ -36,7 +36,7 @@ public class SysRoleController {
 	 * 角色列表查询
 	 *
 	 * @param pageRequestParams
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.framework.core.PageInfo < com.easy.archetype.system.entity.SysRoleDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.framework.core.page.PageInfo < com.easy.archetype.system.entity.SysRoleDo>>
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "角色列表查询")
@@ -51,7 +51,7 @@ public class SysRoleController {
 	 * 根据id查询详情
 	 *
 	 * @param roleId 角色id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.entity.SysRoleDo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.system.entity.SysRoleDo>
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "根据id查询详情")
@@ -66,7 +66,7 @@ public class SysRoleController {
 	 * 角色新增
 	 *
 	 * @param role
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "角色新增")
@@ -83,7 +83,7 @@ public class SysRoleController {
 	 * 角色编辑
 	 *
 	 * @param role
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "角色编辑")
@@ -100,7 +100,7 @@ public class SysRoleController {
 	 * 修改保存数据权限
 	 *
 	 * @param role
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "修改保存数据权限")
@@ -117,7 +117,7 @@ public class SysRoleController {
 	 * 角色状态修改
 	 *
 	 * @param role
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "角色状态修改")
@@ -133,7 +133,7 @@ public class SysRoleController {
 	 * 角色删除
 	 *
 	 * @param roleIds 角色id集合
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "角色删除")
@@ -148,7 +148,7 @@ public class SysRoleController {
 	/**
 	 * 获取角色选择框列表
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.entity.SysRoleDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysRoleDo>>
 	 * @since 2021/2/15
 	 */
 	@ApiOperation(value = "获取角色选择框列表")

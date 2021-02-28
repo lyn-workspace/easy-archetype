@@ -5,8 +5,15 @@ easy:
         file-host: http://localhost:8080
         server:
           oss:
-            bucket-name: test
-            access-key: 11111
-            endpoint: http://localhost:8080
+            bucket-name: easy-archetype
+            access-key: root
+            endpoint: http://localhost:9001/
             region: http://localhost:8080
-            secret-key: http://localhost:8080
+            secret-key: password
+          endpoint: true
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10000MB
+      max-request-size: 10000MB

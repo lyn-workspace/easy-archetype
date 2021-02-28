@@ -20,4 +20,16 @@
 		<module>easy-archetype-system</module>
 		<module>easy-archetype-security</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.easy.archetype</groupId>
+				<artifactId>easy-archetype-dependencies</artifactId>
+				<version>${easy-archetype-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

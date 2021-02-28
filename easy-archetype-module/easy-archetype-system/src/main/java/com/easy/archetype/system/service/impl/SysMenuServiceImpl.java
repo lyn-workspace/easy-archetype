@@ -3,7 +3,7 @@ package com.easy.archetype.system.service.impl;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.framework.constant.Constants;
+import com.easy.archetype.framework.core.constant.Constants;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysRoleDo;

@@ -51,7 +51,7 @@ public class EasyEarchetypeVueTemplateGroup extends AbstractTemplateGroup {
 		// mapper xml
 		ITemplate mapperXmlTemplate = templateBuilder.build(new MapperXmlTemplate(entityConfig, mapperConfig));
 		templates.add(mapperXmlTemplate);
-		// mansage层 模板
+		// manage层 模板
 		ITemplate manageTemplate = templateBuilder.build(new ManageTemplate(entityConfig));
 		TemplateConfig manageConfig = manageTemplate.config();
 		templates.add(manageTemplate);

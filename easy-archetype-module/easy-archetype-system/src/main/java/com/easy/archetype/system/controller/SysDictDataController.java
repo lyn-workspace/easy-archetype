@@ -1,12 +1,11 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.system.entity.SysDictDataDo;
-import com.easy.archetype.system.service.ISysDeptService;
 import com.easy.archetype.system.service.ISysDictDataService;
-import com.easy.archetype.system.service.ISysRoleDeptService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,7 +31,7 @@ public class SysDictDataController {
 	 * 根据字典类型查询字典数据信息
 	 *
 	 * @param dictType 字典类型
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDictDataDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDictDataDo>>
 	 * @since 2021/2/11
 	 */
 	@GetMapping(value = "/type/{dictType}")
@@ -61,7 +60,7 @@ public class SysDictDataController {
 	 * 新增
 	 *
 	 * @param dict
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "新增")
@@ -77,7 +76,7 @@ public class SysDictDataController {
 	 * 修改
 	 *
 	 * @param dict
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "修改")
@@ -92,7 +91,7 @@ public class SysDictDataController {
 	 * 删除字典
 	 *
 	 * @param dictCodes
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "删除字典")

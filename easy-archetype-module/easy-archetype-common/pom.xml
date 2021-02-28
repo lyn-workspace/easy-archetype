@@ -24,7 +24,7 @@
 		<!-- 核心模块-->
 		<dependency>
 			<groupId>com.easy.archetype.framework</groupId>
-			<artifactId>easy-archetype-framework</artifactId>
+			<artifactId>easy-archetype-framework-starter</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<!-- swagger-->

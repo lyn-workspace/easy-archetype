@@ -1,6 +1,6 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.service.ISysUserService;
 import com.easy.archetype.system.vo.SysUserVo;
@@ -32,7 +32,7 @@ public class SysProfileController {
 	/**
 	 * 个人信息
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "个人信息")
@@ -52,7 +52,7 @@ public class SysProfileController {
 	 * 修改个人信息
 	 *
 	 * @param user
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "修改个人信息")
@@ -82,7 +82,7 @@ public class SysProfileController {
 	 * 头像上传
 	 *
 	 * @param file
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "头像上传")

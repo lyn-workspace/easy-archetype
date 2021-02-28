@@ -1,6 +1,6 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.service.ISysMenuService;
@@ -39,7 +39,7 @@ public class SysMenuController {
 	/**
 	 * 获取路由信息
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/7
 	 */
 	@ApiOperation(value = "获取路由信息", response = RouterVo.class)
@@ -54,7 +54,7 @@ public class SysMenuController {
 	 * 获取菜单列表
 	 *
 	 * @param menu 条件
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.entity.SysMenuDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysMenuDo>>
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "获取菜单列表")
@@ -86,7 +86,7 @@ public class SysMenuController {
 	 * 获取菜单下拉列表
 	 *
 	 * @param menu
-	 * @return com.easy.archetype.framework.core.RespEntity<java.util.List < com.easy.archetype.system.vo.TreeSelectVo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.vo.TreeSelectVo>>
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "获取菜单下拉列表")
@@ -102,7 +102,7 @@ public class SysMenuController {
 	 * 加载对应角色菜单列表树
 	 *
 	 * @param roleId 角色id
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "加载对应角色菜单列表树")
@@ -122,7 +122,7 @@ public class SysMenuController {
 	 * 新增菜单
 	 *
 	 * @param menu 菜单
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "新增菜单")
@@ -138,7 +138,7 @@ public class SysMenuController {
 	 * 菜单修改
 	 *
 	 * @param menu
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "菜单修改")
@@ -153,7 +153,7 @@ public class SysMenuController {
 	 * 根据菜单id删除
 	 *
 	 * @param menuId 菜单id
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/14
 	 */
 	@ApiOperation(value = "根据菜单id删除")

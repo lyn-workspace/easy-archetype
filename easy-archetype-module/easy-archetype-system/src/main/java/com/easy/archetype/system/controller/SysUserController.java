@@ -2,9 +2,9 @@ package com.easy.archetype.system.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
-import com.easy.archetype.framework.core.RespEntity;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.core.page.RespEntity;
 import com.easy.archetype.framework.utils.BeanUtils;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.entity.SysMenuDo;
@@ -57,7 +57,7 @@ public class SysUserController {
 	/**
 	 * 获取用户信息
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/3
 	 */
 	@ApiOperation(value = "获取用户信息")
@@ -99,7 +99,7 @@ public class SysUserController {
 	 * 用户列表
 	 *
 	 * @param pageRequestParams 分页参数
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.framework.core.PageInfo < com.easy.archetype.system.entity.SysUserDo>>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.framework.core.page.PageInfo < com.easy.archetype.system.entity.SysUserDo>>
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "用户列表")
@@ -114,7 +114,7 @@ public class SysUserController {
 	 * 根据用户编号获取用户详情
 	 *
 	 * @param userId 用户id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.entity.SysUserDo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.system.entity.SysUserDo>
 	 * @since 2021/2/12
 	 */
 	@PreAuthorize("@ss.hasPermi('system:user:query')")
@@ -142,7 +142,7 @@ public class SysUserController {
 	 * 新增用户
 	 *
 	 * @param sysUserVo 用户对象
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@PreAuthorize("@ss.hasPermi('system:user:add')")
@@ -157,7 +157,7 @@ public class SysUserController {
 	 * 修改用户
 	 *
 	 * @param user 用户信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "修改用户")
@@ -171,7 +171,7 @@ public class SysUserController {
 	 * 删除用户
 	 *
 	 * @param userIds 用户集合
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "删除用户")
@@ -187,7 +187,7 @@ public class SysUserController {
 	 * 重置密码
 	 *
 	 * @param user 用户信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "重置密码")
@@ -203,7 +203,7 @@ public class SysUserController {
 	 * 修改状态
 	 *
 	 * @param user 用户信息
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/12
 	 */
 	@ApiOperation(value = "修改状态")
@@ -220,7 +220,7 @@ public class SysUserController {
 	 * 根据id查询详情
 	 *
 	 * @param userId 用户id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.vo.SysUserVo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.system.vo.SysUserVo>
 	 * @since 2021/2/21
 	 */
 	@ApiOperation(value = "根据id查询详情")

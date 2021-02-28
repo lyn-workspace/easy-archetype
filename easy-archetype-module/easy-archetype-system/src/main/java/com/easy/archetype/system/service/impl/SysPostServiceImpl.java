@@ -2,8 +2,8 @@ package com.easy.archetype.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.framework.core.PageInfo;
-import com.easy.archetype.framework.core.PageRequestParams;
+import com.easy.archetype.framework.core.page.PageInfo;
+import com.easy.archetype.framework.core.page.PageRequestParams;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysPostDo;
 import com.easy.archetype.system.entity.SysUserPostDo;

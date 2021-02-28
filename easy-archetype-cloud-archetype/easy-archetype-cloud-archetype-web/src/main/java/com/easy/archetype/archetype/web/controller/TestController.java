@@ -33,7 +33,7 @@ public class TestController {
 	/**
 	 * 获取用户信息
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity
+	 * @return com.easy.archetype.framework.core.page.RespEntity
 	 * @since 2021/2/21
 	 */
 	@ApiOperation(value = "获取用户信息")
@@ -47,7 +47,7 @@ public class TestController {
 	/**
 	 * 获取用户详情
 	 *
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.auth.api.vo.SysUserVo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.auth.api.vo.SysUserVo>
 	 * @since 2021/2/21
 	 */
 	@ApiOperation(value = "获取用户详情")

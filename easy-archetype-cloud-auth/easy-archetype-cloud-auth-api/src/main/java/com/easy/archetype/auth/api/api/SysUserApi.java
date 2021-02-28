@@ -2,8 +2,7 @@ package com.easy.archetype.auth.api.api;
 
 import com.easy.archetype.auth.api.api.fallback.SysUserApiFallback;
 import com.easy.archetype.auth.api.vo.SysUserVo;
-import com.easy.archetype.framework.core.RespEntity;
-import io.swagger.annotations.ApiModelProperty;
+import com.easy.archetype.framework.core.page.RespEntity;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,7 @@ public interface SysUserApi {
 	 * 根据id查询详情
 	 *
 	 * @param userId 用户id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.system.vo.SysUserVo>
+	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.system.vo.SysUserVo>
 	 * @since 2021/2/21
 	 */
 	@ApiOperation(value = "根据id查询详情")
