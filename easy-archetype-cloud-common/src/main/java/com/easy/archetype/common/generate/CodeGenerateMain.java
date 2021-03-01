@@ -12,7 +12,7 @@ public class CodeGenerateMain {
 
 	public static void main(String[] args) {
 		new GenerateBootstrap().configHandler(a -> {
-			a.setModule("archetype.web");
+			a.setModule("archetype");
 		}).templateGroupRegister(a -> {
 			a.put(EasyEarchetypeVueTemplateGroup.class, new EasyEarchetypeVueTemplateGroup(true, true));
 		}).generate(EasyEarchetypeVueTemplateGroup.class);

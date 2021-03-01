@@ -15,4 +15,5 @@ public interface GenerateConstants {
 	 */
 	String TEMPLATE_PATH = "generate/templates/";
 
+	String WEB = "web.";
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 public class ManageImplTemplate extends com.easy.archetype.framework.generate.ext.simple.ManageImplTemplate {
 
 	public ManageImplTemplate(boolean mybatisPlus, TemplateConfig entityConfig, TemplateConfig mapperConfig,
-			TemplateConfig manageConfig) {
+							  TemplateConfig manageConfig) {
 		super(mybatisPlus, entityConfig, mapperConfig, manageConfig);
 	}
 
@@ -30,4 +30,8 @@ public class ManageImplTemplate extends com.easy.archetype.framework.generate.ex
 		return GenerateConstants.TEMPLATE_PATH + "manageImpl.ftl";
 	}
 
+	@Override
+	public String pkg() {
+		return GenerateConstants.WEB + super.pkg();
+	}
 }

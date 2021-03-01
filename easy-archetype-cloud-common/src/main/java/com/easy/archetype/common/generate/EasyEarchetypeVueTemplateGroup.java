@@ -42,9 +42,20 @@ public class EasyEarchetypeVueTemplateGroup extends AbstractTemplateGroup {
 
 	@Override
 	public void registryTemplateList(List<ITemplate> templates, TemplateBuilder templateBuilder) {
-		ITemplate entityTemplate = templateBuilder.build(new EntityTemplate(swagger, mybatisPlus));
+		ITemplate entityTemplate = templateBuilder.build(new EntityTemplate(swagger, mybatisPlus) {
+			@Override
+			public String pkg() {
+				return GenerateConstants.WEB + super.pkg();
+			}
+		});
 		TemplateConfig entityConfig = entityTemplate.config();
 		templates.add(entityTemplate);
+
+		// vo类
+		ITemplate entityVoTemplate = templateBuilder.build(new EntityVoTemplate(swagger));
+		TemplateConfig entityVoConfig = entityVoTemplate.config();
+		templates.add(entityVoTemplate);
+		// Mapper文件
 		ITemplate mapperTemplate = templateBuilder.build(new MapperTemplate(entityConfig, mybatisPlus));
 		templates.add(mapperTemplate);
 		TemplateConfig mapperConfig = mapperTemplate.config();
@@ -59,15 +70,23 @@ public class EasyEarchetypeVueTemplateGroup extends AbstractTemplateGroup {
 				.build(new ManageImplTemplate(mybatisPlus, entityConfig, mapperConfig, manageConfig));
 		templates.add(manageImplTemplate);
 		// service层
-		ITemplate serviceTemplate = templateBuilder.build(new ServiceTemplate());
+		ITemplate serviceTemplate = templateBuilder.build(new ServiceTemplate(entityVoConfig));
 		TemplateConfig serviceConfig = serviceTemplate.config();
 		templates.add(serviceTemplate);
-		ITemplate serviceImplTemplate = templateBuilder.build(new ServiceImplTemplate(manageConfig, serviceConfig));
+		// ServiceImpl实现层
+		ITemplate serviceImplTemplate = templateBuilder.build(new ServiceImplTemplate(entityConfig, entityVoConfig,
+				serviceConfig, manageConfig));
 		templates.add(serviceImplTemplate);
 		// controller层
-		ITemplate controllerTemplate = templateBuilder.build(new ControllerTemplate(serviceConfig, swagger));
+		ITemplate controllerTemplate = templateBuilder.build(new ControllerTemplate(serviceConfig, entityVoConfig, swagger));
 		templates.add(controllerTemplate);
+		// API层
+		ITemplate apiTemplate = templateBuilder.build(new ApiTemplate(entityVoConfig));
+		templates.add(apiTemplate);
 
+		// fallback层
+		ITemplate apiFallbackTemplate = templateBuilder.build(new ApiFallbackTemplate(entityVoConfig, apiTemplate.config()));
+		templates.add(apiFallbackTemplate);
 	}
 
 }

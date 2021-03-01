@@ -37,4 +37,8 @@ public class ManageTemplate extends com.easy.archetype.framework.generate.ext.si
 		return GenerateConstants.TEMPLATE_PATH + "manage.ftl";
 	}
 
+	@Override
+	public String pkg() {
+		return GenerateConstants.WEB  + super.pkg();
+	}
 }

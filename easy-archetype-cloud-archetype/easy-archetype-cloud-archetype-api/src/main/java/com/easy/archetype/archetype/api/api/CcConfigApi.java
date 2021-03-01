@@ -1,6 +1,6 @@
 package com.easy.archetype.archetype.api.api;
 
-import com.easy.archetype.archetype.api.api.fallback.CcConfigApiFallBack;
+import com.easy.archetype.archetype.api.api.fallback.CcConfigApiFallback;
 import com.easy.archetype.archetype.api.vo.CcConfigVo;
 import com.easy.archetype.framework.core.page.PageInfo;
 import com.easy.archetype.framework.core.page.PageRequestParams;
@@ -11,14 +11,15 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 远程API
+ * <p>
+ * api
+ * </p>
  *
  * @author luyanan
- * @since 2021/2/27
- **/
-@FeignClient(value = "easy-archetype-cloud-archetype-web", fallback = CcConfigApiFallBack.class)
+ * @since 2021-03-01
+ */
+@FeignClient(value = "applicationName", fallback = CcConfigApiFallback.class)
 public interface CcConfigApi {
-
 	String PREFIX = "cc/config";
 
 	/**
@@ -26,7 +27,7 @@ public interface CcConfigApi {
 	 *
 	 * @param pageRequestParams 分页参数
 	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.framework.core.PageInfo < com.easy.archetype.archetype.api.vo.CcConfigVo>>
-	 * @since 2021/2/27
+	 * @since 2021-03-01
 	 */
 	@ApiOperation(value = "分页查询", response = CcConfigVo.class)
 	@PostMapping(PREFIX + "/list")
@@ -37,8 +38,8 @@ public interface CcConfigApi {
 	 * 根据id查询详情
 	 *
 	 * @param id id
-	 * @return com.easy.archetype.framework.core.RespEntity<com.easy.archetype.archetype.api.vo.CcConfigVo>
-	 * @since 2021/2/27
+	 * @return RespEntity<CcConfigVo>
+	 * @since 2021-03-01
 	 */
 	@ApiOperation(value = "根据id查询详情", response = CcConfigVo.class)
 	@GetMapping(value = PREFIX + "/{id}")
@@ -49,8 +50,8 @@ public interface CcConfigApi {
 	 * 新增
 	 *
 	 * @param ccConfigVo ccConfigVo
-	 * @return com.easy.archetype.framework.core.RespEntity
-	 * @since 2021/2/27
+	 * @return RespEntity
+	 * @since 2021-03-01
 	 */
 	@ApiOperation(value = "新增")
 	@PostMapping(PREFIX)
@@ -60,8 +61,8 @@ public interface CcConfigApi {
 	 * 修改
 	 *
 	 * @param ccConfigVo ccConfigVo
-	 * @return com.easy.archetype.framework.core.RespEntity
-	 * @since 2021/2/27
+	 * @return RespEntity
+	 * @since 2021-03-01
 	 */
 	@ApiOperation(value = "修改")
 	@PutMapping(PREFIX)
@@ -71,11 +72,10 @@ public interface CcConfigApi {
 	 * 根据id集合删除
 	 *
 	 * @param ids id删除
-	 * @return com.easy.archetype.framework.core.RespEntity
-	 * @since 2021/2/27
+	 * @return RespEntity
+	 * @since 2021-03-01
 	 */
 	@ApiOperation(value = "删除")
 	@DeleteMapping(PREFIX + "/{ids}")
 	RespEntity remove(@PathVariable("ids") Long[] ids);
-
 }

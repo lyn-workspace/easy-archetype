@@ -22,13 +22,19 @@ public class ApiTemplate extends AbstractTemplate {
 
 	private TemplateConfig entityVoTemplateConfig;
 
-	public ApiTemplate(TemplateConfig entityVoTemplateConfig) {
+	private String applicationName;
+
+
+	public ApiTemplate(TemplateConfig entityVoTemplateConfig,
+					   String applicationName) {
 		this.entityVoTemplateConfig = entityVoTemplateConfig;
+		this.applicationName = applicationName;
 	}
 
 	@Override
 	public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
 		data.put("entityVoConfig", entityVoTemplateConfig);
+		data.put("applicationName", applicationName);
 		String requestMapping = tableInfoEntity.getTableName().replaceAll("_", "/").toLowerCase();
 		data.put("requestMapping", requestMapping);
 

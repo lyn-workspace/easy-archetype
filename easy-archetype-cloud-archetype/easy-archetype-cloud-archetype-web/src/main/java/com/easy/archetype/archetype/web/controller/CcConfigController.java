@@ -13,105 +13,100 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-
 /**
  * <p>
- * controller
+ *  controller
  * </p>
  *
  * @author luyanan
- * @since 2021-02-27
- */
+ * @since 2021-03-01
+*/
 @Api(tags = "")
 @RestController
 @RequestMapping("cc/config")
 public class CcConfigController {
+    /**
+    * 权限前缀
+    *
+    * @since 2021-03-01
+    */
+   private static final String PERMISS_PREFIX = "cc/config";
 
-	/**
-	 * 权限前缀
-	 *
-	 * @since 2021/2/27
-	 */
-	static final String PERMISS_PREFIX = "cc:config:";
-	@Autowired
-	private ICcConfigService iCcConfigService;
+    @Autowired
+    private ICcConfigService iCcConfigService;
 
+    /**
+    * 分页查询
+    *
+    * @param pageRequestParams 分页参数
+    * @return RespEntity<PageInfo<CcConfigVo>>
+    * @since 2021-03-01
+    */
+    @ApiOperation(value = "分页查询", response = CcConfigVo.class)
+    @PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "list')")
+    @PostMapping("/list")
+    public RespEntity<PageInfo<CcConfigVo>> listByPage(@RequestBody PageRequestParams<CcConfigVo> pageRequestParams) {
+        PageInfo<CcConfigVo> pageInfo = iCcConfigService.listByPage(pageRequestParams);
+        return RespEntity.success(pageInfo);
+    }
 
-	/**
-	 * 分页查询
-	 *
-	 * @param pageRequestParams 分页参数
-	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.framework.core.page.PageInfo < com.easy.archetype.archetype.api.vo.CcConfigVo>>
-	 * @since 2021/2/27
-	 */
-	@ApiOperation(value = "分页查询", response = CcConfigVo.class)
-	@PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "list')")
-	@PostMapping("/list")
-	public RespEntity<PageInfo<CcConfigVo>> listByPage(@RequestBody PageRequestParams<CcConfigVo> pageRequestParams) {
-		PageInfo<CcConfigVo> pageInfo = iCcConfigService.listByPage(pageRequestParams);
-		return RespEntity.success(pageInfo);
-	}
+    /**
+    * 根据id查询详情
+    *
+    * @param id id
+    * @return RespEntity<CcConfigVo>
+    * @since 2021-03-01
+    */
+    @ApiOperation(value = "根据id查询详情", response = CcConfigVo.class)
+    @PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "query')")
+    @GetMapping(value = "/{id}")
+    public RespEntity<CcConfigVo> findById(@PathVariable("id") Long id) {
+        CcConfigVo ccConfigVo = iCcConfigService.findById(id);
+        return RespEntity.success(ccConfigVo);
+    }
 
+    /**
+    * 新增
+    *
+    * @param ccConfigVo ccConfigVo
+    * @return RespEntity
+    * @since 2021-03-01
+    */
+    @ApiOperation(value = "新增")
+    @PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "add')")
+    @PostMapping()
+    public RespEntity add(@Validated @RequestBody CcConfigVo ccConfigVo) {
+        iCcConfigService.insert(ccConfigVo);
+        return RespEntity.success();
+    }
 
-	/**
-	 * 根据id查询详情
-	 *
-	 * @param id id
-	 * @return com.easy.archetype.framework.core.page.RespEntity<com.easy.archetype.archetype.api.vo.CcConfigVo>
-	 * @since 2021/2/27
-	 */
-	@ApiOperation(value = "根据id查询详情", response = CcConfigVo.class)
-	@PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "query')")
-	@GetMapping(value = "/{id}")
-	public RespEntity<CcConfigVo> findById(@PathVariable("id") Long id) {
-		CcConfigVo ccConfigVo = iCcConfigService.findById(id);
-		return RespEntity.success(ccConfigVo);
-	}
+    /**
+    * 修改
+    *
+    * @param ccConfigVo ccConfigVo
+    * @return RespEntity
+    * @since 2021-03-01
+    */
+    @ApiOperation(value = "修改")
+    @PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "edit')")
+    @PutMapping
+    public RespEntity edit(@Validated @RequestBody CcConfigVo ccConfigVo) {
+        iCcConfigService.update(ccConfigVo);
+        return RespEntity.success();
+    }
 
-
-	/**
-	 * 新增
-	 *
-	 * @param ccConfigVo ccConfigVo
-	 * @return com.easy.archetype.framework.core.page.RespEntity
-	 * @since 2021/2/27
-	 */
-	@ApiOperation(value = "新增")
-	@PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "add')")
-	@PostMapping()
-	public RespEntity add(@Validated @RequestBody CcConfigVo ccConfigVo) {
-		iCcConfigService.insert(ccConfigVo);
-		return RespEntity.success();
-	}
-
-	/**
-	 * 修改
-	 *
-	 * @param ccConfigVo ccConfigVo
-	 * @return com.easy.archetype.framework.core.page.RespEntity
-	 * @since 2021/2/27
-	 */
-	@ApiOperation(value = "修改")
-	@PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "edit')")
-	@PutMapping
-	public RespEntity edit(@Validated @RequestBody CcConfigVo ccConfigVo) {
-		iCcConfigService.update(ccConfigVo);
-		return RespEntity.success();
-	}
-
-	/**
-	 * 根据id集合删除
-	 *
-	 * @param ids id删除
-	 * @return com.easy.archetype.framework.core.page.RespEntity
-	 * @since 2021/2/27
-	 */
-	@ApiOperation(value = "删除")
-	@PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "remove')")
-	@DeleteMapping("/{ids}")
-	public RespEntity remove(@PathVariable("ids") Long[] ids) {
-		iCcConfigService.deleteByIds(Arrays.asList(ids));
-		return RespEntity.success();
-	}
-
+    /**
+    * 根据id集合删除
+    *
+    * @param ids id删除
+    * @return RespEntity
+    * @since 2021-03-01
+    */
+    @ApiOperation(value = "删除")
+    @PreAuthorize("@ss.hasPermi('" + PERMISS_PREFIX + "remove')")
+    @DeleteMapping("/{ids}")
+    public RespEntity remove(@PathVariable("ids") Long[] ids) {
+        iCcConfigService.deleteByIds(Arrays.asList(ids));
+        return RespEntity.success();
+    }
 }

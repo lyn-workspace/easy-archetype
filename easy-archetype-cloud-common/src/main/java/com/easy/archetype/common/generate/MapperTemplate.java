@@ -33,4 +33,8 @@ public class MapperTemplate extends com.easy.archetype.framework.generate.ext.si
 		return GenerateConstants.TEMPLATE_PATH + "mapper.ftl";
 	}
 
+	@Override
+	public String pkg() {
+		return GenerateConstants.WEB  + super.pkg();
+	}
 }

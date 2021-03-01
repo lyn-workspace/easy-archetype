@@ -18,17 +18,17 @@ import java.util.Map;
  **/
 public class ServiceTemplate extends AbstractTemplate {
 
-	private TemplateConfig entityTemplateConfig;
+	private TemplateConfig entityVoTemplateConfig;
 
-	public ServiceTemplate(TemplateConfig entityTemplateConfig) {
-		this.entityTemplateConfig = entityTemplateConfig;
+	public ServiceTemplate(TemplateConfig entityVoTemplateConfig) {
+		this.entityVoTemplateConfig = entityVoTemplateConfig;
 	}
 
 	@Override
 	public void before(TableInfoEntity tableInfoEntity, TemplateConfig config, Map<String, Object> data) {
 
-		data.put("entityConfig", entityTemplateConfig);
-		setImport(entityTemplateConfig.getFullPkg());
+		data.put("entityVoConfig", entityVoTemplateConfig);
+		setImport(entityVoTemplateConfig.getFullPkg());
 		setImport(PageInfo.class, PageRequestParams.class, List.class, Collection.class);
 	}
 
@@ -44,6 +44,6 @@ public class ServiceTemplate extends AbstractTemplate {
 
 	@Override
 	public String pkg() {
-		return "service";
+		return GenerateConstants.WEB +"service";
 	}
 }

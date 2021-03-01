@@ -20,48 +20,48 @@ public interface ${className}  {
 * 分页查询
 *
 * @param pageRequestParams 分页参数
-* @return PageInfo<${entityConfig.className}>
+* @return PageInfo<${entityVoConfig.className}>
  * @since ${since}
  */
- PageInfo<${entityConfig.className}> listByPage(PageRequestParams<${entityConfig.className}> pageRequestParams);
+ PageInfo<${entityVoConfig.className}> listByPage(PageRequestParams<${entityVoConfig.className}> pageRequestParams);
 
 
    /**
    * 根据条件查询
    *
-   * @param ${entityConfig.className?uncap_first} 根据条件查询
-   * @return java.util.List<${entityConfig.className}>
+   * @param ${entityVoConfig.className?uncap_first} 根据条件查询
+   * @return java.util.List<${entityVoConfig.className}>
     * @since ${since}
     */
-    List<${entityConfig.className}> list(${entityConfig.className} ${entityConfig.className?uncap_first});
+    List<${entityVoConfig.className}> list(${entityVoConfig.className} ${entityVoConfig.className?uncap_first});
 
      /**
      * 根据id查询
      *
      * @param id id
-     * @return ${entityConfig.className}
+     * @return ${entityVoConfig.className}
      * @since ${since}
      */
-     ${entityConfig.className} findById(Long id);
+     ${entityVoConfig.className} findById(Long id);
 
      /**
      * 添加
      *
-     * @param ${entityConfig.className?uncap_first} 实体
+     * @param ${entityVoConfig.className?uncap_first} 实体
      * @return void
      * @since ${since}
      */
-     void insert(${entityConfig.className} ${entityConfig.className?uncap_first});
+     void insert(${entityVoConfig.className} ${entityVoConfig.className?uncap_first});
 
 
      /**
      * 根据id修改
      *
-     * @param ${entityConfig.className?uncap_first} 需要修改的对象
+     * @param ${entityVoConfig.className?uncap_first} 需要修改的对象
      * @return void
      * @since ${since}
      */
-     void update(${entityConfig.className} ${entityConfig.className?uncap_first});
+     void update(${entityVoConfig.className} ${entityVoConfig.className?uncap_first});
 
 
      /**

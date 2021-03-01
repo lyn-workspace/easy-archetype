@@ -10,7 +10,7 @@ import com.easy.archetype.archetype.web.entity.CcConfigDo ;
  * </p>
  *
  * @author luyanan
- * @since 2021-02-27
+ * @since 2021-03-01
 */
 @Mapper
 public interface CcConfigMapper extends BaseMapperPlus<CcConfigDo> {

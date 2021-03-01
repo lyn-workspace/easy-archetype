@@ -77,6 +77,6 @@ public class ControllerTemplate extends AbstractTemplate {
 
 	@Override
 	public String pkg() {
-		return ".controller";
+		return GenerateConstants.WEB + "controller";
 	}
 }

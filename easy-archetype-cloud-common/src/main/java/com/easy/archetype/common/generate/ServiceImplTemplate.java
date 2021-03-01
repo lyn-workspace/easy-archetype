@@ -69,6 +69,6 @@ public class ServiceImplTemplate extends AbstractTemplate {
 
 	@Override
 	public String pkg() {
-		return "service.impl";
+		return GenerateConstants.WEB + "service.impl";
 	}
 }

@@ -27,7 +27,7 @@ public class ApiFallbackTemplate extends AbstractTemplate {
 	public ApiFallbackTemplate(TemplateConfig entityVoConfig,
 							   TemplateConfig apiTemplateConfig) {
 		this.entityVoConfig = entityVoConfig;
-		apiTemplateConfig = apiTemplateConfig;
+		this.apiTemplateConfig = apiTemplateConfig;
 	}
 
 	@Override

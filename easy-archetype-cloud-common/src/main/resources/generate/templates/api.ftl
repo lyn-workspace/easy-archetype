@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 <#list  config.annotations as annotation>
  ${annotation}
 </#list>
-@FeignClient(value = "applicationName", fallback = ${className}Back.class)
+@FeignClient(value = "${applicationName}", fallback = ${className}Fallback.class)
 public interface ${className} {
 String PREFIX = "cc/config";
 

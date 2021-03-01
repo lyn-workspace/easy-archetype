@@ -33,7 +33,7 @@
 		<servlet-api.version>2.5</servlet-api.version>
 		<commons-configuration2.version>2.2</commons-configuration2.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
-		<freemarker.version>2.3.28</freemarker.version>
+		<freemarker.version>2.3.29</freemarker.version>
 		<snakeyaml.version>1.26</snakeyaml.version>
 		<kaptcha.version>2.3.2</kaptcha.version>
 		<spring.checkstyle.version>0.0.23</spring.checkstyle.version>
