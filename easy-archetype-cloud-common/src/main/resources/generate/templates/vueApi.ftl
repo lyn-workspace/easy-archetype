@@ -22,7 +22,7 @@ export function get(id) {
 
 
 
-// 新增参数配置
+// 新增
 export function add(data) {
  return request({
     url: prefix+'',
@@ -31,7 +31,7 @@ export function add(data) {
 })
 }
 
-// 修改参数配置
+// 修改
 export function update(data) {
  return request({
     url: prefix+'',
@@ -40,7 +40,7 @@ export function update(data) {
 })
 }
 
-// 删除参数配置
+// 删除
 export function del(id) {
  return request({
     url: prefix+'/' + id,

@@ -42,6 +42,8 @@ public class EasyEarchetypeVueTemplateGroup extends AbstractTemplateGroup {
 
 	@Override
 	public void registryTemplateList(List<ITemplate> templates, TemplateBuilder templateBuilder) {
+
+		String applicationName = "easy-archetype";
 		ITemplate entityTemplate = templateBuilder.build(new EntityTemplate(swagger, mybatisPlus) {
 			@Override
 			public String pkg() {
@@ -81,12 +83,18 @@ public class EasyEarchetypeVueTemplateGroup extends AbstractTemplateGroup {
 		ITemplate controllerTemplate = templateBuilder.build(new ControllerTemplate(serviceConfig, entityVoConfig, swagger));
 		templates.add(controllerTemplate);
 		// API层
-		ITemplate apiTemplate = templateBuilder.build(new ApiTemplate(entityVoConfig));
+		ITemplate apiTemplate = templateBuilder.build(new ApiTemplate(entityVoConfig, applicationName));
 		templates.add(apiTemplate);
 
 		// fallback层
 		ITemplate apiFallbackTemplate = templateBuilder.build(new ApiFallbackTemplate(entityVoConfig, apiTemplate.config()));
 		templates.add(apiFallbackTemplate);
+		// vue
+		ITemplate vueApiTemplate = templateBuilder.build(new VueApiTemplate(entityConfig, applicationName));
+		templates.add(vueApiTemplate);
+
+		ITemplate vueTemplate = templateBuilder.build(new vueTemplate(entityConfig, applicationName));
+		templates.add(vueTemplate);
 	}
 
 }

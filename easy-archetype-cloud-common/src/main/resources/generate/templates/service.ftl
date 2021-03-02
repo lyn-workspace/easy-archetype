@@ -71,6 +71,6 @@ public interface ${className}  {
      * @return void
      * @since ${since}
      */
-     void deleteByIds(Collection<Long> ids);
+     void deleteByIds(Collection<${config.idFieldType}> ids);
 
 }

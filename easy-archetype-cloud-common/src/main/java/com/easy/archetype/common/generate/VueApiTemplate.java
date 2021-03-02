@@ -15,6 +15,8 @@ import java.util.Map;
  **/
 public class VueApiTemplate extends AbstractTemplate {
 
+	private TemplateConfig entityConfig;
+
 	/**
 	 * 项目路径
 	 *
@@ -22,7 +24,8 @@ public class VueApiTemplate extends AbstractTemplate {
 	 */
 	private String applicationContextPath;
 
-	public VueApiTemplate(String applicationContextPath) {
+	public VueApiTemplate(TemplateConfig entityConfig, String applicationContextPath) {
+		this.entityConfig = entityConfig;
 		this.applicationContextPath = applicationContextPath;
 	}
 
@@ -47,11 +50,11 @@ public class VueApiTemplate extends AbstractTemplate {
 
 	@Override
 	public String fileNameSuffix() {
-		return "js";
+		return ".js";
 	}
 
 	@Override
 	public String pkg() {
-		return "vue";
+		return "vue" + "/" + applicationContextPath + "/" + tableInfoEntity.getEntityName();
 	}
 }
