@@ -45,6 +45,8 @@
 		<!--自定义组件 -->
 		<easy-archetype-framework.version>1.0-SNAPSHOT</easy-archetype-framework.version>
 		<easy-archetype-security.version>1.0-SNAPSHOT</easy-archetype-security.version>
+		<easy-archetype-data.version>1.0-SNAPSHOT</easy-archetype-data.version>
+		<easy-archetype-generate.version>1.0-SNAPSHOT</easy-archetype-generate.version>
 		<!--自定义组件结束 -->
 	</properties>
 	<dependencyManagement>
@@ -61,10 +63,17 @@
 				<version>${easy-archetype-security.version}</version>
 			</dependency>
 
+
 			<dependency>
-				<groupId>com.easy.archetype.framework.core</groupId>
-				<artifactId>easy-archetype-framework-core</artifactId>
-				<version>${easy-archetype-framework.version}</version>
+				<groupId>com.easy.archetype.data</groupId>
+				<artifactId>easy-archetype-data-starter</artifactId>
+				<version>${easy-archetype-data.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.easy.archetype.generate</groupId>
+				<artifactId>easy-archetype-generate</artifactId>
+				<version>${easy-archetype-generate.version}</version>
 			</dependency>
 
 			<dependency>

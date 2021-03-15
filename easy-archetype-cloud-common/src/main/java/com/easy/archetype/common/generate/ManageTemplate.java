@@ -1,8 +1,8 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.framework.generate.config.TemplateConfig;
-import com.easy.archetype.framework.generate.core.TableInfoEntity;
-import com.easy.archetype.framework.manage.IManage;
+import com.easy.archetype.generate.config.TemplateConfig;
+import com.easy.archetype.generate.core.TableInfoEntity;
+import com.easy.archetype.data.manage.IManage;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import java.util.Map;
  * @author luyanan
  * @since 2021/2/3
  **/
-public class ManageTemplate extends com.easy.archetype.framework.generate.ext.simple.ManageTemplate {
+public class ManageTemplate extends com.easy.archetype.generate.ext.simple.ManageTemplate {
 
 	/**
 	 * 实体类模板配置

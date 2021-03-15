@@ -1,7 +1,6 @@
 package com.easy.archetype.archetype.web.mapper;
 
-import com.easy.archetype.framework.mybatisplus.BaseMapperPlus ;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper ;
+import com.easy.archetype.data.mybatisplus.BaseMapperPlus ;
 import org.apache.ibatis.annotations.Mapper ;
 import com.easy.archetype.archetype.web.entity.CcConfigDo ;
 /**

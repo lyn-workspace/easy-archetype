@@ -2,9 +2,9 @@ package com.easy.archetype.archetype.api.api;
 
 import com.easy.archetype.archetype.api.api.fallback.CcConfigApiFallback;
 import com.easy.archetype.archetype.api.vo.CcConfigVo;
-import com.easy.archetype.framework.core.page.PageInfo;
-import com.easy.archetype.framework.core.page.PageRequestParams;
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.PageInfo;
+import com.easy.archetype.framework.page.PageRequestParams;
+import com.easy.archetype.framework.page.RespEntity;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;

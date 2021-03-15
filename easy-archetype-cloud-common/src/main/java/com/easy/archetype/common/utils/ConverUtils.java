@@ -1,8 +1,8 @@
 package com.easy.archetype.common.utils;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.easy.archetype.framework.core.page.PageInfo;
-import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.page.PageInfo;
+import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.framework.utils.BeanUtils;
 
 import java.util.ArrayList;

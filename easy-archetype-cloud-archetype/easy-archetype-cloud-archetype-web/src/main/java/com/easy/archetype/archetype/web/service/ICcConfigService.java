@@ -2,8 +2,8 @@ package com.easy.archetype.archetype.web.service;
 
 import com.easy.archetype.archetype.api.vo.CcConfigVo ;
 import java.util.List ;
-import com.easy.archetype.framework.core.page.PageInfo ;
-import com.easy.archetype.framework.core.page.PageRequestParams ;
+import com.easy.archetype.framework.page.PageInfo ;
+import com.easy.archetype.framework.page.PageRequestParams ;
 import java.util.Collection ;
 /**
  *

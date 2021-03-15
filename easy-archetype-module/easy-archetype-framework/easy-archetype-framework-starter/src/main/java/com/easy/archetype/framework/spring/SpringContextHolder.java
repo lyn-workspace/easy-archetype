@@ -1,22 +1,15 @@
 package com.easy.archetype.framework.spring;
 
 import cn.hutool.core.util.StrUtil;
-import com.easy.archetype.framework.config.EasyArchetypeFrameworkProperties;
-import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;

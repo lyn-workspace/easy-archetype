@@ -12,9 +12,8 @@
 
 	<description>核心代码</description>
 	<modules>
-		<module>easy-archetype-framework-core</module>
 		<module>easy-archetype-framework-starter</module>
-	</modules>
+    </modules>
 	<groupId>com.easy.archetype.framework</groupId>
 	<artifactId>easy-archetype-framework</artifactId>
 

@@ -66,6 +66,8 @@
 
 	<modules>
 		<module>easy-archetype-module</module>
+		<module>easy-archetype-common</module>
+		<module>easy-archetype-system</module>
 		<module>easy-archetype-web-ui</module>
 		<module>easy-archetype-web-all</module>
 		<module>easy-archetype-cloud-common</module>

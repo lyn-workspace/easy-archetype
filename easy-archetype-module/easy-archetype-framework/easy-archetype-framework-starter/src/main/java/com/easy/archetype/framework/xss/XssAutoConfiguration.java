@@ -4,6 +4,7 @@ import com.easy.archetype.framework.xss.core.FormXssClean;
 import com.easy.archetype.framework.xss.core.JacksonXssClean;
 import com.easy.archetype.framework.xss.core.XssCleanInterceptor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author luyanan
  * @since 2021/2/8
  **/
+@ConditionalOnClass(WebMvcConfigurer.class)
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(XssProperties.class)

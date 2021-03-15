@@ -106,7 +106,7 @@ public class BusinessThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
 	/**
 	 * 获取监控数据
-	 * @return com.easy.archetype.framework.thread.ThreadPoolMonitorVo
+	 * @return com.easy.archetype.framework.core.thread.ThreadPoolMonitorVo
 	 * @since 2021/1/22
 	 */
 	public ThreadPoolMonitorVo getThreadPoolMonitorVo() {

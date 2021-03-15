@@ -2,7 +2,7 @@ package com.easy.archetype.archetype.web.controller;
 
 import com.easy.archetype.auth.api.api.SysUserApi;
 import com.easy.archetype.auth.api.vo.SysUserVo;
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.RespEntity;
 import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.security.core.LoginUserVo;
 import io.swagger.annotations.Api;

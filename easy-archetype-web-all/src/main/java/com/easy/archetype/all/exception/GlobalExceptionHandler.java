@@ -2,7 +2,7 @@ package com.easy.archetype.all.exception;
 
 import com.easy.archetype.common.exception.BusinessException;
 import com.easy.archetype.common.exception.IMsgCode;
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.RespEntity;
 import com.easy.archetype.framework.spring.SpringContextHolder;
 import com.easy.archetype.system.SystemMsgCode;
 import lombok.extern.slf4j.Slf4j;

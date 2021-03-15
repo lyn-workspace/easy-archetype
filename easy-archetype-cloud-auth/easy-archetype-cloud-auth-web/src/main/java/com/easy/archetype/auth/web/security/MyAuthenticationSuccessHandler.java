@@ -1,6 +1,6 @@
 package com.easy.archetype.auth.web.security;
 
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.RespEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

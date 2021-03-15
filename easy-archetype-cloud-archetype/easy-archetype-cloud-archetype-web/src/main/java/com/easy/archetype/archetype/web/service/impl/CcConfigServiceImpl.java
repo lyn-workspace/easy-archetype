@@ -5,8 +5,8 @@ import com.easy.archetype.archetype.web.entity.CcConfigDo;
 import com.easy.archetype.archetype.web.manage.ICcConfigManage;
 import com.easy.archetype.archetype.web.service.ICcConfigService;
 import com.easy.archetype.common.utils.ConverUtils;
-import com.easy.archetype.framework.core.page.PageInfo;
-import com.easy.archetype.framework.core.page.PageRequestParams;
+import com.easy.archetype.framework.page.PageInfo;
+import com.easy.archetype.framework.page.PageRequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

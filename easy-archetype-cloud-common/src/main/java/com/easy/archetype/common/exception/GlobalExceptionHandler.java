@@ -1,6 +1,6 @@
 package com.easy.archetype.common.exception;
 
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.RespEntity;
 import com.easy.archetype.framework.spring.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;

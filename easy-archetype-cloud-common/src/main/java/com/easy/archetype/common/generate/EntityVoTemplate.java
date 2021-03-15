@@ -1,6 +1,6 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.framework.generate.ext.simple.EntityTemplate;
+import com.easy.archetype.generate.ext.simple.EntityTemplate;
 
 /**
  * Vo类模板

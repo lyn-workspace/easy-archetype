@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.easy.archetype.framework.config.EasyArchetypeFrameworkAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.easy.archetype.framework.config.FrameworkCoreAutoConfiguration
 

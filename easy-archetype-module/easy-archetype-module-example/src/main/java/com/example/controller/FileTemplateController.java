@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.easy.archetype.framework.core.page.RespEntity;
-import com.easy.archetype.framework.file.FileTemplate;
+import com.easy.archetype.data.file.FileTemplate;
+import com.easy.archetype.framework.page.RespEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,11 +1,11 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.framework.core.page.PageInfo;
-import com.easy.archetype.framework.core.page.PageRequestParams;
-import com.easy.archetype.framework.core.page.RespEntity;
-import com.easy.archetype.framework.generate.config.TemplateConfig;
-import com.easy.archetype.framework.generate.core.TableInfoEntity;
-import com.easy.archetype.framework.generate.template.AbstractTemplate;
+import com.easy.archetype.framework.page.PageInfo;
+import com.easy.archetype.framework.page.PageRequestParams;
+import com.easy.archetype.framework.page.RespEntity;
+import com.easy.archetype.generate.config.TemplateConfig;
+import com.easy.archetype.generate.core.TableInfoEntity;
+import com.easy.archetype.generate.template.AbstractTemplate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;

@@ -1,10 +1,10 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.framework.generate.config.TemplateConfig;
-import com.easy.archetype.framework.generate.ext.simple.*;
-import com.easy.archetype.framework.generate.template.AbstractTemplateGroup;
-import com.easy.archetype.framework.generate.template.ITemplate;
-import com.easy.archetype.framework.generate.template.TemplateBuilder;
+import com.easy.archetype.generate.config.TemplateConfig;
+import com.easy.archetype.generate.ext.simple.*;
+import com.easy.archetype.generate.template.AbstractTemplateGroup;
+import com.easy.archetype.generate.template.ITemplate;
+import com.easy.archetype.generate.template.TemplateBuilder;
 
 import java.util.List;
 

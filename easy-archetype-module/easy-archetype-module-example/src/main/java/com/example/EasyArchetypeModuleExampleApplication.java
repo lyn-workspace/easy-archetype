@@ -1,9 +1,9 @@
 package com.example;
 
-import com.easy.archetype.framework.file.annotation.EnableFileServer;
-import com.easy.archetype.framework.file.server.FileServerProperties;
-import com.easy.archetype.framework.file.server.IFileStorageStrategy;
-import com.easy.archetype.framework.file.server.storagestrategy.MinioFileStorageStrategy;
+import com.easy.archetype.data.file.annotation.EnableFileServer;
+import com.easy.archetype.data.file.server.FileServerProperties;
+import com.easy.archetype.data.file.server.IFileStorageStrategy;
+import com.easy.archetype.data.file.server.storagestrategy.MinioFileStorageStrategy;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

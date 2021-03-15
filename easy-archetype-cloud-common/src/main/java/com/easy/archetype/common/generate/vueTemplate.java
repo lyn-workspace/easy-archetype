@@ -1,8 +1,8 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.framework.generate.config.TemplateConfig;
-import com.easy.archetype.framework.generate.core.TableInfoEntity;
-import com.easy.archetype.framework.generate.template.AbstractTemplate;
+import com.easy.archetype.generate.config.TemplateConfig;
+import com.easy.archetype.generate.core.TableInfoEntity;
+import com.easy.archetype.generate.template.AbstractTemplate;
 
 import java.util.Map;
 

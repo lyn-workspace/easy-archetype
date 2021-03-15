@@ -2,7 +2,7 @@ package com.easy.archetype.auth.api.api;
 
 import com.easy.archetype.auth.api.api.fallback.SysUserApiFallback;
 import com.easy.archetype.auth.api.vo.SysUserVo;
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.RespEntity;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,9 +4,9 @@ import com.easy.archetype.archetype.api.api.CcConfigApi;
 import com.easy.archetype.archetype.api.vo.CcConfigVo;
 import com.easy.archetype.common.exception.BusinessException;
 import com.easy.archetype.common.exception.IMsgCode;
-import com.easy.archetype.framework.core.page.PageInfo;
-import com.easy.archetype.framework.core.page.PageRequestParams;
-import com.easy.archetype.framework.core.page.RespEntity;
+import com.easy.archetype.framework.page.PageInfo;
+import com.easy.archetype.framework.page.PageRequestParams;
+import com.easy.archetype.framework.page.RespEntity;
 import org.springframework.stereotype.Component;
 /**
  * <p>

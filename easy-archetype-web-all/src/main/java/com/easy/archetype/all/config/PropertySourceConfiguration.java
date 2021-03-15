@@ -1,12 +1,9 @@
 package com.easy.archetype.all.config;
 
-import com.easy.archetype.framework.configcenter.PropertySource;
-import com.easy.archetype.framework.configcenter.jdbc.JdbcPropertySource;
+import com.easy.archetype.data.configcenter.PropertySource;
+import com.easy.archetype.data.configcenter.jdbc.JdbcPropertySource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 /**
  * 配置中心配置
