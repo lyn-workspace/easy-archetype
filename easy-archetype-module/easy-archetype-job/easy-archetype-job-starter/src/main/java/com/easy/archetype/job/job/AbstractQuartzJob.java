@@ -1,9 +1,11 @@
 package com.easy.archetype.job.job;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
+import com.easy.archetype.framework.spring.SpringContextHolder;
 import com.easy.archetype.job.constant.ScheduleConstants;
 import com.easy.archetype.job.entity.JobLogVo;
 import com.easy.archetype.job.entity.JobVo;
+import com.easy.archetype.job.service.JobLogStorageStrategy;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -18,7 +20,7 @@ import java.util.Date;
  * @since 2021/3/14
  **/
 @Slf4j
-public class AbstractQuartzJob implements BaseJob {
+public abstract class AbstractQuartzJob implements BaseJob {
 
 	private static ThreadLocal<Date> threadLocal = new ThreadLocal<>();
 
@@ -27,8 +29,16 @@ public class AbstractQuartzJob implements BaseJob {
 
 		JobVo jobVo = new JobVo();
 		BeanUtils.copyProperties(jobVo, context.getMergedJobDataMap().get(ScheduleConstants.TASK_PROPERTIES));
-
-
+		try {
+			before(context, jobVo);
+			if (null != jobVo) {
+				doExecute(context, jobVo);
+			}
+			after(context, jobVo, null);
+		} catch (Exception e) {
+			log.error("任务执行异常:{}", e);
+			after(context, jobVo, e);
+		}
 	}
 
 	@Override
@@ -43,7 +53,7 @@ public class AbstractQuartzJob implements BaseJob {
 		JobLogVo logVo = new JobLogVo();
 		logVo.setJobName(jobVo.getJobName());
 		logVo.setJobGroup(jobVo.getJobGroup());
-		logVo.setJobLogId(jobVo.getJobId());
+		logVo.setJobId(jobVo.getJobId());
 		logVo.setInvokeTarget(jobVo.getInvokeTarget());
 		logVo.setStartTime(startTime);
 		logVo.setEndTime(new Date());
@@ -55,7 +65,19 @@ public class AbstractQuartzJob implements BaseJob {
 		} else {
 			logVo.setStatus(ScheduleConstants.SUCCESS);
 		}
-
-
+		// 任务处理策略
+		JobLogStorageStrategy storageStrategy = SpringContextHolder.getBean(JobLogStorageStrategy.class);
+		storageStrategy.save(logVo);
 	}
+
+
+	/**
+	 * 执行方法,由子类实现
+	 *
+	 * @param jobExecutionContext 定时任务上下文
+	 * @param jobVo               系统计划任务
+	 * @return void
+	 * @since 2021/3/18
+	 */
+	protected abstract void doExecute(JobExecutionContext jobExecutionContext, JobVo jobVo) throws Exception;
 }

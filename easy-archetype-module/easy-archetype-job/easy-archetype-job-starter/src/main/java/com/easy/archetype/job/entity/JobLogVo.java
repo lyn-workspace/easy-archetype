@@ -1,5 +1,6 @@
 package com.easy.archetype.job.entity;
 
+import com.easy.archetype.framework.jdbc.FieldType;
 import com.easy.archetype.framework.jdbc.annotation.TableId;
 import com.easy.archetype.framework.jdbc.annotation.TableName;
 import lombok.Data;
@@ -19,14 +20,15 @@ import java.util.Date;
 public class JobLogVo implements Serializable {
 	private static final long serialVersionUID = 465522275199286269L;
 
-	@TableId
-	private Long id;
+	@TableId(type = FieldType.INPUT)
+	private String id;
+
 	/**
 	 * 任务id
 	 *
 	 * @since 2021/3/14
 	 */
-	private String jobLogId;
+	private String jobId;
 
 	/**
 	 * 任务名称
@@ -96,5 +98,13 @@ public class JobLogVo implements Serializable {
 	 */
 
 	private Date endTime;
+
+	/**
+	 * 耗时
+	 *
+	 * @since 2021/3/24
+	 */
+
+	private Long elapsedTime;
 
 }

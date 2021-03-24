@@ -16,10 +16,9 @@
 	<modules>
 		<module>easy-archetype-dependencies</module>
 		<module>easy-archetype-framework</module>
-
 		<module>easy-archetype-security</module>
 		<module>easy-archetype-swagger</module>
-		<!--		<module>easy-archetype-job</module>-->
+		<module>easy-archetype-job</module>
 		<module>easy-archetype-data</module>
 		<module>easy-archetype-generate</module>
 	</modules>

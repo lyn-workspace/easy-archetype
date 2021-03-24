@@ -47,11 +47,18 @@
 		<easy-archetype-security.version>1.0-SNAPSHOT</easy-archetype-security.version>
 		<easy-archetype-data.version>1.0-SNAPSHOT</easy-archetype-data.version>
 		<easy-archetype-generate.version>1.0-SNAPSHOT</easy-archetype-generate.version>
+		<easy-archetype-job.version>1.0-SNAPSHOT</easy-archetype-job.version>
 		<!--自定义组件结束 -->
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+
 			<!--自定义组件 -->
+			<dependency>
+				<groupId>com.easy.archetype.job</groupId>
+				<artifactId>easy-archetype-job-starter</artifactId>
+				<version>${easy-archetype-job.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.easy.archetype.security</groupId>
 				<artifactId>easy-archetype-security-starter</artifactId>
@@ -151,6 +158,11 @@
 			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus-boot-starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
 				<version>${mybatis-plus-boot-starter.version}</version>
 			</dependency>
 			<dependency>

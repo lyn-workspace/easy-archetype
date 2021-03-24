@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.sql.DataSource;
+
 /**
  * 文件上传测试类
  *
@@ -18,6 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping(value = "file")
 public class FileTemplateController {
+
+	@Autowired
+	private DataSource dataSource;
 
 	@Autowired
 	private FileTemplate fileTemplate;

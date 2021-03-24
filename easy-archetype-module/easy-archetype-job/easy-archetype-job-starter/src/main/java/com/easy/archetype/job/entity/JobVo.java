@@ -1,9 +1,12 @@
 package com.easy.archetype.job.entity;
 
+import com.easy.archetype.framework.jdbc.FieldType;
+import com.easy.archetype.framework.jdbc.annotation.TableId;
 import com.easy.archetype.framework.jdbc.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 定时任务都调度表
@@ -23,7 +26,7 @@ public class JobVo implements Serializable {
 	 *
 	 * @since 2021/3/14
 	 */
-
+	@TableId(type = FieldType.INPUT)
 	private String jobId;
 
 
@@ -43,6 +46,14 @@ public class JobVo implements Serializable {
 
 	private String jobGroup;
 
+
+	/**
+	 * 调用类型
+	 *
+	 * @since 2021/3/18
+	 */
+
+	private String invokeType;
 	/**
 	 * 调用目标字符串
 	 *
@@ -84,4 +95,39 @@ public class JobVo implements Serializable {
 	 */
 
 	private String status;
+
+	/**
+	 * 创建人
+	 *
+	 * @since 2021/3/24
+	 */
+
+	private String createBy;
+
+
+	/**
+	 * 创建时间
+	 *
+	 * @since 2021/3/24
+	 */
+
+	private Date createTime;
+
+
+	/**
+	 * 修改人
+	 *
+	 * @since 2021/3/24
+	 */
+
+	private String updateBy;
+
+
+	/**
+	 * 修改时间
+	 *
+	 * @since 2021/3/24
+	 */
+
+	private Date updateTime;
 }

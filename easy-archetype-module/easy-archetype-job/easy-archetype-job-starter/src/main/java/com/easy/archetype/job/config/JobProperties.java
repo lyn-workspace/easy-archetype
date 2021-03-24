@@ -15,6 +15,14 @@ public class JobProperties {
 	public static final String PREFIX = "com.easy.archetype.job";
 
 	/**
+	 * 是否开启
+	 *
+	 * @since 2021/3/20
+	 */
+
+	private Boolean enable;
+
+	/**
 	 * 实例名称
 	 *
 	 * @since 2021/3/14

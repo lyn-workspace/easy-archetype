@@ -3,21 +3,16 @@ package com.easy.archetype.job.utils;
 import com.easy.archetype.job.entity.JobVo;
 import com.easy.archetype.job.invoke.JobInvokeFactory;
 import com.easy.archetype.job.job.AbstractQuartzJob;
-import lombok.extern.slf4j.Slf4j;
-import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 定时任务处理(禁止并发执行)
+ * 定时任务处理(允许并发执行)
  *
  * @author luyanan
- * @since 2021/3/14
+ * @since 2021/3/18
  **/
-@Slf4j
-@DisallowConcurrentExecution
-public class QuartzDisallowConcurrentExecution extends AbstractQuartzJob {
-
+public class QuartzJobExecution extends AbstractQuartzJob {
 	@Autowired
 	private JobInvokeFactory invokeFactory;
 

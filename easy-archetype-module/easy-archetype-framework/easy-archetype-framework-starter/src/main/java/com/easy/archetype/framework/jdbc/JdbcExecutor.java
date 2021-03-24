@@ -51,12 +51,12 @@ public class JdbcExecutor extends JdbcTemplate {
 	}
 
 
-	private EntityWrappers getEntityWrappers(Object entity) {
+	public EntityWrappers getEntityWrappers(Object entity) {
 		return new EntityWrappers<>(entity, this.jdbcGlobalConfig, this.jdbcEntityParser);
 	}
 
 	@SneakyThrows
-	private <T> EntityWrappers getEntityWrappers(Class<T> clazz) {
+	public <T> EntityWrappers getEntityWrappers(Class<T> clazz) {
 		return new EntityWrappers<T>(clazz.newInstance(), this.jdbcGlobalConfig, (JdbcEntityParser<T>) this.jdbcEntityParser);
 	}
 

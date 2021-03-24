@@ -18,11 +18,8 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @EnableConfigurationProperties(EasyArchetypeDataProperties.class)
-
-
 @ConditionalOnProperty(prefix = EasyArchetypeDataProperties.PREFIX, name = "enable", havingValue = "true",
 		matchIfMissing = true)
-
 @Import({RedisCacheAutoConfiguration.class,
 		ConfigCenterAutoConfiguration.class,
 		LoggerAutoConfiguration.class,

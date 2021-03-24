@@ -9,6 +9,7 @@ import com.easy.archetype.framework.jdbc.annotation.TableId;
 import com.easy.archetype.framework.jdbc.annotation.TableName;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,6 +83,9 @@ public class SimpleJdbcEntityParser<T> implements JdbcEntityParser<T> {
 		List<EntityFieldInfo> fieldInfoList = new ArrayList<>();
 		EntityFieldInfo idFieldInfo = null;
 		for (Field field : ReflectUtil.getFields(entity.getClass())) {
+			if (Modifier.isFinal(field.getModifiers()) || Modifier.isStatic(field.getModifiers())) {
+				continue;
+			}
 			EntityFieldInfo entityFieldInfo = new EntityFieldInfo();
 			entityFieldInfo.setFieldName(field.getName());
 			entityFieldInfo.setJdbcField(getSqlFieldName(field));
