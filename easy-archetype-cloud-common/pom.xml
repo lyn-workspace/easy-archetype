@@ -18,6 +18,10 @@
 
 
 		<dependency>
+			<groupId>com.easy.archetype.generate</groupId>
+			<artifactId>easy-archetype-generate</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.easy.archetype.common</groupId>
 			<artifactId>easy-archetype-common</artifactId>
 			<version>1.0-SNAPSHOT</version>

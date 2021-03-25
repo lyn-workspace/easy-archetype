@@ -88,6 +88,7 @@
 				<artifactId>easy-archetype-framework-starter</artifactId>
 				<version>${easy-archetype-framework.version}</version>
 			</dependency>
+
 			<!--自定义组件结束 -->
 
 			<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->

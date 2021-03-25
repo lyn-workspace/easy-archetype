@@ -13,6 +13,7 @@
 	<artifactId>easy-archetype-common</artifactId>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
@@ -30,6 +31,8 @@
 			<groupId>com.easy.archetype.framework</groupId>
 			<artifactId>easy-archetype-framework-starter</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>com.easy.archetype.security</groupId>
 			<artifactId>easy-archetype-security-starter</artifactId>

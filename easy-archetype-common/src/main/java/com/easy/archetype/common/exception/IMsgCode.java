@@ -10,6 +10,7 @@ package com.easy.archetype.common.exception;
  **/
 public interface IMsgCode {
 
+
 	/**
 	 * 成功
 	 *
@@ -18,12 +19,18 @@ public interface IMsgCode {
 	String SUCCESS = "200";
 
 	/**
-	 * 未授权
+	 * 未登录
 	 *
 	 * @since 2021/2/9
 	 */
 	String HTTP_UNAUTHORIZED = "401";
+	/**
+	 * 没有权限
+	 *
+	 * @since 2021/2/21
+	 */
 
+	String PERMISSION_DENIED = "403";
 	/**
 	 * 不支持的请求类型
 	 *

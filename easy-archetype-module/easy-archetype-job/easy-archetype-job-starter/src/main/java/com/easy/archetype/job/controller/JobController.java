@@ -39,7 +39,7 @@ public class JobController {
 	 */
 	@ApiOperation(value = "分页列表")
 	@PostMapping("list")
-	public RespEntity<PageInfo<JobVo>> page(PageRequestParams<JobVo> pageRequestParams) {
+	public RespEntity<PageInfo<JobVo>> page(@RequestBody PageRequestParams<JobVo> pageRequestParams) {
 		PageInfo<JobVo> pageInfo = jobService.page(pageRequestParams);
 		return RespEntity.success(pageInfo);
 	}
@@ -68,7 +68,7 @@ public class JobController {
 	 */
 	@ApiOperation(value = "添加任务")
 	@PostMapping()
-	public RespEntity add(@Validated() JobVo jobVo) throws SchedulerException {
+	public RespEntity add(@Validated()@RequestBody JobVo jobVo) throws SchedulerException {
 
 		if (!CronUtils.isValid(jobVo.getCronExpression())) {
 			throw new JobException("cron表达式不正确");
