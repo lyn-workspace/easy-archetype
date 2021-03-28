@@ -20,6 +20,7 @@
 		<dependency>
 			<groupId>com.easy.archetype.generate</groupId>
 			<artifactId>easy-archetype-generate</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.easy.archetype.common</groupId>

@@ -7,7 +7,6 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -28,17 +27,17 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
 		log.debug("插入字段填充:{}", metaObject.getOriginalObject());
 		Long userId = loginUserService.getUserId();
-		this.strictInsertFill(metaObject, "createTime", () -> new Date(), Date.class);
-		this.strictInsertFill(metaObject, "createBy", () -> userId, Long.class);
-		this.strictInsertFill(metaObject, "updateTime", () -> new Date(), Date.class);
-		this.strictInsertFill(metaObject, "updateBy", () -> userId, Long.class);
+		this.strictInsertFill(metaObject, "createTime", Date.class, new Date());
+		this.strictInsertFill(metaObject, "createBy", Long.class, userId);
+		this.strictInsertFill(metaObject, "updateTime", Date.class, new Date());
+		this.strictInsertFill(metaObject, "updateBy", Long.class, userId);
 	}
 
 	@Override
 	public void updateFill(MetaObject metaObject) {
 		log.debug("修改字段填充:{}", metaObject.getOriginalObject());
 		Long userId = loginUserService.getUserId();
-		this.strictUpdateFill(metaObject, "updateTime", () -> new Date(), Date.class);
-		this.strictUpdateFill(metaObject, "updateBy", () -> userId, Long.class);
+		this.strictUpdateFill(metaObject, "updateTime", Date.class, new Date());
+		this.strictUpdateFill(metaObject, "updateBy", Long.class, userId);
 	}
 }

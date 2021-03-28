@@ -6,6 +6,7 @@ services:
     image: nacos/nacos-server:1.4.1
     volumes:
       - ./logs/nacos1:/home/nacos/logs
+      - ./conf:/home/nacos/conf
       - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
