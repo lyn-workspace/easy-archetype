@@ -1,0 +1,23 @@
+version: "2"
+services:
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos-standalone-mysql
+    environment:
+      - "PREFER_HOST_MODE=hostname"
+      - "MODE=standalone"
+      - "MYSQL_DATABASE_NUM=1"
+      - "SPRING_DATASOURCE_PLATFORM=mysql"
+      - "MYSQL_SERVICE_HOST=easy-mysql"
+      - "MYSQL_SERVICE_DB_NAME=easy-archetype-dev"
+      - "MYSQL_SERVICE_PORT=3306"
+      - "MYSQL_SERVICE_USER=luyanan"
+      - "MYSQL_SERVICE_PASSWORD=luyanan"
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    restart: on-failure
+ 
