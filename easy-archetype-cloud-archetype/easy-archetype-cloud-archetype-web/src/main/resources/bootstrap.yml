@@ -1,20 +1,20 @@
 server:
   ## 端口号
-  port: 9002
+  port: ${SERVER.PORT:9002}
   servlet:
     ## 应用的访问路径
-    context-path: /archetype
+    context-path: /${CONTEXT.PATH:archetype}
 
 spring:
   application:
-    name: easy-archetype-cloud-archetype
+    name: ${APPLICATION.NAME:easy-archetype-cloud-archetype}
   profiles:
-    active: dev
+    active: ${PROFILES.ACTIVE:dev}
   cloud:
     nacos:
       discovery:
-        group: DEFAULT_GROUP
-        server-addr: localhost:8848
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        server-addr: ${NACOS_ADDR:localhost:8848}
         namespace: ${spring.profiles.active}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}

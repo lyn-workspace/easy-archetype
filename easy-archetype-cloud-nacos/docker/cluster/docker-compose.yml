@@ -3,16 +3,17 @@ services:
   nacos1:
     hostname: nacos1
     container_name: nacos1
-    image: nacos/nacos-server:1.4.1
+    image: nacos/nacos-server:1.4.0
     volumes:
       - ./logs/nacos1:/home/nacos/logs
-      - ./conf:/home/nacos/conf
+        #     - ./conf:/home/nacos/conf
       - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
       - "9555:9555"
     env_file:
-      - ./env/nacos.env
+            # - ./env/nacos.env
+      - ./env/nacos-hostname.env
     restart: always
     ## 使用内置mysql的时候开启
 #    depends_on:

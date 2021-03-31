@@ -13,7 +13,6 @@
 	<modules>
 		<module>easy-archetype-cloud-archetype-api</module>
 		<module>easy-archetype-cloud-archetype-web</module>
-		<module>easy-archetype-cloud-archetype-web2</module>
 	</modules>
 	<groupId>com.easy.archetype.archetype</groupId>
 	<artifactId>easy-archetype-cloud-archetype</artifactId>
