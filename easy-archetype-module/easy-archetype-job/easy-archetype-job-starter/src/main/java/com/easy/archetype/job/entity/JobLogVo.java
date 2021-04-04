@@ -15,7 +15,7 @@ import java.util.Date;
  * @since 2021/3/14
  **/
 
-@TableName("sys_job_log")
+@TableName("j_job_log")
 @Data
 public class JobLogVo implements Serializable {
 	private static final long serialVersionUID = 465522275199286269L;
@@ -47,6 +47,13 @@ public class JobLogVo implements Serializable {
 
 	private String jobGroup;
 
+	/**
+	 * 调用类型
+	 *
+	 * @since 2021/3/18
+	 */
+
+	private String invokeType;
 
 	/**
 	 * 调用目标字符串

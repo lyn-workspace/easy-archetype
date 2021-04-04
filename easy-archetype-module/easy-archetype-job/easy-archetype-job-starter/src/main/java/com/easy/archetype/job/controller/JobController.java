@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "调度任务")
 @RestController
-@RequestMapping("schedule")
+@RequestMapping("job")
 public class JobController {
 
 

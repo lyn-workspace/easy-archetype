@@ -1,24 +1,25 @@
 server:
   ## 端口号
-  port: 10002
+  port: ${SERVER.PORT:10002}
 
 spring:
   application:
-    name: easy-archetype-cloud-gateway
+    name: ${APPLICATION.NAME:easy-archetype-cloud-gateway}
   profiles:
-    active: dev
+    active: ${PROFILES.ACTIVE:dev}
   cloud:
     nacos:
       discovery:
-        group: DEFAULT_GROUP
-        server-addr: localhost:8848
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        server-addr: ${NACOS_ADDR:nacos:8848}
         namespace: ${spring.profiles.active}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yml
         namespace: ${spring.cloud.nacos.discovery.namespace}
-        shared-configs:
-          - application.${spring.cloud.nacos.config.file-extension}
-          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#        shared-configs:
+#          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+      username: ${NACOS_USERNAME:nacos}
+      password: ${NACOS_PASSWORD:nacos}
   main:
     allow-bean-definition-overriding: true

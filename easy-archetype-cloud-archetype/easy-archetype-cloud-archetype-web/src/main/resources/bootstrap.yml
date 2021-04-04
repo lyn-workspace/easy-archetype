@@ -14,7 +14,7 @@ spring:
     nacos:
       discovery:
         group: ${NACOS_GROUP:DEFAULT_GROUP}
-        server-addr: ${NACOS_ADDR:localhost:8848}
+        server-addr: ${NACOS_ADDR:nacos:8848}
         namespace: ${spring.profiles.active}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
@@ -24,5 +24,7 @@ spring:
           - ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
           - application.${spring.cloud.nacos.config.file-extension}
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+      username: ${NACOS_USERNAME:nacos}
+      password: ${NACOS_PASSWORD:nacos}
   main:
     allow-bean-definition-overriding: true

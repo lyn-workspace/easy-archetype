@@ -1,5 +1,6 @@
 package com.easy.archetype.job.service.impl;
 
+import cn.hutool.core.util.IdUtil;
 import com.easy.archetype.framework.page.PageInfo;
 import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.job.constant.ScheduleConstants;
@@ -137,7 +138,7 @@ public class JobServiceImpl implements JobService {
 		}
 		jobVo.setCreateTime(new Date());
 		jobVo.setUpdateTime(new Date());
-
+		jobVo.setJobId(IdUtil.fastSimpleUUID());
 		jobVo.setStatus(ScheduleConstants.Status.PAUSE.getValue());
 		int rows = jobDao.insert(jobVo);
 		if (rows > 0) {

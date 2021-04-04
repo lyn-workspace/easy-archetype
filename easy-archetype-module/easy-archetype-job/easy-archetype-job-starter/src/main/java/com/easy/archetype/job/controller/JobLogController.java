@@ -26,8 +26,6 @@ public class JobLogController {
 	private JobLogStorageStrategy jobLogStorageStrategy;
 
 
-
-
 	/**
 	 * 分页查询
 	 *
@@ -37,7 +35,6 @@ public class JobLogController {
 	 */
 	@ApiOperation(value = " 分页查询")
 	@PostMapping("list")
-
 	public RespEntity page(@RequestBody PageRequestParams<JobLogVo> pageRequestParams) {
 		PageInfo<JobLogVo> pageInfo = jobLogStorageStrategy.findByPage(pageRequestParams);
 		return RespEntity.success(pageInfo);

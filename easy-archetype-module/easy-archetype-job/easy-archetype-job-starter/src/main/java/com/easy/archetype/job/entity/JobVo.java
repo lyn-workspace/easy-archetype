@@ -14,7 +14,7 @@ import java.util.Date;
  * @author luyanan
  * @since 2021/3/14
  **/
-@TableName("sys_job")
+@TableName("j_job")
 @Data
 public class JobVo implements Serializable {
 
