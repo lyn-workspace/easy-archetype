@@ -1,5 +1,7 @@
 package com.easy.archetype.job.service.impl;
 
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.easy.archetype.framework.page.PageInfo;
 import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.job.dao.JobLogDao;
@@ -19,7 +21,6 @@ public class JdbcJobLogStorageStrategy implements JobLogStorageStrategy {
 	private JobLogDao jobLogDao;
 
 
-
 	@Override
 	public PageInfo<JobLogVo> findByPage(PageRequestParams<JobLogVo> pageRequestParams) {
 		return jobLogDao.selectByPage(pageRequestParams);
@@ -32,6 +33,9 @@ public class JdbcJobLogStorageStrategy implements JobLogStorageStrategy {
 
 	@Override
 	public void save(JobLogVo jobLogVo) {
+		if (StrUtil.isBlank(jobLogVo.getId())) {
+			jobLogVo.setId(IdUtil.simpleUUID());
+		}
 		jobLogDao.insert(jobLogVo);
 	}
 

@@ -12,6 +12,7 @@ import com.easy.archetype.job.service.JobLogStorageStrategy;
 import com.easy.archetype.job.service.JobService;
 import com.easy.archetype.job.service.impl.JdbcJobLogStorageStrategy;
 import com.easy.archetype.job.service.impl.JobServiceImpl;
+import com.easy.archetype.job.task.DemoTask;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -80,5 +81,17 @@ public class ScheduleAutoConfiguration {
 	@Bean
 	public JobLogController jobLogController() {
 		return new JobLogController();
+	}
+
+
+	/**
+	 * 测试的任务
+	 *
+	 * @return com.easy.archetype.job.task.DemoTask
+	 * @since 2021/4/6
+	 */
+	@Bean("demoTask")
+	public DemoTask demoTask() {
+		return new DemoTask();
 	}
 }

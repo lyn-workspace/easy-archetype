@@ -5,6 +5,9 @@ import com.easy.archetype.job.exception.JobException;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * 任务调用工厂
  *
@@ -16,6 +19,16 @@ public class JobInvokeFactory {
 	@Autowired
 	private ObjectProvider<JobInvokeStrategy> jobInvokeStrategies;
 
+
+	/**
+	 * 所有的类型
+	 *
+	 * @return java.util.List<java.lang.String>
+	 * @since 2021/4/6
+	 */
+	public List<String> types() {
+		return this.jobInvokeStrategies.stream().map(a -> a.type()).collect(Collectors.toList());
+	}
 
 	public JobInvokeStrategy jobInvokeStrategy(String type) {
 		Assert.notBlank(type, "任务调用类型不能为空");

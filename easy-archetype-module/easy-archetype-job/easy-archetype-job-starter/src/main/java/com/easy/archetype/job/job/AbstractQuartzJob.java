@@ -28,7 +28,7 @@ public abstract class AbstractQuartzJob implements BaseJob {
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
 		JobVo jobVo = new JobVo();
-		BeanUtils.copyProperties(jobVo, context.getMergedJobDataMap().get(ScheduleConstants.TASK_PROPERTIES));
+		BeanUtils.copyProperties( context.getMergedJobDataMap().get(ScheduleConstants.TASK_PROPERTIES),jobVo);
 		try {
 			before(context, jobVo);
 			if (null != jobVo) {

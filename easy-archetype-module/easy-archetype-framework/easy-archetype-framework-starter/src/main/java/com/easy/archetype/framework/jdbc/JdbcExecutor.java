@@ -311,7 +311,7 @@ public class JdbcExecutor extends JdbcTemplate {
 				e.printStackTrace();
 			}
 		}
-		return selectByPage(pageRequestParams.getOffset(), pageRequestParams.getPageNum(), pageRequestParams.getParams());
+		return selectByPage(pageRequestParams.getOffset(), pageRequestParams.getPageSize(), pageRequestParams.getParams());
 
 	}
 }

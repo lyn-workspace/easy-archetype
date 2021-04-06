@@ -5,6 +5,7 @@ import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.framework.page.RespEntity;
 import com.easy.archetype.job.entity.JobVo;
 import com.easy.archetype.job.exception.JobException;
+import com.easy.archetype.job.invoke.JobInvokeFactory;
 import com.easy.archetype.job.service.JobService;
 import com.easy.archetype.job.utils.CronUtils;
 import io.swagger.annotations.Api;
@@ -13,6 +14,8 @@ import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 调度任务
@@ -29,6 +32,8 @@ public class JobController {
 	@Autowired
 	private JobService jobService;
 
+	@Autowired
+	private JobInvokeFactory jobInvokeFactory;
 
 	/**
 	 * 分页列表
@@ -68,7 +73,7 @@ public class JobController {
 	 */
 	@ApiOperation(value = "添加任务")
 	@PostMapping()
-	public RespEntity add(@Validated()@RequestBody JobVo jobVo) throws SchedulerException {
+	public RespEntity add(@Validated() @RequestBody JobVo jobVo) throws SchedulerException {
 
 		if (!CronUtils.isValid(jobVo.getCronExpression())) {
 			throw new JobException("cron表达式不正确");
@@ -141,4 +146,18 @@ public class JobController {
 		return RespEntity.success();
 	}
 
+
+	/**
+	 * 反射类型
+	 *
+	 * @return com.easy.archetype.framework.page.RespEntity<java.util.List < java.lang.String>>
+	 * @since 2021/4/6
+	 */
+	@ApiOperation(value = "反射类型")
+	@GetMapping("invoke/types")
+	public RespEntity<List<String>> invokeTypes() {
+		List<String> types = jobInvokeFactory.types();
+		return RespEntity.success(types);
+
+	}
 }
