@@ -151,4 +151,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub OWNER Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/lyn-workspace/easy-archetype</url>
+		</repository>
+	</distributionManagement>
 </project>

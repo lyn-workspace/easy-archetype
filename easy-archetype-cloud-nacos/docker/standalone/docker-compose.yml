@@ -13,7 +13,7 @@ services:
       - PREFER_HOST_MODE=hostname                 # 如果支持主机名可以使用hostname,否则使用ip，默认也是ip
       - MODE=standalone                           # 单机模式启动
       - SPRING_DATASOURCE_PLATFORM=mysql          # 数据源平台 仅支持mysql或不保存empty
-      - MYSQL_SERVICE_HOST=122.152.226.81  # 注：这里不能为`127.0.0.1`或`localhost`方式！！！
+      - MYSQL_SERVICE_HOST=easy-mysql  # 注：这里不能为`127.0.0.1`或`localhost`方式！！！
       - MYSQL_SERVICE_DB_NAME=easy-archetype-dev      # 所需sql脚本位于 `nacos-mysql/nacos-mysql.sql`
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=luyanan
