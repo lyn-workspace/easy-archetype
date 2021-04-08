@@ -15,19 +15,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<easy-archetype-dependencies.version>1.0-SNAPSHOT</easy-archetype-dependencies.version>
-		<!--		<spring-boot.version>2.3.6.RELEASE</spring-boot.version>-->
-		<!--		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>-->
-		<!--		<spring-cloud-alibaba.version>2.2.4.RELEASE</spring-cloud-alibaba.version>-->
 		<spring.checkstyle.version>0.0.23</spring.checkstyle.version>
 		<git.commit.version>2.2.5</git.commit.version>
 
 		<!-- docker-->
 		<docker.registry>registry.cn-hangzhou.aliyuncs.com</docker.registry>
-		<!--		<docker.host>http://172.16.6.92:2375</docker.host>-->
 		<docker.host>http://localhost:2375</docker.host>
 		<docker.namespace>easy-archetype</docker.namespace>
-		<docker.username>lu914596513</docker.username>
-		<docker.password>lu914596513</docker.password>
 		<docker.plugin.version>0.33.0</docker.plugin.version>
 	</properties>
 	<dependencies>
@@ -139,6 +133,15 @@
 					</configuration>
 				</plugin>
 
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<preparationGoals>clean verify</preparationGoals>
+					</configuration>
+				</plugin>
 
 			</plugins>
 		</pluginManagement>
@@ -149,6 +152,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 	<distributionManagement>
@@ -158,4 +165,9 @@
 			<url>https://maven.pkg.github.com/lyn-workspace/easy-archetype</url>
 		</repository>
 	</distributionManagement>
+
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/lyn-workspace/easy-archetype</developerConnection>
+	</scm>
 </project>
