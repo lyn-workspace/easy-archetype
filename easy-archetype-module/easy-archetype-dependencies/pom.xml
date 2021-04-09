@@ -229,7 +229,6 @@
 	</distributionManagement>
 	<scm>
 		<developerConnection>scm:git:https://github.com/lyn-workspace/easy-archetype</developerConnection>
-		<tag>HEAD</tag>
 	</scm>
 
 	<build>
