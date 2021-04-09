@@ -19,8 +19,8 @@
 		<easy-archetype-dependencies.version>1.1-SNAPSHOT</easy-archetype-dependencies.version>
 	</properties>
 	<scm>
-		<developerConnection>scm:git:https://github.com/lyn-workspace/easy-archetype</developerConnection>
-  </scm>
+		<developerConnection>scm:git@gitee.com:lyn-workspace/easy-archetype</developerConnection>
+	</scm>
 
 	<modules>
 		<module>easy-archetype-dependencies</module>
@@ -93,6 +93,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<generateReleasePoms>false</generateReleasePoms>
+					<arguments>-DskipTests</arguments>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
