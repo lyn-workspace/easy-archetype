@@ -75,7 +75,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>
 					<configuration>
-						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<autoVersionSubmodules>false</autoVersionSubmodules>
 						<preparationGoals>clean verify</preparationGoals>
 					</configuration>
 				</plugin>
