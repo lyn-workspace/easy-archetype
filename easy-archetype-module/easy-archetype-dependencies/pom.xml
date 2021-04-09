@@ -228,7 +228,7 @@
 		</repository>
 	</distributionManagement>
 	<scm>
-		<developerConnection>scm:git:https://gitee.com/lyn-workspace/easy-archetype</developerConnection>
+		<developerConnection>scm:git@gitee.com:lyn-workspace/easy-archetype</developerConnection>
 		<tag>easy-archetype-dependencies-1.0</tag>
 	</scm>
 
