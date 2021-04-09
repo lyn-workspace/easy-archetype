@@ -4,7 +4,7 @@
 	<groupId>com.easy.archetype</groupId>
 	<artifactId>easy-archetype-dependencies</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<modelVersion>4.0.0</modelVersion>
 	<description>父控功能</description>
 
@@ -228,7 +228,7 @@
 		</repository>
 	</distributionManagement>
 	<scm>
-		<developerConnection>scm:git@gitee.com:lyn-workspace/easy-archetype</developerConnection>
+		<developerConnection>scm:git:https://gitee.com/lyn-workspace/easy-archetype</developerConnection>
 	</scm>
 
 	<build>

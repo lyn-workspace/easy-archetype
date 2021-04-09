@@ -19,7 +19,7 @@
 		<easy-archetype-dependencies.version>1.1-SNAPSHOT</easy-archetype-dependencies.version>
 	</properties>
 	<scm>
-		<developerConnection>scm:git@gitee.com:lyn-workspace/easy-archetype</developerConnection>
+		<developerConnection>scm:https://gitee.com/lyn-workspace/easy-archetype</developerConnection>
 	</scm>
 
 	<modules>
