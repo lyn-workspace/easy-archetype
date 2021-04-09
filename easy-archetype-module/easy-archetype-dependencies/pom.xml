@@ -4,7 +4,7 @@
 	<groupId>com.easy.archetype</groupId>
 	<artifactId>easy-archetype-dependencies</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<modelVersion>4.0.0</modelVersion>
 	<description>父控功能</description>
 
@@ -41,11 +41,11 @@
 		<swagger-annotations.version>1.6.2</swagger-annotations.version>
 		<slf4j-api.version>1.7.30</slf4j-api.version>
 		<!--自定义组件 -->
-		<easy-archetype-framework.version>1.0</easy-archetype-framework.version>
-		<easy-archetype-security.version>1.0</easy-archetype-security.version>
-		<easy-archetype-data.version>1.0</easy-archetype-data.version>
-		<easy-archetype-generate.version>1.0</easy-archetype-generate.version>
-		<easy-archetype-job.version>1.0</easy-archetype-job.version>
+		<easy-archetype-framework.version>1.0-SNAPSHOT</easy-archetype-framework.version>
+		<easy-archetype-security.version>1.0-SNAPSHOT</easy-archetype-security.version>
+		<easy-archetype-data.version>1.0-SNAPSHOT</easy-archetype-data.version>
+		<easy-archetype-generate.version>1.0-SNAPSHOT</easy-archetype-generate.version>
+		<easy-archetype-job.version>1.0-SNAPSHOT</easy-archetype-job.version>
 		<!--自定义组件结束 -->
 	</properties>
 	<dependencyManagement>
