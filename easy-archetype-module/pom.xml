@@ -20,7 +20,6 @@
 	</properties>
 	<scm>
 		<developerConnection>scm:git:https://github.com/lyn-workspace/easy-archetype</developerConnection>
-	  <tag>easy-archetype-module-1.0</tag>
   </scm>
 
 	<modules>
