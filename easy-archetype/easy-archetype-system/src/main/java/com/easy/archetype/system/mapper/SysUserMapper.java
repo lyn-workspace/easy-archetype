@@ -1,0 +1,29 @@
+package com.easy.archetype.system.mapper;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.easy.archetype.data.mybatisplus.BaseMapperPlus;
+import com.easy.archetype.system.entity.SysUserDo;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+/**
+ * <p>
+ * 用户信息表 mapper
+ * </p>
+ *
+ * @author luyanan
+ * @since 2021-02-03
+ */
+@Mapper
+public interface SysUserMapper extends BaseMapperPlus<SysUserDo> {
+
+	/**
+	 * 分页查询
+	 *
+	 * @param page
+	 * @param params
+	 * @return com.baomidou.mybatisplus.core.metadata.IPage<com.easy.archetype.system.entity.SysUserDo>
+	 * @since 2021/2/15
+	 */
+	IPage<SysUserDo> listByPage(IPage<SysUserDo> page, @Param("params") SysUserDo params);
+}

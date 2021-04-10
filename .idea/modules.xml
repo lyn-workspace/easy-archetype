@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype.iml" filepath="$PROJECT_DIR$/easy-archetype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype-api/easy-archetype-cloud-archetype-api.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype-api/easy-archetype-cloud-archetype-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype-web/easy-archetype-cloud-archetype-web.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-archetype/easy-archetype-cloud-archetype-web/easy-archetype-cloud-archetype-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth-api/easy-archetype-cloud-auth-api.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth-api/easy-archetype-cloud-auth-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth-web/easy-archetype-cloud-auth-web.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-auth/easy-archetype-cloud-auth-web/easy-archetype-cloud-auth-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-common/easy-archetype-cloud-common.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-common/easy-archetype-cloud-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-cloud-gateway/easy-archetype-cloud-gateway.iml" filepath="$PROJECT_DIR$/easy-archetype-cloud-gateway/easy-archetype-cloud-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-common/easy-archetype-common.iml" filepath="$PROJECT_DIR$/easy-archetype-common/easy-archetype-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-data/easy-archetype-data.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-data/easy-archetype-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-data/easy-archetype-data-starter/easy-archetype-data-starter.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-data/easy-archetype-data-starter/easy-archetype-data-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-dependencies/easy-archetype-dependencies.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-dependencies/easy-archetype-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-framework/easy-archetype-framework.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-framework/easy-archetype-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-framework/easy-archetype-framework-starter/easy-archetype-framework-starter.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-framework/easy-archetype-framework-starter/easy-archetype-framework-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-generate/easy-archetype-generate.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-generate/easy-archetype-generate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-job/easy-archetype-job.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-job/easy-archetype-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-job/easy-archetype-job-starter/easy-archetype-job-starter.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-job/easy-archetype-job-starter/easy-archetype-job-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-module.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security-core/easy-archetype-security-core.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security-core/easy-archetype-security-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security-starter/easy-archetype-security-starter.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-security/easy-archetype-security-starter/easy-archetype-security-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-module/easy-archetype-swagger/easy-archetype-swagger.iml" filepath="$PROJECT_DIR$/easy-archetype-module/easy-archetype-swagger/easy-archetype-swagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-system/easy-archetype-system.iml" filepath="$PROJECT_DIR$/easy-archetype-system/easy-archetype-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-web-all/easy-archetype-web-all.iml" filepath="$PROJECT_DIR$/easy-archetype-web-all/easy-archetype-web-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-archetype-web-ui/easy-archetype-web-ui.iml" filepath="$PROJECT_DIR$/easy-archetype-web-ui/easy-archetype-web-ui.iml" />
+    </modules>
+  </component>
+</project>

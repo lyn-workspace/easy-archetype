@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="easy-archetype-cloud-archetype-api" />
+        <module name="easy-archetype-framework-starter" />
+        <module name="easy-archetype-cloud-archetype-web" />
+        <module name="easy-archetype-web-ui" />
+        <module name="easy-archetype-data-starter" />
+        <module name="easy-archetype-security-starter" />
+        <module name="easy-archetype-generate" />
+        <module name="easy-archetype-web-all" />
+        <module name="easy-archetype-common" />
+        <module name="easy-archetype-job-starter" />
+        <module name="easy-archetype-cloud-auth-api" />
+        <module name="easy-archetype-system" />
+        <module name="easy-archetype-cloud-gateway" />
+        <module name="easy-archetype-cloud-common" />
+        <module name="easy-archetype-cloud-auth-web" />
+        <module name="easy-archetype-swagger" />
+        <module name="easy-archetype-security-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="easy-archetype" target="1.8" />
+      <module name="easy-archetype-cloud-archetype" target="1.8" />
+      <module name="easy-archetype-cloud-archetype-api" target="1.8" />
+      <module name="easy-archetype-cloud-archetype-web" target="1.8" />
+      <module name="easy-archetype-cloud-auth" target="8" />
+      <module name="easy-archetype-cloud-auth-api" target="8" />
+      <module name="easy-archetype-cloud-auth-web" target="8" />
+      <module name="easy-archetype-cloud-common" target="1.8" />
+      <module name="easy-archetype-cloud-gateway" target="1.8" />
+      <module name="easy-archetype-common" target="1.5" />
+      <module name="easy-archetype-data" target="1.8" />
+      <module name="easy-archetype-data-starter" target="1.8" />
+      <module name="easy-archetype-dependencies" target="8" />
+      <module name="easy-archetype-framework" target="8" />
+      <module name="easy-archetype-framework-starter" target="8" />
+      <module name="easy-archetype-generate" target="1.8" />
+      <module name="easy-archetype-job" target="1.8" />
+      <module name="easy-archetype-job-starter" target="1.8" />
+      <module name="easy-archetype-module" target="1.5" />
+      <module name="easy-archetype-security" target="1.8" />
+      <module name="easy-archetype-security-core" target="1.8" />
+      <module name="easy-archetype-security-starter" target="1.8" />
+      <module name="easy-archetype-swagger" target="1.8" />
+      <module name="easy-archetype-system" target="1.5" />
+      <module name="easy-archetype-web-all" target="1.8" />
+      <module name="easy-archetype-web-ui" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

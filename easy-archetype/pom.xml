@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.easy.archetype</groupId>
+	<artifactId>easy-archetype</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<easy-archetype-dependencies.version>1.0-SNAPSHOT</easy-archetype-dependencies.version>
+		<spring.checkstyle.version>0.0.23</spring.checkstyle.version>
+		<git.commit.version>2.2.5</git.commit.version>
+
+		<!-- docker-->
+		<docker.registry>registry.cn-hangzhou.aliyuncs.com</docker.registry>
+		<docker.host>http://localhost:2375</docker.host>
+		<docker.namespace>easy-archetype</docker.namespace>
+		<docker.plugin.version>0.33.0</docker.plugin.version>
+	</properties>
+	<dependencies>
+		<!--配置文件处理器-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!--Lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!--测试依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.easy.archetype</groupId>
+				<artifactId>easy-archetype-dependencies</artifactId>
+				<version>${easy-archetype-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>easy-archetype-module</module>
+		<module>easy-archetype-common</module>
+		<module>easy-archetype-system</module>
+		<module>easy-archetype-web-ui</module>
+		<module>easy-archetype-web-all</module>
+		<module>easy-archetype-cloud-common</module>
+		<module>easy-archetype-cloud-auth</module>
+		<module>easy-archetype-cloud-gateway</module>
+		<module>easy-archetype-cloud-archetype</module>
+
+	</modules>
+	<!--仓库地址 -->
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<finalName>${artifactId}</finalName>
+		<pluginManagement>
+
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+				<!--maven docker 打包插件 -->
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>${docker.plugin.version}</version>
+					<configuration>
+						<dockerHost>${docker.host}</dockerHost>
+						<registry>${docker.registry}</registry>
+						<authConfig>
+							<push>
+								<username>${docker.username}</username>
+								<password>${docker.password}</password>
+							</push>
+						</authConfig>
+						<images>
+							<image>
+								<name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
+								<build>
+									<dockerFile>${project.basedir}/Dockerfile</dockerFile>
+								</build>
+							</image>
+						</images>
+					</configuration>
+				</plugin>
+
+
+
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+
+
+</project>
