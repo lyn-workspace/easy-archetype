@@ -14,10 +14,12 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<easy-archetype-dependencies.version>1.0-SNAPSHOT</easy-archetype-dependencies.version>
+		<easy-archetype-dependencies.version>1.1.1-SNAPSHOT</easy-archetype-dependencies.version>
 		<spring.checkstyle.version>0.0.23</spring.checkstyle.version>
 		<git.commit.version>2.2.5</git.commit.version>
-
+		<spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
 		<!-- docker-->
 		<docker.registry>registry.cn-hangzhou.aliyuncs.com</docker.registry>
 		<docker.host>http://localhost:2375</docker.host>
@@ -47,7 +49,32 @@
 	</dependencies>
 
 	<dependencyManagement>
+
 		<dependencies>
+			<!--spring boot 公共版本定义-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!--spring cloud 公共版本定义-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!--spring cloud alibaba-->
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring-cloud-alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>com.easy.archetype</groupId>
 				<artifactId>easy-archetype-dependencies</artifactId>
@@ -59,7 +86,6 @@
 	</dependencyManagement>
 
 	<modules>
-		<module>easy-archetype-module</module>
 		<module>easy-archetype-common</module>
 		<module>easy-archetype-system</module>
 		<module>easy-archetype-web-ui</module>

@@ -14,9 +14,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.github.xiaoymin</groupId>
-			<artifactId>knife4j-spring-boot-starter</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.easy.archetype.security</groupId>
 			<artifactId>easy-archetype-security-starter</artifactId>
@@ -30,11 +31,11 @@
 			<artifactId>easy-archetype-system</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		<!--        <dependency>-->
-		<!--            <groupId>com.easy.archetype.ui</groupId>-->
-		<!--            <artifactId>easy-archetype-web-ui</artifactId>-->
-		<!--            <version>${project.parent.version}</version>-->
-		<!--        </dependency>-->
+		<dependency>
+			<groupId>com.easy.archetype.ui</groupId>
+			<artifactId>easy-archetype-web-ui</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 
 
 		<dependency>
@@ -66,12 +67,7 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
-		<!-- spring-boot-devtools -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional> <!-- 表示依赖不会传递 -->
-		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

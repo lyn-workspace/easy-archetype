@@ -1,3 +1,0 @@
-xxs=com.easy.archetype.framework.core.extension.XxsFilter
-activate=com.easy.archetype.framework.core.extension.ActivateFilter
-adaptiveFilter=com.easy.archetype.framework.core.extension.AdaptiveFilter
