@@ -58,7 +58,11 @@ public class MyHttpSecurityConfigHandler implements HttpSecurityConfigHandler {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.formLogin().loginProcessingUrl("/login").loginProcessingUrl("/login").successHandler(authenticationSuccessHandler)
+		http
+				.formLogin()
+				.loginPage("/login")
+				.loginProcessingUrl("/login")
+				.successHandler(authenticationSuccessHandler)
 				.failureHandler(authenticationFailureHandler)
 				.and()
 				.logout()

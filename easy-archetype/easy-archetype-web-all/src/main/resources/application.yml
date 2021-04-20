@@ -66,9 +66,7 @@ spring:
   session:
     store-type: redis
     timeout: 5h
-
 # 自定义配置
-
 easy:
   archetype:
     framework:
@@ -90,11 +88,17 @@ easy:
         enable: false
       thread:
         enable: true
+      config:
+        center:
+          enable: true
     security:
       ignoring-login-url:
         - /captchaImage
         - /login
         - /login?logout
+        - /css/*
+        - /img/*
+        - /js/*
       validatecode:
         captcha-type: math
         enable: true
