@@ -100,11 +100,12 @@ easy:
         - /img/**
         - /js/**
         - /static/**
+        - /ajax/**
       validatecode:
         captcha-type: math
         enable: true
         validate-code-urls: /login
-        validate-code-filter: true
+        validate-code-filter: false
 
 ## mybatis-plus配置
 mybatis-plus:

@@ -23,6 +23,7 @@ public class IndexController {
 	public String index() {
 		Long userId = loginUserService.getUserId();
 
+
 		return "index";
 	}
 
