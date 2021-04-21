@@ -96,9 +96,10 @@ easy:
         - /captchaImage
         - /login
         - /login?logout
-        - /css/*
-        - /img/*
-        - /js/*
+        - /css/**
+        - /img/**
+        - /js/**
+        - /static/**
       validatecode:
         captcha-type: math
         enable: true
