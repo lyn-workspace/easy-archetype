@@ -2,6 +2,7 @@ package com.easy.archetype.system.service;
 
 import com.easy.archetype.framework.page.PageInfo;
 import com.easy.archetype.framework.page.PageRequestParams;
+import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysUserDo;
 import com.easy.archetype.system.vo.SysUserVo;
 import org.springframework.web.multipart.MultipartFile;
@@ -157,4 +158,14 @@ public interface ISysUserService {
 	 * @since 2021/2/15
 	 */
 	SysUserVo info(Long userId);
+
+	/**
+	 * 根据用户id查询菜单
+	 *
+	 * @param userId 用户id
+	 * @return java.util.List<com.easy.archetype.system.entity.SysMenuDo>
+	 * @since 2021/4/22
+	 */
+	List<SysMenuDo> findMeunByUserId(Long userId);
+
 }

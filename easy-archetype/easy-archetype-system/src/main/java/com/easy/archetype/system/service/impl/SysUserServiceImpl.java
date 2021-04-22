@@ -17,9 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -56,6 +54,9 @@ public class SysUserServiceImpl implements ISysUserService {
 
 	@Autowired
 	private ISysDeptService sysDeptService;
+
+	@Autowired
+	private ISysMenuService sysMenuService;
 
 	@Override
 	public SysUserDo findById(Long userId) {
@@ -247,6 +248,20 @@ public class SysUserServiceImpl implements ISysUserService {
 		SysUserVo sysUserVo = BeanUtils.copyProperties(userDo, SysUserVo.class);
 		sysUserVo.setDept(sysDeptService.findById(sysUserVo.getDeptId()));
 		return sysUserVo;
+	}
+
+	@Override
+	public List<SysMenuDo> findMeunByUserId(Long userId) {
+		// 角色集合
+		List<SysRoleDo> sysRoleDos = sysRoleService.listByUserId(userId);
+		Set<String> roles = new HashSet<>();
+		for (SysRoleDo sysRoleDo : sysRoleDos) {
+			roles.addAll(Arrays.asList(sysRoleDo.getRoleKey().split(",")));
+		}
+		// 菜单集合
+		List<SysMenuDo> sysMenuDos = sysMenuService
+				.listByRoleIds(sysRoleDos.stream().map(a -> a.getRoleId()).distinct().collect(Collectors.toList()));
+		return sysMenuDos;
 	}
 
 	/**
