@@ -90,10 +90,10 @@
 		<module>easy-archetype-system</module>
 		<module>easy-archetype-web-ui</module>
 		<module>easy-archetype-web-all</module>
-<!--		<module>easy-archetype-cloud-common</module>-->
-<!--		<module>easy-archetype-cloud-auth</module>-->
-<!--		<module>easy-archetype-cloud-gateway</module>-->
-<!--		<module>easy-archetype-cloud-archetype</module>-->
+		<module>easy-archetype-cloud-common</module>
+		<module>easy-archetype-cloud-auth</module>
+		<module>easy-archetype-cloud-gateway</module>
+		<module>easy-archetype-cloud-archetype</module>
 
 	</modules>
 	<!--仓库地址 -->
