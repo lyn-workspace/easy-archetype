@@ -162,7 +162,7 @@
 </template>
 
 <script>
-import {listPost, getPost, delPost, addPost, updatePost, exportPost} from "@/views/system/post/post";
+import {listPost, getPost, delPost, addPost, updatePost, exportPost} from "@/api/system/post";
 
 export default {
   name: "Post",

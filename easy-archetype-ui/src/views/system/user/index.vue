@@ -367,9 +367,9 @@ import {
   resetUserPwd,
   changeUserStatus,
   importTemplate
-} from "@/views/system/user/user";
+} from "@/api/system/user";
 import {getToken} from "@/utils/auth";
-import {treeselect} from "@/views/system/dept/dept";
+import {treeselect} from "@/api/system/dept";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 

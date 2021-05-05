@@ -1,18 +1,20 @@
 import request from '@/utils/request'
-let prefix = '/uaa/job/log/'
+
+let prefix = '/uaa/jobLog'
+
 // 查询调度日志列表
 export function listJobLog(query) {
   return request({
-    url: prefix + 'list',
-    method: 'post',
-    data: query
+    url: prefix + '/list',
+    method: 'get',
+    params: query
   })
 }
 
 // 删除调度日志
 export function delJobLog(jobLogId) {
   return request({
-    url:  prefix  + jobLogId,
+    url: prefix + '/' + jobLogId,
     method: 'delete'
   })
 }
@@ -20,7 +22,7 @@ export function delJobLog(jobLogId) {
 // 清空调度日志
 export function cleanJobLog() {
   return request({
-    url:  prefix + 'clean',
+    url: prefix + '/clean',
     method: 'delete'
   })
 }
@@ -28,7 +30,7 @@ export function cleanJobLog() {
 // 导出调度日志
 export function exportJobLog(query) {
   return request({
-    url:  prefix + 'export',
+    url: prefix + '/export',
     method: 'get',
     params: query
   })

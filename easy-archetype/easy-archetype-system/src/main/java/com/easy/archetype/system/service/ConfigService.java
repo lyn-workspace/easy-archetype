@@ -19,28 +19,28 @@ import java.util.Optional;
 @Service("config")
 public class ConfigService {
 
-	/**
-	 * 业务配置前缀
-	 *
-	 * @since 2021/1/24
-	 */
+    /**
+     * 业务配置前缀
+     *
+     * @since 2021/1/24
+     */
 
-	@Autowired
-	private Environment environment;
+    @Autowired
+    private Environment environment;
 
-	/**
-	 * 根据key获取参数配置信息
-	 *
-	 * @param configKey key
-	 * @return java.lang.String
-	 * @since 2021/1/24
-	 */
-	public String getKey(String configKey) {
-		String property = environment.getProperty(configKey);
-		if (StrUtil.isBlank(property)) {
-			throw new BusinessException(IMsgCode.CONFIG_NOT_FOUND, configKey);
-		}
-		return property;
-	}
+    /**
+     * 根据key获取参数配置信息
+     *
+     * @param configKey key
+     * @return java.lang.String
+     * @since 2021/1/24
+     */
+    public String getKey(String configKey) {
+        String property = environment.getProperty(configKey);
+        if (StrUtil.isBlank(property)) {
+            throw new BusinessException(IMsgCode.CONFIG_NOT_FOUND, configKey);
+        }
+        return property;
+    }
 
 }

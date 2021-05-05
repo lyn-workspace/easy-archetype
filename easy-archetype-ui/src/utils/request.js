@@ -16,7 +16,7 @@ const service = axios.create({
 service.interceptors.request.use(config => {
     // 是否需要设置 token
     const isToken = (config.headers || {}).isToken === false
-    console.log(getToken())
+    // console.log(getToken())
     if (getToken() && !isToken) {
         config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
         // config.headers['Authorization'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
@@ -53,8 +53,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(res => {
         // 未设置状态码则默认成功状态
         const code = res.data.status || 200;
-
-        console.log(code);
+        // console.log(code);
         // 获取错误信息
         const msg = errorCode[code] || res.data.msg || errorCode['default']
 

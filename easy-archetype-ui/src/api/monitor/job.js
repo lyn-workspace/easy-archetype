@@ -1,11 +1,11 @@
 import request from '@/utils/request'
 
-let prefix = '/uaa/job/'
+let prefix = '/uaa/job'
 
 // 查询定时任务调度列表
 export function listJob(query) {
   return request({
-    url: prefix + 'list',
+    url: prefix + '/list',
     method: 'post',
     data: query
   })
@@ -14,16 +14,7 @@ export function listJob(query) {
 // 查询定时任务调度详细
 export function getJob(jobId) {
   return request({
-    url: prefix + jobId,
-    method: 'get'
-  })
-}
-
-
-// 反射类型
-export function invokeTypes() {
-  return request({
-    url: prefix + 'invoke/types',
+    url: prefix + '/' + jobId,
     method: 'get'
   })
 }
@@ -31,7 +22,7 @@ export function invokeTypes() {
 // 新增定时任务调度
 export function addJob(data) {
   return request({
-    url: prefix,
+    url: prefix + '',
     method: 'post',
     data: data
   })
@@ -40,7 +31,7 @@ export function addJob(data) {
 // 修改定时任务调度
 export function updateJob(data) {
   return request({
-    url: prefix,
+    url: prefix + '',
     method: 'put',
     data: data
   })
@@ -49,7 +40,7 @@ export function updateJob(data) {
 // 删除定时任务调度
 export function delJob(jobId) {
   return request({
-    url: prefix + jobId,
+    url: prefix + '/' + jobId,
     method: 'delete'
   })
 }
@@ -57,7 +48,7 @@ export function delJob(jobId) {
 // 导出定时任务调度
 export function exportJob(query) {
   return request({
-    url: '/monitor/job/export',
+    url: prefix + '/export',
     method: 'get',
     params: query
   })
@@ -70,7 +61,7 @@ export function changeJobStatus(jobId, status) {
     status
   }
   return request({
-    url: prefix+'changeStatus',
+    url: prefix + '/changeStatus',
     method: 'put',
     data: data
   })
@@ -83,7 +74,7 @@ export function runJob(jobId, jobGroup) {
     jobGroup
   }
   return request({
-    url:  prefix+'run',
+    url: prefix + '/run',
     method: 'put',
     data: data
   })

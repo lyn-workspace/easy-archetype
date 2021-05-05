@@ -1,5 +1,0 @@
-## 日志配置
-logging:
-  level:
-    com.easy: debug
-    org.springframework: warn

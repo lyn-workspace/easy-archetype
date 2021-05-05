@@ -34,6 +34,7 @@ public class SysDictDataController {
 	 * @return com.easy.archetype.framework.core.page.RespEntity<java.util.List < com.easy.archetype.system.entity.SysDictDataDo>>
 	 * @since 2021/2/11
 	 */
+	@ApiOperation(value = "根据字典类型查询字典数据信息")
 	@GetMapping(value = "/type/{dictType}")
 	public RespEntity<List<SysDictDataDo>> dictType(@PathVariable("dictType") String dictType) {
 		List<SysDictDataDo> sysDictDataDos = sysDictDataService.list(SysDictDataDo.builder().dictType(dictType).build());

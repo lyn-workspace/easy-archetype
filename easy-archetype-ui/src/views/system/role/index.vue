@@ -267,9 +267,9 @@ import {
   exportRole,
   dataScope,
   changeRoleStatus
-} from "@/views/system/role/role";
-import {treeselect as menuTreeselect, roleMenuTreeselect} from "@/views/system/menu/menu";
-import {treeselect as deptTreeselect, roleDeptTreeselect} from "@/views/system/dept/dept";
+} from "@/api/system/role";
+import {treeselect as menuTreeselect, roleMenuTreeselect} from "@/api/system/menu";
+import {treeselect as deptTreeselect, roleDeptTreeselect} from "@/api/system/dept";
 
 export default {
   name: "Role",

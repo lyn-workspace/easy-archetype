@@ -98,17 +98,16 @@
 
     <el-table v-loading="loading" :data="jobLogList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="日志编号" width="80" align="center" prop="id"  :show-overflow-tooltip="true"/>
-      <el-table-column label="任务编号" width="80" align="center" prop="jobId"  :show-overflow-tooltip="true"/>
+      <el-table-column label="日志编号" width="80" align="center" prop="jobLogId" />
       <el-table-column label="任务名称" align="center" prop="jobName" :show-overflow-tooltip="true" />
       <el-table-column label="任务组名" align="center" prop="jobGroup" :formatter="jobGroupFormat" :show-overflow-tooltip="true" />
       <el-table-column label="调用目标字符串" align="center" prop="invokeTarget" :show-overflow-tooltip="true" />
       <el-table-column label="日志信息" align="center" prop="jobMessage" :show-overflow-tooltip="true" />
       <el-table-column label="执行状态" align="center" prop="status" :formatter="statusFormat" />
-      <el-table-column label="执行时间" align="center" prop="startTime" width="180">
-<!--        <template slot-scope="scope">-->
-<!--          <span>{{ parseTime(scope.row.createTime) }}</span>-->
-<!--        </template>-->
+      <el-table-column label="执行时间" align="center" prop="createTime" width="180">
+        <template slot-scope="scope">
+          <span>{{ parseTime(scope.row.createTime) }}</span>
+        </template>
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -117,6 +116,7 @@
             type="text"
             icon="el-icon-view"
             @click="handleView(scope.row)"
+            v-hasPermi="['monitor:job:query']"
           >详细</el-button>
         </template>
       </el-table-column>
@@ -135,16 +135,12 @@
       <el-form ref="form" :model="form" label-width="100px" size="mini">
         <el-row>
           <el-col :span="12">
-            <el-form-item label="日志序号：">{{ form.id }}</el-form-item>
-            <el-form-item label="任务序号：">{{ form.jobId }}</el-form-item>
+            <el-form-item label="日志序号：">{{ form.jobLogId }}</el-form-item>
             <el-form-item label="任务名称：">{{ form.jobName }}</el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="任务分组：">{{ form.jobGroup }}</el-form-item>
-            <el-form-item label="执行时间：">{{ form.startTime }}</el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item label="调用类型：">{{ form.invokeType }}</el-form-item>
+            <el-form-item label="执行时间：">{{ form.createTime }}</el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="调用方法：">{{ form.invokeTarget }}</el-form-item>
@@ -154,8 +150,8 @@
           </el-col>
           <el-col :span="24">
             <el-form-item label="执行状态：">
-              <div v-if="form.status == '0'">正常</div>
-              <div v-else-if="form.status == '1'">失败</div>
+              <div v-if="form.status == 0">正常</div>
+              <div v-else-if="form.status == 1">失败</div>
             </el-form-item>
           </el-col>
           <el-col :span="24">
@@ -203,13 +199,9 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        params:{
-          jobName: undefined,
-          jobGroup: undefined,
-          status: undefined,
-          beginTime:undefined,
-          endTime:undefined
-        }
+        jobName: undefined,
+        jobGroup: undefined,
+        status: undefined
       }
     };
   },
@@ -226,7 +218,6 @@ export default {
     /** 查询调度日志列表 */
     getList() {
       this.loading = true;
-      console.log(this.queryParams);
       listJobLog(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
           this.jobLogList = response.data.content;
           this.total = response.data.totalElements;

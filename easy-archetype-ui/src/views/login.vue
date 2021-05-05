@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { getCodeImg } from "@/views/login";
+import { getCodeImg } from "@/api/login";
 import Cookies from "js-cookie";
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 
