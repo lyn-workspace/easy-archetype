@@ -2,10 +2,10 @@ package com.easy.archetype.system.manage.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.easy.archetype.data.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysRoleMenuDo;
 import com.easy.archetype.system.manage.ISysRoleMenuManage;
 import com.easy.archetype.system.mapper.SysRoleMenuMapper;
+import io.github.fallingsoulm.easy.archetype.data.manage.impl.ManageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

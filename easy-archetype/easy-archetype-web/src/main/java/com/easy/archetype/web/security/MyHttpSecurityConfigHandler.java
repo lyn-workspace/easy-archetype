@@ -1,8 +1,8 @@
 package com.easy.archetype.web.security;
 
-import com.easy.archetype.security.security.HttpSecurityConfigHandler;
-import com.easy.archetype.security.validatecode.ValidateCodeFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.fallingsoulm.easy.archetype.security.security.HttpSecurityConfigHandler;
+import io.github.fallingsoulm.easy.archetype.security.validatecode.ValidateCodeFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

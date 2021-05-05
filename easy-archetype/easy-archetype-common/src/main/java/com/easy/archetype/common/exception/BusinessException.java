@@ -1,6 +1,7 @@
 package com.easy.archetype.common.exception;
 
-import com.easy.archetype.framework.spring.message.MessageUtils;
+
+import io.github.fallingsoulm.easy.archetype.framework.spring.message.MessageUtils;
 
 /**
  * <p>
@@ -12,38 +13,38 @@ import com.easy.archetype.framework.spring.message.MessageUtils;
  **/
 public class BusinessException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 
-	/**
-	 * 异常码
-	 *
-	 * @since 2021/2/9
-	 */
-	private final String code;
-	private Object[] args;
+    /**
+     * 异常码
+     *
+     * @since 2021/2/9
+     */
+    private final String code;
+    private Object[] args;
 
-	public BusinessException(String code) {
-		this.code = code;
-	}
+    public BusinessException(String code) {
+        this.code = code;
+    }
 
-	public BusinessException(String code, Object... args) {
-		this.code = code;
-		this.args = args;
-	}
+    public BusinessException(String code, Object... args) {
+        this.code = code;
+        this.args = args;
+    }
 
-	public BusinessException(String code, Throwable e) {
-		super(code, e);
-		this.code = code;
-	}
+    public BusinessException(String code, Throwable e) {
+        super(code, e);
+        this.code = code;
+    }
 
-	@Override
-	public String getMessage() {
-		return this.code + ":" + MessageUtils.getMessage(code, args);
-	}
+    @Override
+    public String getMessage() {
+        return this.code + ":" + MessageUtils.getMessage(code, args);
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
 }

@@ -1,9 +1,9 @@
 package com.easy.archetype.common.generate;
 
 
-import com.easy.archetype.data.mybatisplus.BaseMapperPlus;
-import com.easy.archetype.generate.config.TemplateConfig;
-import com.easy.archetype.generate.core.TableInfoEntity;
+import io.github.fallingsoulm.easy.archetype.data.mybatisplus.BaseMapperPlus;
+import io.github.fallingsoulm.easy.archetype.generate.config.TemplateConfig;
+import io.github.fallingsoulm.easy.archetype.generate.core.TableInfoEntity;
 
 import java.util.Map;
 
@@ -13,7 +13,7 @@ import java.util.Map;
  * @author luyanan
  * @since 2021/2/3
  **/
-public class MapperTemplate extends com.easy.archetype.generate.ext.simple.MapperTemplate {
+public class MapperTemplate extends io.github.fallingsoulm.easy.archetype.generate.ext.simple.MapperTemplate {
 
     public MapperTemplate(TemplateConfig entityConfig, boolean mybatisPlus) {
         super(entityConfig, mybatisPlus);

@@ -12,7 +12,7 @@
 
     <dependencies>
 		<dependency>
-			<groupId>com.easy.archetype.job</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.job</groupId>
 			<artifactId>easy-archetype-job-starter</artifactId>
 		</dependency>
         <dependency>
@@ -26,7 +26,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.easy.archetype.security</groupId>
+            <groupId>io.github.fallingsoulm.easy.archetype.security</groupId>
             <artifactId>easy-archetype-security-starter</artifactId>
         </dependency>
         <dependency>

@@ -2,14 +2,14 @@ package com.easy.archetype.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.framework.page.PageInfo;
-import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysPostDo;
 import com.easy.archetype.system.entity.SysUserPostDo;
 import com.easy.archetype.system.manage.ISysPostManage;
 import com.easy.archetype.system.service.ISysPostService;
 import com.easy.archetype.system.service.ISysUserPostService;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageInfo;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageRequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

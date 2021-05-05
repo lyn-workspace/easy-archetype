@@ -1,11 +1,12 @@
 package com.easy.archetype.common.generate;
 
-import com.easy.archetype.generate.config.TemplateConfig;
-import com.easy.archetype.generate.ext.simple.EntityTemplate;
-import com.easy.archetype.generate.ext.simple.MapperXmlTemplate;
-import com.easy.archetype.generate.template.AbstractTemplateGroup;
-import com.easy.archetype.generate.template.ITemplate;
-import com.easy.archetype.generate.template.TemplateBuilder;
+
+import io.github.fallingsoulm.easy.archetype.generate.config.TemplateConfig;
+import io.github.fallingsoulm.easy.archetype.generate.ext.simple.EntityTemplate;
+import io.github.fallingsoulm.easy.archetype.generate.ext.simple.MapperXmlTemplate;
+import io.github.fallingsoulm.easy.archetype.generate.template.AbstractTemplateGroup;
+import io.github.fallingsoulm.easy.archetype.generate.template.ITemplate;
+import io.github.fallingsoulm.easy.archetype.generate.template.TemplateBuilder;
 
 import java.util.List;
 

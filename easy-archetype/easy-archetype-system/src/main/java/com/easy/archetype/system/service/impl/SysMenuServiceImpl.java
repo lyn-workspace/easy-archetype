@@ -3,7 +3,6 @@ package com.easy.archetype.system.service.impl;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.framework.constant.Constants;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.entity.SysRoleDo;
@@ -18,8 +17,9 @@ import com.easy.archetype.system.vo.MetaVo;
 import com.easy.archetype.system.vo.RouterVo;
 import com.easy.archetype.system.vo.SysMenuVo;
 import com.easy.archetype.system.vo.TreeSelectVo;
+import io.github.fallingsoulm.easy.archetype.framework.constant.Constants;
+import io.github.fallingsoulm.easy.archetype.framework.utils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -224,7 +224,7 @@ public class SysMenuServiceImpl implements ISysMenuService {
 
         List<SysMenuVo> sysMenuVos = buildMenuTree(sysMenuDos
                 .stream()
-                .map(a -> com.easy.archetype.framework.utils.BeanUtils.copyProperties(a, SysMenuVo.class))
+                .map(a -> BeanUtils.copyProperties(a, SysMenuVo.class))
                 .collect(Collectors.toList()));
         return sysMenuVos.stream().map(TreeSelectVo::new).collect(Collectors.toList());
     }

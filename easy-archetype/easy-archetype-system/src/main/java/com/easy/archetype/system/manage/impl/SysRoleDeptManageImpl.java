@@ -1,10 +1,10 @@
 package com.easy.archetype.system.manage.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.easy.archetype.data.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysRoleDeptDo;
 import com.easy.archetype.system.manage.ISysRoleDeptManage;
 import com.easy.archetype.system.mapper.SysRoleDeptMapper;
+import io.github.fallingsoulm.easy.archetype.data.manage.impl.ManageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

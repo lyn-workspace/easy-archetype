@@ -1,7 +1,7 @@
 package com.easy.archetype.common.generate;
 
 
-import com.easy.archetype.generate.GenerateBootstrap;
+import io.github.fallingsoulm.easy.archetype.generate.GenerateBootstrap;
 
 /**
  * 代码生成main方法

@@ -1,7 +1,5 @@
 package com.easy.archetype.web.config;
 
-import com.easy.archetype.data.configcenter.PropertySource;
-import com.easy.archetype.data.configcenter.jdbc.JdbcPropertySource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,7 +1,7 @@
 package com.easy.archetype.system.manage;
 
 import com.easy.archetype.system.entity.SysUserRoleDo;
-import com.easy.archetype.data.manage.IManage;
+import io.github.fallingsoulm.easy.archetype.data.manage.IManage;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.page.RespEntity;
-import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.entity.SysMenuDo;
 import com.easy.archetype.system.service.ISysMenuService;
 import com.easy.archetype.system.vo.RouterVo;
 import com.easy.archetype.system.vo.TreeSelectVo;
+import io.github.fallingsoulm.easy.archetype.framework.page.RespEntity;
+import io.github.fallingsoulm.easy.archetype.security.core.LoginUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

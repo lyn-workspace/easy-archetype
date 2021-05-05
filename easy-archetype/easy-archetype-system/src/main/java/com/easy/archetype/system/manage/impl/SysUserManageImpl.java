@@ -2,12 +2,12 @@ package com.easy.archetype.system.manage.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.easy.archetype.framework.page.PageInfo;
-import com.easy.archetype.framework.page.PageRequestParams;
-import com.easy.archetype.data.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysUserDo;
 import com.easy.archetype.system.manage.ISysUserManage;
 import com.easy.archetype.system.mapper.SysUserMapper;
+import io.github.fallingsoulm.easy.archetype.data.manage.impl.ManageImpl;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageInfo;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageRequestParams;
 import org.springframework.stereotype.Service;
 
 /**

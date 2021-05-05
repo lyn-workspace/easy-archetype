@@ -2,9 +2,9 @@ package com.easy.archetype.system.manage.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.system.mapper.SysUserRoleMapper;
-import com.easy.archetype.data.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysUserRoleDo;
 import com.easy.archetype.system.manage.ISysUserRoleManage;
+import io.github.fallingsoulm.easy.archetype.data.manage.impl.ManageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

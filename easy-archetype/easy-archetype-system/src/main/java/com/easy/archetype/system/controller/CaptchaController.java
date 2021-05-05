@@ -1,10 +1,10 @@
 package com.easy.archetype.system.controller;
 
-import com.easy.archetype.framework.page.RespEntity;
-import com.easy.archetype.data.logger.annotation.IgnoreLogger;
-import com.easy.archetype.security.annotation.IgnoringLogin;
-import com.easy.archetype.security.validatecode.ValidateCodeTemplate;
 import com.easy.archetype.system.enums.SystemRedisKeyEnums;
+import io.github.fallingsoulm.easy.archetype.data.logger.annotation.IgnoreLogger;
+import io.github.fallingsoulm.easy.archetype.framework.page.RespEntity;
+import io.github.fallingsoulm.easy.archetype.security.annotation.IgnoringLogin;
+import io.github.fallingsoulm.easy.archetype.security.validatecode.ValidateCodeTemplate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +26,19 @@ import java.util.UUID;
 public class CaptchaController {
 
 
-	@Autowired(required = false)
-	private ValidateCodeTemplate validateCodeTemplate;
+    @Autowired(required = false)
+    private ValidateCodeTemplate validateCodeTemplate;
 
-	@ApiOperation(value = "生成验证码")
-	@IgnoreLogger(type = IgnoreLogger.IgnoreLoggerType.RESULT)
-	@GetMapping("captchaImage")
-	public RespEntity getCode() {
-		String uuid = UUID.randomUUID().toString();
-		// 创建验证码
-		Map<String, Object> map =
-				validateCodeTemplate.create(uuid, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
+    @ApiOperation(value = "生成验证码")
+    @IgnoreLogger(type = IgnoreLogger.IgnoreLoggerType.RESULT)
+    @GetMapping("captchaImage")
+    public RespEntity getCode() {
+        String uuid = UUID.randomUUID().toString();
+        // 创建验证码
+        Map<String, Object> map =
+                validateCodeTemplate.create(uuid, SystemRedisKeyEnums.CAPTCHA_CODES.getExpire());
 
-		return RespEntity.success(map);
-	}
+        return RespEntity.success(map);
+    }
 
 }

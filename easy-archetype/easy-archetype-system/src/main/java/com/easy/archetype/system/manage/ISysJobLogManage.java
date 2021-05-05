@@ -1,7 +1,7 @@
 package com.easy.archetype.system.manage;
 
-import com.easy.archetype.data.manage.IManage;
 import com.easy.archetype.system.entity.SysJobLogDo;
+import io.github.fallingsoulm.easy.archetype.data.manage.IManage;
 
 /**
  * <p>

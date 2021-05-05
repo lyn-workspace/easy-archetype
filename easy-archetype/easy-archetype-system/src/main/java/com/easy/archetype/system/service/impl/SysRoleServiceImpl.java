@@ -2,11 +2,6 @@ package com.easy.archetype.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.easy.archetype.common.exception.BusinessException;
-import com.easy.archetype.framework.constant.NumberConstants;
-import com.easy.archetype.framework.page.PageInfo;
-import com.easy.archetype.framework.page.PageRequestParams;
-import com.easy.archetype.framework.utils.BeanUtils;
-import com.easy.archetype.security.core.LoginUserService;
 import com.easy.archetype.system.SystemMsgCode;
 import com.easy.archetype.system.entity.SysRoleDeptDo;
 import com.easy.archetype.system.entity.SysRoleDo;
@@ -18,6 +13,11 @@ import com.easy.archetype.system.service.ISysRoleMenuService;
 import com.easy.archetype.system.service.ISysRoleService;
 import com.easy.archetype.system.service.ISysUserRoleService;
 import com.easy.archetype.system.vo.SysRoleVo;
+import io.github.fallingsoulm.easy.archetype.framework.constant.NumberConstants;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageInfo;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageRequestParams;
+import io.github.fallingsoulm.easy.archetype.framework.utils.BeanUtils;
+import io.github.fallingsoulm.easy.archetype.security.core.LoginUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

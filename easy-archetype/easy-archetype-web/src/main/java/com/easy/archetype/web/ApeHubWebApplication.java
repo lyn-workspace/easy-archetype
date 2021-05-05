@@ -1,9 +1,8 @@
 package com.easy.archetype.web;
 
-import com.easy.archetype.security.oauth.client.annotation.EnableOauthClient;
-import com.easy.archetype.security.oauth.server.annotation.EnableOauthServer;
-import com.easy.archetype.security.security.annotation.EnableSecurity;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
+import io.github.fallingsoulm.easy.archetype.security.oauth.client.annotation.EnableOauthClient;
+import io.github.fallingsoulm.easy.archetype.security.oauth.server.annotation.EnableOauthServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -22,10 +21,10 @@ import org.springframework.cache.annotation.EnableCaching;
 //@EnableSecurity
 @EnableCaching
 @SpringBootApplication
-public class ApeHubWenApplication {
+public class ApeHubWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApeHubWenApplication.class, args);
+        SpringApplication.run(ApeHubWebApplication.class, args);
     }
 
 }

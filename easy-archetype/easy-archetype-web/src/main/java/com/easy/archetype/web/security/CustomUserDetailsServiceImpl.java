@@ -9,9 +9,9 @@ import com.easy.archetype.system.entity.SysUserDo;
 import com.easy.archetype.system.service.ISysMenuService;
 import com.easy.archetype.system.service.ISysRoleService;
 import com.easy.archetype.system.service.ISysUserService;
-import com.easy.archetype.security.core.LoginUserVo;
-import com.easy.archetype.security.security.AbstractUserDetailsService;
 
+import io.github.fallingsoulm.easy.archetype.security.core.LoginUserVo;
+import io.github.fallingsoulm.easy.archetype.security.security.AbstractUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

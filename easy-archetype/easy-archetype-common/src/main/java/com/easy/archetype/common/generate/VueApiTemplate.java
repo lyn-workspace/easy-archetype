@@ -1,9 +1,9 @@
 package com.easy.archetype.common.generate;
 
 import cn.hutool.core.util.StrUtil;
-import com.easy.archetype.generate.config.TemplateConfig;
-import com.easy.archetype.generate.core.TableInfoEntity;
-import com.easy.archetype.generate.template.AbstractTemplate;
+import io.github.fallingsoulm.easy.archetype.generate.config.TemplateConfig;
+import io.github.fallingsoulm.easy.archetype.generate.core.TableInfoEntity;
+import io.github.fallingsoulm.easy.archetype.generate.template.AbstractTemplate;
 
 import java.util.Map;
 

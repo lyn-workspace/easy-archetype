@@ -1,9 +1,9 @@
 package com.easy.archetype.system.manage.impl;
 
-import com.easy.archetype.data.manage.impl.ManageImpl;
 import com.easy.archetype.system.entity.SysPostDo;
 import com.easy.archetype.system.mapper.SysPostMapper;
 import com.easy.archetype.system.manage.ISysPostManage;
+import io.github.fallingsoulm.easy.archetype.data.manage.impl.ManageImpl;
 import org.springframework.stereotype.Service;
 
 /**

@@ -26,20 +26,20 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.easy.archetype.framework</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.framework</groupId>
 			<artifactId>easy-archetype-framework-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.easy.archetype.generate</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.generate</groupId>
 			<artifactId>easy-archetype-generate</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.easy.archetype.security</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.security</groupId>
 			<artifactId>easy-archetype-security-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.easy.archetype.generate</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.generate</groupId>
 			<artifactId>easy-archetype-generate</artifactId>
 		</dependency>
 		<dependency>
@@ -67,7 +67,7 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.easy.archetype.data</groupId>
+			<groupId>io.github.fallingsoulm.easy.archetype.data</groupId>
 			<artifactId>easy-archetype-data-starter</artifactId>
 		</dependency>
 	</dependencies>

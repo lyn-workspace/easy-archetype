@@ -1,7 +1,7 @@
 package com.easy.archetype.common.generate;
 
 
-import com.easy.archetype.generate.ext.simple.EntityTemplate;
+import io.github.fallingsoulm.easy.archetype.generate.ext.simple.EntityTemplate;
 
 /**
  * Vo类模板
@@ -11,18 +11,18 @@ import com.easy.archetype.generate.ext.simple.EntityTemplate;
  **/
 public class EntityVoTemplate extends EntityTemplate {
 
-	public EntityVoTemplate(boolean swagger) {
-		super(swagger, false);
-	}
+    public EntityVoTemplate(boolean swagger) {
+        super(swagger, false);
+    }
 
 
-	@Override
-	public String fileNameFormat() {
-		return "%sVo";
-	}
+    @Override
+    public String fileNameFormat() {
+        return "%sVo";
+    }
 
-	@Override
-	public String pkg() {
-		return "api.vo";
-	}
+    @Override
+    public String pkg() {
+        return "api.vo";
+    }
 }

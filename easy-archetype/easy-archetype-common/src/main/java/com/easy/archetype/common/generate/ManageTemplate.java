@@ -1,9 +1,10 @@
 package com.easy.archetype.common.generate;
 
 
-import com.easy.archetype.data.manage.IManage;
-import com.easy.archetype.generate.config.TemplateConfig;
-import com.easy.archetype.generate.core.TableInfoEntity;
+
+import io.github.fallingsoulm.easy.archetype.data.manage.IManage;
+import io.github.fallingsoulm.easy.archetype.generate.config.TemplateConfig;
+import io.github.fallingsoulm.easy.archetype.generate.core.TableInfoEntity;
 
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
  * @author luyanan
  * @since 2021/2/3
  **/
-public class ManageTemplate extends com.easy.archetype.generate.ext.simple.ManageTemplate {
+public class ManageTemplate extends io.github.fallingsoulm.easy.archetype.generate.ext.simple.ManageTemplate {
 
     /**
      * 实体类模板配置

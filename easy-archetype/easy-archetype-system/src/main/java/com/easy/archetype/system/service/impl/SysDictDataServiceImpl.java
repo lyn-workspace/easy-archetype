@@ -1,10 +1,10 @@
 package com.easy.archetype.system.service.impl;
 
-import com.easy.archetype.framework.page.PageInfo;
-import com.easy.archetype.framework.page.PageRequestParams;
 import com.easy.archetype.system.entity.SysDictDataDo;
 import com.easy.archetype.system.manage.ISysDictDataManage;
 import com.easy.archetype.system.service.ISysDictDataService;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageInfo;
+import io.github.fallingsoulm.easy.archetype.framework.page.PageRequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
